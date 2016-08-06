@@ -1,0 +1,21 @@
+* {
+	font-family: 'Open Sans', sans-serif;
+}
+
+.container {
+	max-width: 1160px;
+}
+
+header {
+	background: #BC2026;
+	padding: 10px 0;
+}
+
+footer {
+	background: #333333;
+	padding: 10px 0;
+}
+
+footer * {
+	color: #FFF;
+}
