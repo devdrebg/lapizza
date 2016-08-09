@@ -1,5 +1,4 @@
 <?php require_once('elements/header.php'); ?>
-
 		<main>
 			<div id="myCarousel" class="carousel slide" data-ride="carousel">
 				<!-- Indicators -->
@@ -38,5 +37,4 @@
 				</a>
 			</div>
 		</main>
-
 <?php require_once('elements/footer.php'); ?>
