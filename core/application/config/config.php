@@ -23,7 +23,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = '';
+$config['base_url'] = 'http://preview.f31ttlw0u9xusorw63oiy1iyl4ygb9gfnn7cxoyptoi529.box.codeanywhere.com/core/';
 
 /*
 |--------------------------------------------------------------------------
