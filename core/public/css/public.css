@@ -1,0 +1,130 @@
+* {
+	font-family: 'Open Sans', sans-serif;
+}
+
+.container {
+	max-width: 1160px;
+}
+
+.logo {
+	margin: 0;
+}
+
+header {
+	background: #BC2026;
+	padding: 10px 0;
+}
+
+header .nav {
+}
+
+header .nav li a {
+	color: #FFF;
+	padding: 7px 10px;
+}
+
+header .nav li a:hover, 
+header .nav li a:focus, 
+header .nav li a:active {
+	color: #FFF;
+	background: #333333;
+}
+
+.nav .open > a, .nav .open > a:focus, .nav .open > a:hover {
+	color: #FFF;
+	background: #333333;
+}
+
+.dropdown-menu {
+	background: #333333;
+}
+
+.dropdown-menu a:hover,
+.dropdown-menu a:focus,
+.dropdown-menu a:active {
+	color: #333333 !important;
+	background: #FFF !important;
+}
+
+.icon-bar {
+	background: #FFF;
+}
+
+footer {
+	background: #333333;
+	padding: 10px 0;
+}
+
+footer * {
+	color: #FFF;
+}
+
+footer h2 {
+	font-size: 16px;
+	font-weight: bold;
+}
+
+footer a:hover,
+footer a:focus,
+footer a:active {
+	color: #BC2026;
+	text-decoration: none;
+}
+
+.menu-footer {
+	margin: 0;
+	padding: 0;
+}
+
+.menu-footer li {
+	list-style: none;
+	margin: 0 0 15px;
+}
+
+.social-footer i {
+	font-size: 30px;
+	background: #FFF;
+	height: 25px;
+	line-height: 25px;
+	width: 25px;
+	margin: 0 6px 0 0;
+	border-radius: 5px;
+}
+
+.facebook i {
+	color: #3B5998;
+}
+
+.twitter i {
+	color: #2AA9E0;
+}
+
+.google-plus i {
+	color: #008000;
+}
+
+.youtube i {
+	color: #EE1C1B;
+}
+
+.instagram i {
+	color: #D53891;
+}
+
+.pinterest i {
+	color: #FFA500;
+}
+
+.carousel-caption {
+    bottom: 40%;
+    padding: 0;
+    color: #FFF;
+    text-shadow: 0 1px 2px #000;
+    font-weight: bold;
+    font-size: 40px;
+}
+
+.carousel-caption h3 {
+	font-size: 40px !important;
+    font-weight: bold;
+}
