@@ -115,6 +115,10 @@ footer a:active {
 	color: #FFA500;
 }
 
+.internal {
+	padding: 50px 0;
+}
+
 .carousel-caption {
     bottom: 40%;
     padding: 0;
@@ -127,4 +131,19 @@ footer a:active {
 .carousel-caption h3 {
 	font-size: 40px !important;
     font-weight: bold;
+}
+
+.tcc-button-submit {
+	background: #73c501;
+	color: #FFF;
+	border: none;
+	width: 100%;
+	padding: 10px 0;
+}
+
+.tcc-button-submit:hover, 
+.tcc-button-submit:focus,
+.tcc-button-submit:active {
+	background: #4CAF50;
+	color: #FFF;
 }
