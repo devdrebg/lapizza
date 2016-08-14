@@ -36,7 +36,7 @@
 									<li><a href="#">Categoria E</a></li>
 								</ul>		
 							</li>
-							<li><a href="#">Contato</a></li>
+							<li><a href="<?php echo base_url() . 'contactus'; ?>">Contato</a></li>
 					    </ul>
 					</div>
 					<div class="col-md-4">
