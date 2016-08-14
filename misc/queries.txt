@@ -1,0 +1,1 @@
+INSERT INTO `users` (`id`, `name`, `user`, `email`, `password`, `picture`, `type`, `phone`, `status`) VALUES ('1', 'André Romário', 'admin', 'andreromario@mailinator.com', '123456', 'img/users/89066776.jpg', '1', '11961782299', '1');

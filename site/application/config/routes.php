@@ -53,8 +53,12 @@ $route['default_controller'] = 'page';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
+//PUBLIC ROUTES
+$route['index'] = "page/index";
+$route['home'] = "page/index";
 $route['about'] = "page/about";
 $route['login'] = "page/login";
-
+$route['howworks'] = "page/howworks";
+$route['contactus'] = "page/contactus";
 
 

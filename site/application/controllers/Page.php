@@ -31,4 +31,13 @@ class Page extends CI_Controller {
 		$this->template->load('layouts/public', 'public/login');
 	}
 
+	public function howworks() {
+		$this->template->load('layouts/public', 'public/howworks');
+	}
+
+	public function contactus() {
+		$this->load->helper('form');
+		$this->template->load('layouts/public', 'public/contactus');
+	}
+
 }
