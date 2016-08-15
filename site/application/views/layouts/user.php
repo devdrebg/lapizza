@@ -40,24 +40,18 @@
 					    </ul>
 					</div>
 					<div class="col-md-4">
-						<?php if($this->session->userdata('validated')) : ?>
-							<ul class="nav navbar-nav navbar-right">
-								<li>
-									<a href="#" id="menu-account" data-toggle="dropdown">Minha Conta <span class="caret"></span></a>
+						<ul class="nav navbar-nav navbar-right">
+							<li>
+								<a href="#" id="menu-account" data-toggle="dropdown">Minha Conta <span class="caret"></span></a>
 
-									<ul class="dropdown-menu" role="menu" aria-labelledby="menu-account">
-										<li><a href="#">Meus pedidos</a></li>
-										<li><a href="#">Minha conta</a></li>
-										<li><a href="#">Meus endereços</a></li>
-										<li><a href="<?php echo base_url() . 'login/logout'; ?>"><span class="glyphicon glyphicon-log-out"></span> Sair</a></li>
-									</ul>	
-								</li>
-						    </ul>
-					    <?php else: ?>
-				    		<ul class="nav navbar-nav navbar-right">
-								<li><a href="<?php echo base_url() . 'login'; ?>"><span class="glyphicon glyphicon-user"></span> Cadastre-se / <span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-						    </ul>
-						<?php endif; ?>
+								<ul class="dropdown-menu" role="menu" aria-labelledby="menu-account">
+									<li><a href="#">Meus pedidos</a></li>
+									<li><a href="#">Minha conta</a></li>
+									<li><a href="#">Meus endereços</a></li>
+									<li><a href="<?php echo base_url() . 'login/logout'; ?>"><span class="glyphicon glyphicon-log-out"></span> Sair</a></li>
+								</ul>	
+							</li>
+					    </ul>
 					</div>
 				</div>
 			</div>

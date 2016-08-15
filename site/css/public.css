@@ -4,6 +4,15 @@
 	font-family: 'Raleway', sans-serif;
 }
 
+a {
+	color: #333333;
+}
+
+a:hover, a:focus, a:active {
+	text-decoration: none;
+	color: #BC2026;
+}
+
 .container {
 	max-width: 1160px;
 }
@@ -148,4 +157,8 @@ footer a:active {
 .tcc-button-submit:active {
 	background: #4CAF50;
 	color: #FFF;
+}
+
+.validate {
+	color: #BC2026;
 }
