@@ -1,4 +1,4 @@
 *.DS_STORE
 
-/site/application/config.php
-/site/application/database.php
+/site/application/config/config.php
+/site/application/config/database.php
