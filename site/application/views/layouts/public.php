@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 	<head>
+		<meta name="theme-color" value="#BC2026">
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<meta name="theme-color" value="#BC2026">
 		<title></title>
 		<link rel="stylesheet" href="<?php echo base_url() . 'css/bootstrap.min.css'; ?>">
 		<link rel="stylesheet" href="<?php echo base_url() . 'fonts/font-awesome/css/font-awesome.min.css'; ?>">
