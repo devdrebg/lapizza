@@ -24,8 +24,25 @@ class User extends CI_Model {
 		}
     }
 
-    function logged() { 
-		
-	}
+    function signin($data) {
+    	$this->db->insert('users', $data);
+    }
+
+    function exists($email) {
+		$this->db->select('*');
+		$this->db->from('users');
+		$this->db->where('email', $email);
+		$this->db->where('type', 0);
+		$this->db->where('status', 1);
+		$this->db->limit(1);
+
+		$query = $this->db->get();
+
+		if($query->num_rows() == 1) {
+			return $query->result_array();
+		} else {
+			return false;
+		}
+    }
 
 }
