@@ -81,7 +81,7 @@
 		</header>
 
 		<main>
-			<?php echo $contents ?>
+			<?php echo $contents; ?>
 		</main>
 
 		<footer>

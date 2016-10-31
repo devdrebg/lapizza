@@ -62,3 +62,7 @@ $route['howworks'] = "page/howworks";
 $route['contactus'] = "page/contactus";
 
 
+//ADMIN ROUTES
+$route['administrator'] = "page/adminlogin";
+
+

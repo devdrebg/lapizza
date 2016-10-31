@@ -40,4 +40,9 @@ class Page extends CI_Controller {
 		$this->template->load('layouts/public', 'public/contactus');
 	}
 
+	public function adminlogin() {
+		$this->load->helper('form');
+		$this->template->load('layouts/public', 'public/adminlogin');		
+	}
+
 }
