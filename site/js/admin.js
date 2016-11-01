@@ -16,6 +16,8 @@ jQuery(document).ready(function(){
     jQuery('.link-updatecategorie').click(function() {
     	var idCategorie = jQuery(this).attr('data-categorie-id');
 
+    	alert(idCategorie);
+
     	jQuery.ajax({
     		url: BASEURL + '/categories/select/' + idCategorie,
     		type: 'GET',

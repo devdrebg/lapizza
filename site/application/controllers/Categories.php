@@ -78,12 +78,12 @@ class Categories extends CI_Controller {
 		$this->load->model('categories_model');
 
 		if($this->categories_model->delete($id)) { 
-			$this->session->set_flashdata('messages', 'Categoria deletada com sucesso.');
+			$this->session->set_flashdata('messages', 'Categoria excluída com sucesso.');
 		    $this->session->set_flashdata('typemessage', 'ok');
 
 			redirect('admin/categories', 'refresh');
 		} else {
-			$this->session->set_flashdata('messages', 'Erro ao deletar a categoria');
+			$this->session->set_flashdata('messages', 'Erro ao excluir a categoria');
 		    $this->session->set_flashdata('typemessage', 'error');
 
 			$this->load->view('admin/header');
