@@ -14,9 +14,9 @@ class Admin extends CI_Controller {
 
 	public function categories() {
 		$this->load->model('categories_model');
+		$data = array();
 		$data['categories'] = $this->categories_model->getAll();
-		$this->template->set('categories', $data['categories']);
-		$this->template->load('layouts/admin', 'admin/categories');
+		$this->load->view('admin/categories', $data);
 	}
 
 	private function userLogged() {
