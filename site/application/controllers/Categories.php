@@ -60,12 +60,30 @@ class Categories extends CI_Controller {
 		);
 
 		if($this->categories_model->update($data)) {
-			$this->session->set_flashdata('messages', 'Categoria ' . $this->input->post('categoriesupdate[name]') . ' alterada com sucesso.');
+			$this->session->set_flashdata('messages', 'Categoria alterada com sucesso.');
 		    $this->session->set_flashdata('typemessage', 'ok');
 
 			redirect('admin/categories', 'refresh');
 		} else {
-			$this->session->set_flashdata('messages', 'Erro ao cadastrar a categoria ' . $this->input->post('categoriesupdate[name]'));
+			$this->session->set_flashdata('messages', 'Erro ao alterar a categoria ' . $this->input->post('categoriesupdate[name]'));
+		    $this->session->set_flashdata('typemessage', 'error');
+
+			$this->load->view('admin/header');
+			$this->load->view('admin/categories');
+			$this->load->view('admin/footer');
+		}
+	}
+
+	function delete($id) {
+		$this->load->model('categories_model');
+
+		if($this->categories_model->delete($id)) { 
+			$this->session->set_flashdata('messages', 'Categoria deletada com sucesso.');
+		    $this->session->set_flashdata('typemessage', 'ok');
+
+			redirect('admin/categories', 'refresh');
+		} else {
+			$this->session->set_flashdata('messages', 'Erro ao deletar a categoria');
 		    $this->session->set_flashdata('typemessage', 'error');
 
 			$this->load->view('admin/header');

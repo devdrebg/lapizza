@@ -42,6 +42,17 @@ class Categories_model extends CI_Model {
         }
     }
 
+    function delete($id) {
+        $this->db->where('id', $id);
+        $query = $this->db->delete('categories'); 
+
+        if($query) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     function getAll() {
     	$query = $this->db->get('categories');
         return $query->result_array();
