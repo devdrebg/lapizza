@@ -19,30 +19,45 @@ class Page extends CI_Controller {
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
 	public function index() {
-		$this->template->load('layouts/public', 'public/home');
+		$this->load->view('public/header');
+		$this->load->view('public/home');
+		$this->load->view('public/footer');
 	}
 
 	public function about() {
-		$this->template->load('layouts/public', 'public/about');
+		$this->load->view('public/header');
+		$this->load->view('public/about');
+		$this->load->view('public/footer');
 	}
 
 	public function login() {
 		$this->load->helper('form');
-		$this->template->load('layouts/public', 'public/login');
+
+		$this->load->view('public/header');
+		$this->load->view('public/login');
+		$this->load->view('public/footer');
 	}
 
 	public function howworks() {
-		$this->template->load('layouts/public', 'public/howworks');
+		$this->load->view('public/header');
+		$this->load->view('public/howworks');
+		$this->load->view('public/footer');
 	}
 
 	public function contactus() {
 		$this->load->helper('form');
-		$this->template->load('layouts/public', 'public/contactus');
+
+		$this->load->view('public/header');
+		$this->load->view('public/contactus');
+		$this->load->view('public/footer');
 	}
 
 	public function adminlogin() {
 		$this->load->helper('form');
-		$this->template->load('layouts/public', 'public/adminlogin');		
+
+		$this->load->view('public/header');
+		$this->load->view('public/adminlogin');
+		$this->load->view('public/footer');		
 	}
 
 }

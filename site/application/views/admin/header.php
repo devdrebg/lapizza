@@ -3,7 +3,6 @@
 	<head>
 		<meta charset="UTF-8">
 		<title></title>
-		<?php echo $categories; ?>
 		<link rel="stylesheet" href="<?php echo base_url() . 'css/bootstrap.min.css'; ?>">
 		<link rel="stylesheet" href="<?php echo base_url() . 'fonts/font-awesome/css/font-awesome.min.css'; ?>">
 		<link rel="stylesheet" href="<?php echo base_url() . 'css/public.css'; ?>">
@@ -57,11 +56,3 @@
 		</header>
 
 		<main>
-			<?php echo $contents; ?>
-		</main>
-
-		<script src="<?php echo base_url() . 'js/jquery-1.12.4.min.js'; ?>"></script>
-		<script src="<?php echo base_url() . 'js/bootstrap.min.js'; ?>"></script>
-		<script src="<?php echo base_url() . 'js/public.js'; ?>"></script>
-	</body>
-</html>

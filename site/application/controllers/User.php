@@ -9,7 +9,9 @@ class User extends CI_Controller {
 	}
 
 	public function index() {
-		$this->template->load('layouts/public', 'user/dashboard');
+		$this->load->view('user/header');
+		$this->load->view('user/dashboard');
+		$this->load->view('user/footer');
 	}
 
 	private function userLogged() {

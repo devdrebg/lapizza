@@ -1,3 +1,4 @@
+
 <div id="newcategorie" class="modal fade" role="dialog">
 	<div class="modal-dialog">
 		<div class="modal-content">
@@ -34,11 +35,11 @@
 					<th>Nome</th>
 					<th>Editar</th>
 				</thead>
-				<tbody><?php foreach($categories as $categories) : ?>
+				<tbody><?php foreach($categories as $categorie) : ?>
 					<tr>
-						<td><?php echo $categories['name']; ?></td>
-						<td><?php echo $categories['id']; ?></td>
-						<td><a href="<?php echo base_url(); ?>categories/edit/<?php echo $categories['id']; ?>">Editar</a></td>
+						<td><?php echo $categorie['name']; ?></td>
+						<td><?php echo $categorie['id']; ?></td>
+						<td><a href="<?php echo base_url(); ?>categories/edit/<?php echo $categorie['id']; ?>">Editar</a></td>
 					</tr>
 					<?php endforeach; ?>
 				</tbody>
