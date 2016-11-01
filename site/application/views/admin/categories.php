@@ -1,4 +1,3 @@
-
 <div id="newcategorie" class="modal fade" role="dialog">
 	<div class="modal-dialog">
 		<div class="modal-content">
@@ -24,7 +23,7 @@
 <div class="container">
 	<div class="row">
 		<div class="col-md-12">
-			<a href="#" data-toggle="modal" data-target="#newcategorie" class="btn btn-primary">Cadastrar Nova Categoria</a>
+			<p><a href="#" data-toggle="modal" data-target="#newcategorie" class="btn btn-primary">Cadastrar Nova Categoria</a></p>
 		</div>
 	</div>
 	<div class="row">
@@ -35,10 +34,10 @@
 					<th>Nome</th>
 					<th>Editar</th>
 				</thead>
-				<tbody><?php foreach($categories as $categorie) : ?>
+ 				<tbody><?php foreach($categories as $categorie) : ?>
 					<tr>
-						<td><?php echo $categorie['name']; ?></td>
 						<td><?php echo $categorie['id']; ?></td>
+						<td><?php echo $categorie['name']; ?></td>
 						<td><a href="<?php echo base_url(); ?>categories/edit/<?php echo $categorie['id']; ?>">Editar</a></td>
 					</tr>
 					<?php endforeach; ?>

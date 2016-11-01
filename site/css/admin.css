@@ -164,6 +164,23 @@ footer a:active {
 }
 
 
-p, table {
-	margin: 20px 0 0;
+p, table, .dataTables_wrapper {
+	padding: 20px 0 0;
+}
+
+.dataTables_wrapper {
+	border: 1px solid #ccc;
+	padding: 10px;
+}
+
+.dataTables_wrapper thead {
+	cursor: pointer;
+}
+
+.dataTables_wrapper tbody tr {
+	transition: all 0.1s;
+}
+
+.dataTables_wrapper tbody tr:hover {
+	background: #ede4e4;
 }

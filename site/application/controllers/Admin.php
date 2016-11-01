@@ -9,21 +9,19 @@ class Admin extends CI_Controller {
 	}
 
 	public function index() {
-		$this->template->load('layouts/admin', 'admin/dashboard');
+		$this->load->view('admin/header');
+		$this->load->view('admin/dashboard');
+		$this->load->view('admin/footer');
 	}
 
 	public function categories() {
 		$this->load->model('categories_model');
-		$categories = $this->categories_model->getAll();
-		$dados = array(
-		    'categories'   => $categories
-		);
-
-var_dump($dados['categories']);
-
-		  // $this->template->load('template_padrao', 'sobre', $dados);
-
-		$this->template->load('layouts/admin', 'admin/categories', $dados['categories']);
+		$data['categories'] = $this->categories_model->getAll();
+		
+		
+		$this->load->view('admin/header');
+		$this->load->view('admin/categories', $data);
+		$this->load->view('admin/footer');
 	}
 
 	private function userLogged() {

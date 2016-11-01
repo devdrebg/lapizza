@@ -5,7 +5,7 @@
 		<title></title>
 		<link rel="stylesheet" href="<?php echo base_url() . 'css/bootstrap.min.css'; ?>">
 		<link rel="stylesheet" href="<?php echo base_url() . 'fonts/font-awesome/css/font-awesome.min.css'; ?>">
-		<link rel="stylesheet" href="<?php echo base_url() . 'css/public.css'; ?>">
+		<link rel="stylesheet" href="<?php echo base_url() . 'css/admin.css'; ?>">
 	</head>
 	<body>
 		<?php if($this->session->flashdata('messages')) : ?>
@@ -41,7 +41,7 @@
 						</div>
 
 						<ul id="menu-header" class="nav navbar-nav collapse navbar-collapse bs-navbar-collapse">
-							<li><a href="<?php echo base_url(); ?>">Início</a></li>
+							<li><a href="<?php echo base_url(); ?>admin">Início</a></li>
 							<li><a href="<?php echo base_url(); ?>admin/categories">Categorias</a></li>
 							<li><a href="<?php echo base_url(); ?>admin/products">Produtos</a></li>
 							<li><a href="<?php echo base_url(); ?>admin/users">Usuários</a></li>
