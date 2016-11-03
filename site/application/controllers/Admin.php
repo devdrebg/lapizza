@@ -16,11 +16,22 @@ class Admin extends CI_Controller {
 
 	public function categories() {
 		$this->load->model('categories_model');
-		$data['categories'] = $this->categories_model->getAll();
-		
+		$data['categories'] = $this->categories_model->getAll();		
 		
 		$this->load->view('admin/header');
 		$this->load->view('admin/categories', $data);
+		$this->load->view('admin/footer');
+	}
+
+	public function products() {
+		$this->load->model('categories_model');
+		$this->load->model('products_model');
+
+		$data['products'] = $this->products_model->getAll();
+		$data['categories'] = $this->categories_model->getAll();
+		
+		$this->load->view('admin/header');
+		$this->load->view('admin/products', $data);
 		$this->load->view('admin/footer');
 	}
 

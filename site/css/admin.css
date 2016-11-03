@@ -184,3 +184,17 @@ p, table, .dataTables_wrapper {
 .dataTables_wrapper tbody tr:hover {
 	background: #ede4e4;
 }
+
+.dataTables_wrapper thead tr th {
+	text-align: center;
+}
+
+.dataTables_wrapper tbody tr td {
+	vertical-align: middle;
+	text-align: center;
+}
+
+.img-product {
+	max-width: 150px;
+	margin: 0 auto;
+}
