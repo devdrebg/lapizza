@@ -28,6 +28,16 @@ jQuery(document).ready(function(){
         });
     });
 
+    jQuery('#productsinsertimage').change( function(event) {
+        var tmppath = URL.createObjectURL(event.target.files[0]);
+        jQuery("#insertpreview").attr('src',URL.createObjectURL(event.target.files[0]));
+    });
+
+    jQuery('#productsupdate-image').change( function(event) {
+        var tmppath = URL.createObjectURL(event.target.files[0]);
+        jQuery("#updatepreview").attr('src',URL.createObjectURL(event.target.files[0]));
+    });
+    
     jQuery('.link-updateproduct').click(function() {
         var idProduct = jQuery(this).attr('data-product-id');
 
@@ -36,16 +46,18 @@ jQuery(document).ready(function(){
             type: 'GET',
             success: function(data) {
                 var product = JSON.parse(data);
-                console.log(product.description);
                 
                 jQuery('span#produtoname').text(product.name);
-                jQuery('input[name="productsupdate[name]"]').val(product.name);
-                jQuery('input[name="productsupdate[description]"]').text(product.description);
-                jQuery('input[name="productsupdate[id_categorie]"]').val(product.id_categorie);
-                jQuery('input[name="productsupdate[price]"]').val(product.price);
-                jQuery('input[name="productsupdateimage"]').val(product.image);
-                jQuery('input[name="productsupdate[quantity]"]').val(product.quantity);
+                jQuery('#productsupdate-name').val(product.name);
+                jQuery('#productsupdate-description').val(product.description);
+                jQuery('#productsupdate-idcategorie').val(product.id_categorie);
+                jQuery('#productsupdate-price').val(product.price);
+                jQuery("#updatepreview").attr('src', BASEURL + '/' + product.image);
+                jQuery('input[name="productsupdate[imagesrc]"]').val(product.image);
+                jQuery('#productsupdate-quantity').val(product.quantity);
                 jQuery('input[name="productsupdate[id]"]').val(product.id);
+
+                alert(jQuery('input[name="productsupdate[imagesrc]"]').val());
             }
         });
     });

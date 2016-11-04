@@ -68,9 +68,7 @@ class Categories extends CI_Controller {
 			$this->session->set_flashdata('messages', 'Erro ao alterar a categoria ' . $this->input->post('categoriesupdate[name]'));
 		    $this->session->set_flashdata('typemessage', 'error');
 
-			$this->load->view('admin/header');
-			$this->load->view('admin/categories');
-			$this->load->view('admin/footer');
+			redirect('admin/categories', 'refresh');
 		}
 	}
 

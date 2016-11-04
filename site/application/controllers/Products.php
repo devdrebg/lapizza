@@ -12,14 +12,14 @@ class Products extends CI_Controller {
 
 		$config['upload_path']          = 'img/products/';
         $config['allowed_types']        = 'gif|jpg|png';
-        $config['max_size']             = 100;
-        $config['max_width']            = 1024;
-        $config['max_height']           = 768;
 
         $this->load->library('upload', $config);
 
         if (!$this->upload->do_upload('image')) {
-            $error = array('error' => $this->upload->display_errors());
+        	$this->session->set_flashdata('messages', 'Erro no upload da imagem do produto ' . $this->input->post('productsinsert[name]'));
+		    $this->session->set_flashdata('typemessage', 'error');
+
+			redirect('admin/products', 'refresh');	
         } else {			
 			$price = str_replace(',', '.', str_replace('.', '', $this->input->post('productsinsert[price]')));
 
@@ -47,32 +47,6 @@ class Products extends CI_Controller {
 				$this->load->view('admin/footer');
 			}
         }
-
-	 //   	$this->form_validation->set_rules('productsinsert[name]', 'Nome', 'trim|required');
-
-	 //   	if ($this->form_validation->run() == FALSE) {
-		// 	$this->load->view('admin/header');
-		// 	$this->load->view('admin/products');
-		// 	$this->load->view('admin/footer');
-		// } else {
-		// 	$data = array(
-		// 		'name' => $this->input->post('productsinsert[name]')
-		// 	);
-
-			// if($this->products_model->insert($data)) {
-			// 	$this->session->set_flashdata('messages', 'Categoria ' . $this->input->post('productsinsert[name]') . ' cadastrada com sucesso.');
-			//     $this->session->set_flashdata('typemessage', 'ok');
-
-			// 	redirect('admin/products', 'refresh');
-			// } else {
-			// 	$this->session->set_flashdata('messages', 'Erro ao cadastrar a categoria ' . $this->input->post('productsinsert[name]'));
-			//     $this->session->set_flashdata('typemessage', 'error');
-
-			// 	$this->load->view('admin/header');
-			// 	$this->load->view('admin/products');
-			// 	$this->load->view('admin/footer');
-			// }
-		// }
 	}
 
 	function select($id) {
@@ -80,40 +54,71 @@ class Products extends CI_Controller {
 
 		$product = $this->products_model->get($id);
 
-		$data = array(
-			'id' => $product->id,
-			'id_categorie' => $product->id_categorie,
-			'name' => $product->name,
-			'description' => $product->description,
-			'price' => number_format($product->price, 2, ',', '.'),
-			'image' => $product->image,
-			'quantity' => $product->quantity
-		);
+		if($product) {
+			$categorie = $this->products_model->getCategory($product->id_categorie);
 
-		print_r(json_encode($data));
+			$data = array(
+				'id' => $product->id,
+				'id_categorie' => $product->id_categorie,
+				'categorie' => $categorie->name,
+				'name' => $product->name,
+				'description' => $product->description,
+				'price' => number_format($product->price, 2, ',', '.'),
+				'image' => $product->image,
+				'quantity' => $product->quantity
+			);
+
+			print_r(json_encode($data));
+		}
 	}
 
 	function update() {
 		$this->load->model('products_model');
 
+		if($_FILES['productsupdateimage']['size'] > 0 && $_FILES['productsupdateimage']['tmp_name'] != '') {
+			$config['upload_path']          = 'img/products/';
+        	$config['allowed_types']        = 'gif|jpg|png';
+
+	        $this->load->library('upload', $config);
+
+	        if (!$this->upload->do_upload('productsupdateimage')) {
+	        	$this->session->set_flashdata('messages', 'Erro no upload da imagem do produto ' . $this->input->post('productsinsert[name]'));
+			    $this->session->set_flashdata('typemessage', 'error');
+
+				redirect('admin/products', 'refresh');	
+	        } else {
+	        	$imagem = $config['upload_path'] . $_FILES['productsupdateimage']['name'];
+	        }
+		} else {
+			$imagem = $this->input->post('productsupdate[imagesrc]');
+		}
+
+		$price = str_replace(',', '.', str_replace('.', '', $this->input->post('productsupdate[price]')));
+
 		$data = array(
 			'id' => $this->input->post('productsupdate[id]'),
-			'name' => $this->input->post('productsupdate[name]')
+			'id_categorie' => $this->input->post('productsupdate[idcategorie]'),
+			'name' => $this->input->post('productsupdate[name]'),
+			'description' => $this->input->post('productsupdate[description]'),
+			'price' => $price,
+			'image' => $imagem,
+			'quantity' => $this->input->post('productsupdate[quantity]'),
+			'status' => 1
 		);
 
+		
 		if($this->products_model->update($data)) {
-			$this->session->set_flashdata('messages', 'Categoria alterada com sucesso.');
+			$this->session->set_flashdata('messages', 'Produto alterado com sucesso.');
 		    $this->session->set_flashdata('typemessage', 'ok');
 
 			redirect('admin/products', 'refresh');
 		} else {
-			$this->session->set_flashdata('messages', 'Erro ao alterar a categoria ' . $this->input->post('productsupdate[name]'));
+			$this->session->set_flashdata('messages', 'Erro ao alterar o produto ' . $this->input->post('categoriesupdate[name]'));
 		    $this->session->set_flashdata('typemessage', 'error');
 
-			$this->load->view('admin/header');
-			$this->load->view('admin/products');
-			$this->load->view('admin/footer');
+			redirect('admin/products', 'refresh');
 		}
+
 	}
 
 	function delete($id) {

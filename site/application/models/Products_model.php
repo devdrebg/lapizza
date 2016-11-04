@@ -30,9 +30,28 @@ class Products_model extends CI_Model {
         }
     }
 
+    function getCategory($id_categorie) {
+        $this->db->select('name');
+        $this->db->from('categories');
+        $this->db->where('id', $id_categorie);
+
+        $query = $this->db->get();
+
+        if($query->num_rows() > 0) {
+            return $query->row();
+        } else {
+            return false;
+        }
+    }
+
     function update($data) {
         $this->db->where('id', $data['id']);
+        $this->db->set('id_categorie', $data['id_categorie']);
         $this->db->set('name', $data['name']);
+        $this->db->set('description', $data['description']);
+        $this->db->set('price', $data['price']);
+        $this->db->set('image', $data['image']);
+        $this->db->set('quantity', $data['quantity']);
         $query = $this->db->update('products', $data);
 
         if($query) {
@@ -54,9 +73,32 @@ class Products_model extends CI_Model {
     }
 
     function getAll() {
-    	$query = $this->db->get('products');
+        $listaProdutos = array();
+        $this->db->select('*');
+        $query = $this->db->get('products');
 
-        return $query->result_array();
+        foreach ($query->result_array() as $row) {
+
+            $listaProdutos[$row['id']]['id'] = $row['id'];
+            $listaProdutos[$row['id']]['id_categorie'] = $row['id_categorie'];
+
+            
+            $this->db->select('name');
+            $this->db->from('categories');
+            $this->db->where('id', $row['id_categorie']);
+            $categorie = $this->db->get();
+            $listaProdutos[$row['id']]['categorie'] = $categorie->result_array()[0]['name'];
+            
+
+            $listaProdutos[$row['id']]['name'] = $row['name'];
+            $listaProdutos[$row['id']]['description'] = $row['description'];
+            $listaProdutos[$row['id']]['price'] = $row['price'];
+            $listaProdutos[$row['id']]['image'] = $row['image'];
+            $listaProdutos[$row['id']]['quantity'] = $row['quantity'];
+            $listaProdutos[$row['id']]['status'] = $row['status'];
+        }     
+
+        return $listaProdutos;
     }
 
 }

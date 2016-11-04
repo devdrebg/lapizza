@@ -29,7 +29,11 @@
 					</div>
 
 					<div class="form-group">
-						<input type="file" name="image" placeholder="Imagem do Produto" required>
+						<img src="" alt="Imagem" title="Prévia da imagem do produto" id="insertpreview" class="img-responsive center-block">
+					</div>
+
+					<div class="form-group">
+						<input type="file" name="image" id="productsinsertimage" placeholder="Imagem do Produto" required>
 					</div>
 
 					<div class="form-group">
@@ -53,17 +57,17 @@
 				<h2 class="text-center">Alterar Produto <span id="produtoname"></span></h2>
 			</div>
 			<div class="modal-body">
-				<?php echo form_open('products/update'); ?>
+				<?php echo form_open_multipart('products/update'); ?>
 					<div class="form-group">
-						<input type="text" name="productsupdate[name]" placeholder="Nome do Produto" class="form-control" required>
+						<input type="text" id="productsupdate-name" name="productsupdate[name]" placeholder="Nome do Produto" class="form-control" required>
 					</div>
 
 					<div class="form-group">
-						<textarea name="productsupdate[description]" placeholder="Descrição do Produto" class="form-control" required></textarea>
+						<textarea id="productsupdate-description" name="productsupdate[description]" placeholder="Descrição do Produto" class="form-control" required></textarea>
 					</div>
 
 					<div class="form-group">
-						<select name="productsupdate[idcategorie]" class="form-control" required>
+						<select name="productsupdate[idcategorie]" id="productsupdate-idcategorie" class="form-control" required>
 							<option selected disabled>Categoria</option>
  							<?php foreach($categories as $categorie) : ?>
  								<option value="<?php echo $categorie['id']; ?>"><?php echo $categorie['name']; ?></option>
@@ -72,19 +76,21 @@
 					</div>
 
 					<div class="form-group">
-						<input type="text" name="productsupdate[price]" placeholder="Preço" class="form-control money" required>
+						<input type="text" id="productsupdate-price" name="productsupdate[price]" placeholder="Preço" class="form-control money" required>
 					</div>
 
 					<div class="form-group">
-						<input type="file" name="productsupdateimage" placeholder="Imagem do Produto" required>
+						<img src="" alt="Imagem" title="Prévia da imagem do produto" id="updatepreview" class="img-responsive center-block">
 					</div>
 
 					<div class="form-group">
-						<input type="text" name="productsupdate[quantity]" placeholder="Quantidade em Estoque" class="form-control" required>
+						<input type="hidden" name="productsupdate[imagesrc]">
+						<input type="file" id="productsupdate-image" name="productsupdateimage" placeholder="Imagem do Produto">
 					</div>
-					<!-- <div class="form-group">
-						<input type="text" name="productsupdate[name]" placeholder="Nome da Produto" class="form-control" required>
-					</div> -->
+
+					<div class="form-group">
+						<input type="text" id="productsupdate-quantity" name="productsupdate[quantity]" placeholder="Quantidade em Estoque" class="form-control" required>
+					</div>
 
 					<div class="form-group">
 						<input type="hidden" name="productsupdate[id]" value="">
@@ -106,21 +112,23 @@
 		<div class="col-md-12">
 			<table class="table">
 				<thead>
-					<th>ID</th>
-					<th>Nome</th>
-					<th>Descrição</th>
-					<th>Categoria</th>
+					<th style="width: 20px">ID</th>
+					<th style="width: 100px">Categoria</th>
+					<th style="width: 100px">Nome</th>
+					<th style="width: 100px">Preço</th>
+					<th style="width: 100px">Descrição</th>
 					<th>Imagem</th>
-					<th>Quantidade em Estoque</th>
+					<th style="width: 20px">Quantidade em Estoque</th>
 					<th>Editar</th>
 					<th>Excluir</th>
 				</thead>
  				<tbody><?php foreach($products as $product) : ?>
 					<tr>
 						<td><?php echo $product['id']; ?></td>
+						<td><?php echo $product['categorie']; ?></td>
 						<td><?php echo $product['name']; ?></td>
+						<td>R$ <?php echo number_format($product['price'], 2, ',', '.'); ?></td>
 						<td><?php echo $product['description']; ?></td>
-						<td><?php echo $product['id_categorie']; ?></td>
 						<td><img src="<?php echo base_url() . $product['image']; ?>" alt="<?php echo $product['name']; ?>" class="img-responsive img-product"></td>
 						<td><?php echo $product['quantity']; ?></td>
 						<td><a href="#" data-toggle="modal" data-target="#updateproduct" data-product-id="<?php echo $product['id']; ?>" class="btn btn-primary link-updateproduct">Editar</a></td>

@@ -29,7 +29,10 @@ class Admin extends CI_Controller {
 
 		$data['products'] = $this->products_model->getAll();
 		$data['categories'] = $this->categories_model->getAll();
-		
+
+		// var_dump($data['products']);
+		// exit();
+
 		$this->load->view('admin/header');
 		$this->load->view('admin/products', $data);
 		$this->load->view('admin/footer');
