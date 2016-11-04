@@ -37,7 +37,7 @@ jQuery(document).ready(function(){
         var tmppath = URL.createObjectURL(event.target.files[0]);
         jQuery("#updatepreview").attr('src',URL.createObjectURL(event.target.files[0]));
     });
-    
+
     jQuery('.link-updateproduct').click(function() {
         var idProduct = jQuery(this).attr('data-product-id');
 
@@ -46,7 +46,7 @@ jQuery(document).ready(function(){
             type: 'GET',
             success: function(data) {
                 var product = JSON.parse(data);
-                
+
                 jQuery('span#produtoname').text(product.name);
                 jQuery('#productsupdate-name').val(product.name);
                 jQuery('#productsupdate-description').val(product.description);
@@ -56,8 +56,6 @@ jQuery(document).ready(function(){
                 jQuery('input[name="productsupdate[imagesrc]"]').val(product.image);
                 jQuery('#productsupdate-quantity').val(product.quantity);
                 jQuery('input[name="productsupdate[id]"]').val(product.id);
-
-                alert(jQuery('input[name="productsupdate[imagesrc]"]').val());
             }
         });
     });

@@ -92,8 +92,10 @@ class Products extends CI_Controller {
 		$this->load->model('products_model');
 
 		if($_FILES['productsupdateimage']['size'] > 0 && $_FILES['productsupdateimage']['tmp_name'] != '') {
-			$config['upload_path']          = 'img/products/';
-        	$config['allowed_types']        = 'gif|jpg|png';
+			unlink($this->input->post('productsupdate[imagesrc]'));
+				$pasta = explode("/", $this->input->post('productsupdate[imagesrc]'));
+				$config['upload_path']          = 'img/products/' . $pasta[2] . '/';
+				$config['allowed_types']        = 'gif|jpg|png';
 
 	        $this->load->library('upload', $config);
 
