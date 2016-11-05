@@ -5,6 +5,7 @@ class Categories extends CI_Controller {
 	
 	function __construct(){
 		parent::__construct();
+		$this->userLogged();
 	}
 
 	function insert() {
@@ -87,6 +88,12 @@ class Categories extends CI_Controller {
 			$this->load->view('admin/header');
 			$this->load->view('admin/categories');
 			$this->load->view('admin/footer');
+		}
+	}
+	
+	private function userLogged() {
+		if(!$this->session->userdata('validated')){
+			redirect('login');
 		}
 	}
 
