@@ -31,9 +31,7 @@ class Categories extends CI_Controller {
 				$this->session->set_flashdata('messages', 'Erro ao cadastrar a categoria ' . $this->input->post('categoriesinsert[name]'));
 			    $this->session->set_flashdata('typemessage', 'error');
 
-				$this->load->view('admin/header');
-				$this->load->view('admin/categories');
-				$this->load->view('admin/footer');
+				redirect('admin/categories', 'refresh');
 			}
 		}
 	}
@@ -85,9 +83,7 @@ class Categories extends CI_Controller {
 			$this->session->set_flashdata('messages', 'Erro ao excluir a categoria');
 		    $this->session->set_flashdata('typemessage', 'error');
 
-			$this->load->view('admin/header');
-			$this->load->view('admin/categories');
-			$this->load->view('admin/footer');
+			redirect('admin/categories', 'refresh');
 		}
 	}
 	

@@ -38,6 +38,15 @@ class Admin extends CI_Controller {
 		$this->load->view('admin/footer');
 	}
 
+	public function billings() {
+		$this->load->model('billings_model');
+		$data['billings'] = $this->billings_model->getAll();		
+		
+		$this->load->view('admin/header');
+		$this->load->view('admin/billings', $data);
+		$this->load->view('admin/footer');
+	}
+
 	private function userLogged() {
 		if(!$this->session->userdata('validated')){
 			redirect('login');

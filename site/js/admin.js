@@ -28,6 +28,21 @@ jQuery(document).ready(function(){
         });
     });
 
+    jQuery('.link-updatebilling').click(function() {
+        var idBilling = jQuery(this).attr('data-billing-id');
+
+        jQuery.ajax({
+            url: BASEURL + '/billings/select/' + idBilling,
+            type: 'GET',
+            success: function(data) {
+                var billing = JSON.parse(data);
+                jQuery('span#billingname').text(billing.name);
+                jQuery('input[name="billingsupdate[name]"]').val(billing.name);
+                jQuery('input[name="billingsupdate[id]"]').val(billing.id);
+            }
+        });
+    });
+
     jQuery('#productsinsertimage').change( function(event) {
         var tmppath = URL.createObjectURL(event.target.files[0]);
         jQuery("#insertpreview").attr('src',URL.createObjectURL(event.target.files[0]));

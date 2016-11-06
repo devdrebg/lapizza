@@ -45,9 +45,7 @@ class Products extends CI_Controller {
 				$this->session->set_flashdata('messages', 'Erro ao cadastrar o produto ' . $this->input->post('productsinsert[name]'));
 			    $this->session->set_flashdata('typemessage', 'error');
 
-				$this->load->view('admin/header');
-				$this->load->view('admin/products');
-				$this->load->view('admin/footer');
+				redirect('admin/products', 'refresh');
 			}
         }
 	}
@@ -138,9 +136,7 @@ class Products extends CI_Controller {
 			$this->session->set_flashdata('messages', 'Erro ao excluir a categoria');
 		    $this->session->set_flashdata('typemessage', 'error');
 
-			$this->load->view('admin/header');
-			$this->load->view('admin/products');
-			$this->load->view('admin/footer');
+			redirect('admin/products', 'refresh');
 		}
 	}
 
