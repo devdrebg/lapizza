@@ -82,7 +82,7 @@
 					</div>
 
 					<div class="form-group">
-						<select name="bannersupdate[status]" class="form-control" required>
+						<select name="bannersupdate[status]" id="bannersupdatestatus" class="form-control" required>
 							<option selected disabled>Status</option>
 							<option value="0">Inativo</option>
 							<option value="1">Ativo</option>
@@ -124,8 +124,8 @@
 						<td><?php echo $banner['title']; ?></td>
 						<td><img src="<?php echo base_url() . $banner['url']; ?>" alt="<?php echo $banner['title']; ?>" class="img-responsive img-product"></td>
 						<td><?php echo $banner['link']; ?></td>
-						<td><?php echo $banner['blank']; ?></td>
-						<td><?php echo $banner['status']; ?></td>
+						<td><?php if($banner['blank']) : echo 'Sim'; else: echo 'Não'; endif; ?></td>
+						<td><?php if($banner['status']) : echo 'Ativo'; else: echo 'Inativo'; endif; ?></td>
 						<td><a href="#" data-toggle="modal" data-target="#updatebanner" data-banner-id="<?php echo $banner['id']; ?>" class="btn btn-primary link-updatebanner">Editar</a></td>
 						<td><a href="<?php echo base_url(); ?>banner/delete/<?php echo $banner['id']; ?>" class="btn btn-danger">Excluir</a></td>
 					</tr>

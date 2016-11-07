@@ -63,18 +63,16 @@ jQuery(document).ready(function(){
                 var banner = JSON.parse(data);
 
                 console.log(data);
-                // jQuery('span#bannertitle').text(banner.title);
+                jQuery('span#bannertitle').text(banner.title);
 
-                // jQuery('input[name="bannersupdate[title]"]').val(banner.title);
-                // jQuery("#updatebannerpreview").attr('src', BASEURL + '/' + banner.url);
-                // jQuery('input[name="bannersupdate[link]"]').val(banner.link);
+                jQuery('input[name="bannersupdate[title]"]').val(banner.title);
+                jQuery("#updatebannerpreview").attr('src', BASEURL + '/' + banner.url);
+                jQuery('input[name="bannersupdate[link]"]').val(banner.link);
 
-                // alert(banner.blank);
-                // jQuery('#bannersupdateblank').val(banner.blank);
+								jQuery('#bannersupdateblank option[value=' + banner.blank + ']').attr('selected','selected');
+								jQuery('#bannersupdatestatus option[value=' + banner.status + ']').attr('selected','selected');
 
-                // alert(banner.status);
-                // jQuery('input[name="bannersupdate[status]"]').val(banner.status);
-                // jQuery('input[name="bannersupdate[id]"]').val(banner.id);
+                jQuery('input[name="bannersupdate[id]"]').val(banner.id);
             }
         });
     });

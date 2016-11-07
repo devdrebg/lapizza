@@ -9,10 +9,6 @@ class Banners extends CI_Controller {
 	}
 
 	function insert() {
-		var_dump($_FILES);
-		var_dump($_POST);
-		// exit();
-
 		$this->load->model('banners_model');
 
 		$dir = 'img/banners/' . date('d_m_y_H_i_s') . '/';
