@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Categories extends CI_Controller {
+class Postalcodes extends CI_Controller {
 	
 	function __construct(){
 		parent::__construct();
@@ -9,9 +9,9 @@ class Categories extends CI_Controller {
 	}
 
 	function insert() {
-		$this->load->model('categories_model');
+		$this->load->model('postalcodes_model');
 
-	   	$this->form_validation->set_rules('categoriesinsert[name]', 'Nome', 'trim|required');
+	   	$this->form_validation->set_rules('postalcodesinsert[name]', 'Nome', 'trim|required');
 
 	   	if ($this->form_validation->run() == FALSE) {
 			redirect('admin/categories', 'refresh');	

@@ -43,6 +43,23 @@ jQuery(document).ready(function(){
         });
     });
 
+    jQuery('.link-updateoption').click(function() {
+        var idOption = jQuery(this).attr('data-option-id');
+
+        jQuery.ajax({
+            url: BASEURL + '/options/select/' + idOption,
+            type: 'GET',
+            success: function(data) {
+                var option = JSON.parse(data);
+                console.log(option);
+
+                jQuery('input[name="optionsupdate[tax_vat]"]').val(option.tax_vat);
+                jQuery('select[name="optionsupdate[store_status]"]').val(option.store_status);
+                jQuery('input[name="optionsupdate[id]"]').val(option.id);
+            }
+        });
+    });
+
     jQuery('#bannersinsertimage').change(function(event) {
         var tmppath = URL.createObjectURL(event.target.files[0]);
         jQuery("#insertbannerpreview").attr('src',URL.createObjectURL(event.target.files[0]));
@@ -70,8 +87,8 @@ jQuery(document).ready(function(){
 								jQuery('input[name="bannersupdate[imagesrc]"]').val(banner.url);
                 jQuery('input[name="bannersupdate[link]"]').val(banner.link);
 
-								jQuery('#bannersupdateblank option[value=' + banner.blank + ']').attr('selected','selected');
-								jQuery('#bannersupdatestatus option[value=' + banner.status + ']').attr('selected','selected');
+				jQuery('#bannersupdateblank option[value=' + banner.blank + ']').attr('selected','selected');
+				jQuery('#bannersupdatestatus option[value=' + banner.status + ']').attr('selected','selected');
 
                 jQuery('input[name="bannersupdate[id]"]').val(banner.id);
             }

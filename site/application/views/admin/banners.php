@@ -103,6 +103,11 @@
 <div class="container">
 	<div class="row">
 		<div class="col-md-12">
+			<h1 class="text-center"><?php echo $title; ?></h1>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
 			<p><a href="#" data-toggle="modal" data-target="#newbanner" class="btn btn-primary">Cadastrar Novo Banner</a></p>
 		</div>
 	</div>
