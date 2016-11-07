@@ -56,7 +56,7 @@
 				<h2 class="text-center">Alterar Banner <span id="bannertitle"></span></h2>
 			</div>
 			<div class="modal-body">
-				<?php echo form_open_multipart('products/update'); ?>
+				<?php echo form_open_multipart('banners/update'); ?>
 					<div class="form-group">
 						<input type="text" name="bannersupdate[title]" placeholder="Nome do Banner" class="form-control" required>
 					</div>
@@ -66,7 +66,8 @@
 					</div>
 
 					<div class="form-group">
-						<input type="file" name="image" id="bannersupdateimage" placeholder="Imagem do Banner" required>
+						<input type="hidden" name="bannersupdate[imagesrc]">
+						<input type="file" name="bannersupdateimage" id="bannersupdateimage" placeholder="Imagem do Banner">
 					</div>
 
 					<div class="form-group">
@@ -90,7 +91,7 @@
 					</div>
 
 					<div class="form-group">
-						<input type="hidden" name="bannerssupdate[id]" value="">
+						<input type="hidden" name="bannersupdate[id]" value="">
 						<button type="submit" class="btn btn-default tcc-button-submit">Alterar</button>
 					</div>
 				<?php echo form_close(); ?>
@@ -127,7 +128,7 @@
 						<td><?php if($banner['blank']) : echo 'Sim'; else: echo 'Não'; endif; ?></td>
 						<td><?php if($banner['status']) : echo 'Ativo'; else: echo 'Inativo'; endif; ?></td>
 						<td><a href="#" data-toggle="modal" data-target="#updatebanner" data-banner-id="<?php echo $banner['id']; ?>" class="btn btn-primary link-updatebanner">Editar</a></td>
-						<td><a href="<?php echo base_url(); ?>banner/delete/<?php echo $banner['id']; ?>" class="btn btn-danger">Excluir</a></td>
+						<td><a href="<?php echo base_url(); ?>banners/delete/<?php echo $banner['id']; ?>" class="btn btn-danger">Excluir</a></td>
 					</tr>
 					<?php endforeach; ?>
 				</tbody>

@@ -70,7 +70,7 @@ class Banners extends CI_Controller {
 	function update() {
 		$this->load->model('banners_model');
 
-		if($_FILES['bannersupdateimage']['size'] > 0 && $_FILES['bannersdateimage']['tmp_name'] != '') {
+		if($_FILES['bannersupdateimage']['size'] > 0 && $_FILES['bannersupdateimage']['tmp_name'] != '') {
 			$dir = 'img/banners/' . date('d_m_y_H_i_s') . '/';
 			mkdir($dir, 0777);
 			$config['upload_path']		= $dir;
@@ -79,12 +79,12 @@ class Banners extends CI_Controller {
 	        $this->load->library('upload', $config);
 
 	        if (!$this->upload->do_upload('bannersupdateimage')) {
-	        	$this->session->set_flashdata('messages', 'Erro no upload da imagem do banner ' . $this->input->post('bannersupdate[name]'));
+	        	$this->session->set_flashdata('messages', 'Erro no upload da imagem do banner ' . $this->input->post('bannersupdate[title]'));
 			    $this->session->set_flashdata('typemessage', 'error');
 
 				redirect('admin/banners', 'refresh');
 	        } else {
-	        	$imagem = $config['upload_path'] . $_FILES['bannerupdateimage']['name'];
+	        	$imagem = $config['upload_path'] . $_FILES['bannersupdateimage']['name'];
 	        }
 		} else {
 			$imagem = $this->input->post('bannersupdate[imagesrc]');
@@ -105,7 +105,7 @@ class Banners extends CI_Controller {
 
 			redirect('admin/banners', 'refresh');
 		} else {
-			$this->session->set_flashdata('messages', 'Erro ao alterar o banner ' . $this->input->post('bannersupdate[name]'));
+			$this->session->set_flashdata('messages', 'Erro ao alterar o banner ' . $this->input->post('bannersupdate[title]'));
 		    $this->session->set_flashdata('typemessage', 'error');
 
 			redirect('admin/banners', 'refresh');

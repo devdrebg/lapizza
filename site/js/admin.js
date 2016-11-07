@@ -67,6 +67,7 @@ jQuery(document).ready(function(){
 
                 jQuery('input[name="bannersupdate[title]"]').val(banner.title);
                 jQuery("#updatebannerpreview").attr('src', BASEURL + '/' + banner.url);
+								jQuery('input[name="bannersupdate[imagesrc]"]').val(banner.url);
                 jQuery('input[name="bannersupdate[link]"]').val(banner.link);
 
 								jQuery('#bannersupdateblank option[value=' + banner.blank + ']').attr('selected','selected');
