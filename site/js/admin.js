@@ -43,12 +43,48 @@ jQuery(document).ready(function(){
         });
     });
 
-    jQuery('#productsinsertimage').change( function(event) {
+    jQuery('#bannersinsertimage').change(function(event) {
+        var tmppath = URL.createObjectURL(event.target.files[0]);
+        jQuery("#insertbannerpreview").attr('src',URL.createObjectURL(event.target.files[0]));
+    });
+
+    jQuery('#bannersupdateimage').change(function(event) {
+        var tmppath = URL.createObjectURL(event.target.files[0]);
+        jQuery("#updatebannerpreview").attr('src',URL.createObjectURL(event.target.files[0]));
+    });
+
+    jQuery('.link-updatebanner').click(function() {
+        var idBanner = jQuery(this).attr('data-banner-id');
+
+        jQuery.ajax({
+            url: BASEURL + '/banners/select/' + idBanner,
+            type: 'GET',
+            success: function(data) {
+                var banner = JSON.parse(data);
+
+                console.log(data);
+                // jQuery('span#bannertitle').text(banner.title);
+
+                // jQuery('input[name="bannersupdate[title]"]').val(banner.title);
+                // jQuery("#updatebannerpreview").attr('src', BASEURL + '/' + banner.url);
+                // jQuery('input[name="bannersupdate[link]"]').val(banner.link);
+
+                // alert(banner.blank);
+                // jQuery('#bannersupdateblank').val(banner.blank);
+
+                // alert(banner.status);
+                // jQuery('input[name="bannersupdate[status]"]').val(banner.status);
+                // jQuery('input[name="bannersupdate[id]"]').val(banner.id);
+            }
+        });
+    });
+
+    jQuery('#productsinsertimage').change(function(event) {
         var tmppath = URL.createObjectURL(event.target.files[0]);
         jQuery("#insertpreview").attr('src',URL.createObjectURL(event.target.files[0]));
     });
 
-    jQuery('#productsupdate-image').change( function(event) {
+    jQuery('#productsupdate-image').change(function(event) {
         var tmppath = URL.createObjectURL(event.target.files[0]);
         jQuery("#updatepreview").attr('src',URL.createObjectURL(event.target.files[0]));
     });
