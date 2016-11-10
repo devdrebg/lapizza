@@ -71,7 +71,7 @@ class Admin extends CI_Controller {
 
 	public function postalcodes() {
 		$this->load->model('postalcodes_model');
-		$data['title'] = 'Gerenciar Endereços Permitidos';
+		$data['title'] = 'Gerenciar Endereços Permitidos para Entrega';
 		$data['postalcodes'] = $this->postalcodes_model->getAll();		
 		
 		$this->load->view('admin/header', $data);

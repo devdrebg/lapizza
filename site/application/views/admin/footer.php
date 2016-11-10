@@ -5,6 +5,7 @@
 		<script src="<?php echo base_url() . 'js/jquery.dataTables.min.js'; ?>"></script>
 		<script src="<?php echo base_url() . 'js/dataTables.bootstrap.min.js'; ?>"></script>
 		<script src="<?php echo base_url() . 'js/jquery.maskMoney.min.js'; ?>"></script>
+		<script src="<?php echo base_url() . 'js/jquery.maskedinput.min.js'; ?>"></script>
 		<script src="<?php echo base_url() . 'js/admin.js'; ?>"></script>
 	</body>
 </html>

@@ -2,6 +2,7 @@
 <html lang="pt-BR">
 	<head>
 		<meta charset="UTF-8">
+		<meta name="robots" content="noindex, nofollow">
 		<title><?php echo $title; ?> | Área Administrativa LaPizza</title>
 		<link rel="stylesheet" href="<?php echo base_url() . 'css/bootstrap.min.css'; ?>">
 		<link rel="stylesheet" href="<?php echo base_url() . 'fonts/font-awesome/css/font-awesome.min.css'; ?>">
@@ -29,7 +30,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-2">
-						<h1 class="logo"><a href="<?php echo base_url(); ?>admin" title="Início | Área Administrativa LaPizza";><img src="<?php echo base_url() . 'img/logo.png'; ?>" alt="Início | Área Administrativa LaPizza" class="img-responsive center-block"></a></h1>
+						<h1 class="logo"><a href="<?php echo base_url(); ?>admin" title="Início | Área Administrativa LaPizza"><img src="<?php echo base_url() . 'img/logo.png'; ?>" alt="Início | Área Administrativa LaPizza" class="img-responsive center-block"></a></h1>
 					</div>
 					<div class="col-md-10">
 						<div class="navbar-header"> 

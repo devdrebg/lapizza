@@ -127,5 +127,23 @@ jQuery(document).ready(function(){
         });
     });
 
+    jQuery('input[name="postalcodesinsert[cep]').on('change', function() {
+        var cep = jQuery(this).val();
+
+        jQuery.ajax({
+            url: 'http://api.postmon.com.br/v1/cep/' + cep,
+            type: 'GET',
+            success: function(data) {
+                var cep = JSON.parse(JSON.stringify(data));
+
+                jQuery('input[name="postalcodesinsert[location]').val(cep.logradouro);
+                jQuery('input[name="postalcodesinsert[district]').val(cep.bairro);
+                jQuery('input[name="postalcodesinsert[city]').val(cep.cidade);
+                jQuery('input[name="postalcodesinsert[state]').val(cep.estado);
+            }
+        });
+    });
+
     jQuery('.money').maskMoney({prefix:'R$ ', allowNegative: true, thousands:'.', decimal:',', affixesStay: false});
+    jQuery('.postalcode').mask('99999999');   
 });

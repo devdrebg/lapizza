@@ -16,29 +16,14 @@ class Postalcodes_model extends CI_Model {
         }
     }
 
-    function get($id) {
-        $this->db->select('id, cep, location, city, state');
+    function get($cep) {
+        $this->db->select('cep');
         $this->db->from('postalcodes');
-        $this->db->where('id', $id);
+        $this->db->where('cep', $cep);
 
         $query = $this->db->get();
 
         if($query->num_rows() > 0) {
-            return $query->row();
-        } else {
-            return false;
-        }
-    }
-
-    function update($data) {
-        $this->db->where('id', $data['id']);
-        $this->db->set('cep', $data['cep']);
-        $this->db->set('location', $data['location']);
-        $this->db->set('city', $data['city']);
-        $this->db->set('state', $data['state']);
-        $query = $this->db->update('postalcodes', $data);
-
-        if($query) {
             return true;
         } else {
             return false;
