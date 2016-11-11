@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<meta name="robots" content="noindex, nofollow">
-		<title></title>
+		<title><?php echo $title; ?> | LaPizza</title>
 		<link rel="stylesheet" href="<?php echo base_url() . 'css/bootstrap.min.css'; ?>">
 		<link rel="stylesheet" href="<?php echo base_url() . 'fonts/font-awesome/css/font-awesome.min.css'; ?>">
 		<link rel="stylesheet" href="<?php echo base_url() . 'css/public.css'; ?>">
@@ -32,7 +32,7 @@
 					<div class="col-md-2">
 						<h1 class="logo"><a href="<?php echo base_url(); ?>" title=""><img src="<?php echo base_url() . 'img/logo.png'; ?>" alt="" class="img-responsive center-block"></a></h1>
 					</div>
-					<div class="col-md-3 col-md-offset-3">
+					<div class="col-md-4 col-md-offset-3">
 						<div class="navbar-header"> 
 							<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#menu-header">
 								<span class="icon-bar"></span>
@@ -57,7 +57,7 @@
 							<li><a href="<?php echo base_url() . 'contactus'; ?>">Contato</a></li>
 					    </ul>
 					</div>
-					<div class="col-md-4">
+					<div class="col-md-3">
 						<?php if($this->session->userdata('validated')) : ?>
 							<ul class="nav navbar-nav navbar-right">
 								<li>

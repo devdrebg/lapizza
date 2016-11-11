@@ -5,10 +5,10 @@ class Products extends CI_Controller {
 
 	function __construct(){
 		parent::__construct();
-		$this->userLogged();
 	}
 
 	function insert() {
+		$this->userLogged();
 		$this->load->model('products_model');
 
 		$dir = 'img/products/' . date('d_m_y_H_i_s') . '/';
@@ -74,6 +74,7 @@ class Products extends CI_Controller {
 	}
 
 	function update() {
+		$this->userLogged();
 		$this->load->model('products_model');
 
 		if($_FILES['productsupdateimage']['size'] > 0 && $_FILES['productsupdateimage']['tmp_name'] != '') {
@@ -125,6 +126,7 @@ class Products extends CI_Controller {
 	}
 
 	function delete($id) {
+		$this->userLogged();
 		$this->load->model('products_model');
 
 		if($this->products_model->delete($id)) {
@@ -138,6 +140,32 @@ class Products extends CI_Controller {
 
 			redirect('admin/products', 'refresh');
 		}
+	}
+
+	function view($id) {
+		$this->load->model('categories_model');
+		$this->load->model('products_model');
+
+
+		$categorie = $this->categories_model->get($id);
+		$data['categories'] = $this->categories_model->getAll();
+
+		$product = $this->products_model->get($id);
+		$data['product'] = array(
+			'id' => $product->id,
+			'id_categorie' => $product->id_categorie,
+			'name' => $product->name,
+			'description' => $product->description,
+			'price' => $product->price,
+			'image' => $product->image,
+			'quantity' => $product->quantity
+		);
+
+		$data['title'] = $product->name;
+
+		$this->load->view('public/header', $data);
+		$this->load->view('public/product', $data);
+		$this->load->view('public/footer');
 	}
 
 	private function userLogged() {

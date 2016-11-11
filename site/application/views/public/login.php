@@ -1,5 +1,5 @@
-<div class="container">
-	<div class="row internal">
+<div class="container internal">
+	<div class="row">
 		<div class="col-md-4 col-md-offset-1">
 			<h2 class="text-center">Acessar conta</h2>
 			<?php echo form_open('login/redirect'); ?>

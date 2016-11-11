@@ -20,6 +20,8 @@ class Page extends CI_Controller {
 	 */
 
 	public function index() {
+		$data['title'] = 'Pizzas, Esfihas e Lanches na Zona Leste';
+
 		$this->load->model('categories_model');
 		$data['categories'] = $this->categories_model->getAll();
 
@@ -29,6 +31,8 @@ class Page extends CI_Controller {
 	}
 
 	public function about() {
+		$data['title'] = 'Sobre';
+
 		$this->load->model('categories_model');
 		$data['categories'] = $this->categories_model->getAll();
 
@@ -39,6 +43,8 @@ class Page extends CI_Controller {
 
 	public function login() {
 		$this->load->helper('form');
+		$data['title'] = 'Acessar Conta';
+
 		$this->load->model('categories_model');
 		$data['categories'] = $this->categories_model->getAll();
 
@@ -48,6 +54,8 @@ class Page extends CI_Controller {
 	}
 
 	public function howworks() {
+		$data['title'] = 'Como Funciona';
+
 		$this->load->model('categories_model');
 		$data['categories'] = $this->categories_model->getAll();
 
@@ -58,6 +66,8 @@ class Page extends CI_Controller {
 
 	public function contactus() {
 		$this->load->helper('form');
+		$data['title'] = 'Fale Conosco';
+
 		$this->load->model('categories_model');
 		$data['categories'] = $this->categories_model->getAll();
 
