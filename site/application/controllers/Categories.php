@@ -5,10 +5,11 @@ class Categories extends CI_Controller {
 	
 	function __construct(){
 		parent::__construct();
-		$this->userLogged();
 	}
 
 	function insert() {
+		$this->userLogged();
+
 		$this->load->model('categories_model');
 
 	   	$this->form_validation->set_rules('categoriesinsert[name]', 'Nome', 'trim|required');
@@ -34,21 +35,9 @@ class Categories extends CI_Controller {
 		}
 	}
 
-	function select($id) {
-		$this->load->model('categories_model');
-
-		$categorie = $this->categories_model->get($id);
-
-		$data = array(
-			'id' => $categorie->id,
-			'name' => $categorie->name
-		);
-
-		// return json_encode($categorie);
-		print_r(json_encode($data));
-	}
-
 	function update() {
+		$this->userLogged();
+
 		$this->load->model('categories_model');
 
 		$data = array(
@@ -70,6 +59,8 @@ class Categories extends CI_Controller {
 	}
 
 	function delete($id) {
+		$this->userLogged();
+
 		$this->load->model('categories_model');
 
 		if($this->categories_model->delete($id)) { 
@@ -84,9 +75,41 @@ class Categories extends CI_Controller {
 			redirect('admin/categories', 'refresh');
 		}
 	}
+	/* **************** APENAS USUÁRIO ADMIN EXECUTA OS MÉDOTOS ACIMA **************** */
+
+	function select($id) {
+		$this->load->model('categories_model');
+
+		$categorie = $this->categories_model->get($id);
+
+		$data = array(
+			'id' => $categorie->id,
+			'name' => $categorie->name
+		);
+
+		// return json_encode($categorie);
+		print_r(json_encode($data));
+	}
+
+	function view($id) {
+		$this->load->model('categories_model');
+		$this->load->model('products_model');
+
+
+		$categorie = $this->categories_model->get($id);
+		$data['title'] = $categorie->name;
+
+		$data['categories'] = $this->categories_model->getAll();
+
+		$data['products'] = $this->products_model->getAllWhereIdCategorie($id);
+
+		$this->load->view('public/header', $data);
+		$this->load->view('public/products', $data);
+		$this->load->view('public/footer');
+	}
 	
 	private function userLogged() {
-		if(!$this->session->userdata('validated')){
+		if(!$this->session->admindata('validated')){
 			redirect('login');
 		}
 	}

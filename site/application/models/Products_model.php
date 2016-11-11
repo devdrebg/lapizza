@@ -72,6 +72,14 @@ class Products_model extends CI_Model {
         }
     }
 
+    function getAllWhereIdCategorie($id) {       
+        $this->db->select('*');
+        $this->db->where('id_categorie', $id);
+        $query = $this->db->get('products');
+
+        return $query->result_array();
+    }
+
     function getAll() {
         $listaProdutos = array();
         $this->db->select('*');

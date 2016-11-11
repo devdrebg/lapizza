@@ -61,7 +61,7 @@ class Postalcodes extends CI_Controller {
 	}	
 
 	private function userLogged() {
-		if(!$this->session->userdata('validated')){
+		if(!$this->session->admindata('validated')){
 			redirect('login');
 		}
 	}

@@ -167,3 +167,20 @@ footer a:active {
 p, table {
 	margin: 20px 0 0;
 }
+
+.internal main {
+	padding: 20px 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	margin-top: 0;
+}
+
+a.img-product {
+	width: 100%;
+	height: 200px;
+	display: block;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: 100% auto;
+}

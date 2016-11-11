@@ -18,44 +18,60 @@ class Page extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
+
 	public function index() {
-		$this->load->view('public/header');
+		$this->load->model('categories_model');
+		$data['categories'] = $this->categories_model->getAll();
+
+		$this->load->view('public/header', $data);
 		$this->load->view('public/home');
 		$this->load->view('public/footer');
 	}
 
 	public function about() {
-		$this->load->view('public/header');
+		$this->load->model('categories_model');
+		$data['categories'] = $this->categories_model->getAll();
+
+		$this->load->view('public/header', $data);
 		$this->load->view('public/about');
 		$this->load->view('public/footer');
 	}
 
 	public function login() {
 		$this->load->helper('form');
+		$this->load->model('categories_model');
+		$data['categories'] = $this->categories_model->getAll();
 
-		$this->load->view('public/header');
+		$this->load->view('public/header', $data);
 		$this->load->view('public/login');
 		$this->load->view('public/footer');
 	}
 
 	public function howworks() {
-		$this->load->view('public/header');
+		$this->load->model('categories_model');
+		$data['categories'] = $this->categories_model->getAll();
+
+		$this->load->view('public/header', $data);
 		$this->load->view('public/howworks');
 		$this->load->view('public/footer');
 	}
 
 	public function contactus() {
 		$this->load->helper('form');
+		$this->load->model('categories_model');
+		$data['categories'] = $this->categories_model->getAll();
 
-		$this->load->view('public/header');
+		$this->load->view('public/header', $data);
 		$this->load->view('public/contactus');
 		$this->load->view('public/footer');
 	}
 
 	public function adminlogin() {
 		$this->load->helper('form');
+		$this->load->model('categories_model');
+		$data['categories'] = $this->categories_model->getAll();
 
-		$this->load->view('public/header');
+		$this->load->view('public/header', $data);
 		$this->load->view('public/adminlogin');
 		$this->load->view('public/footer');		
 	}

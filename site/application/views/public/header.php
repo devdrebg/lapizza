@@ -43,17 +43,17 @@
 
 						<ul id="menu-header" class="nav navbar-nav collapse navbar-collapse bs-navbar-collapse">
 							<li><a href="<?php echo base_url(); ?>">Home</a></li>
-							<li>
-								<a href="#" id="menu-products" data-toggle="dropdown">Produtos <span class="caret"></span></a>
+							<?php if($categories) : ?>
+								<li>
+									<a href="#" id="menu-products" data-toggle="dropdown">Produtos <span class="caret"></span></a>
 
-								<ul class="dropdown-menu" role="menu" aria-labelledby="menu-products">
-									<li><a href="#">Categoria A</a></li>
-									<li><a href="#">Categoria B</a></li>
-									<li><a href="#">Categoria C</a></li>
-									<li><a href="#">Categoria D</a></li>
-									<li><a href="#">Categoria E</a></li>
-								</ul>		
-							</li>
+									<ul class="dropdown-menu" role="menu" aria-labelledby="menu-products">
+										<?php foreach($categories as $categorie) : ?>
+											<li><a href="<?php echo base_url() . 'categories/view/' . $categorie['id']; ?>"><?php echo $categorie['name']; ?></a></li>
+										<?php endforeach; ?>
+									</ul>		
+								</li>
+							<?php endif; ?>
 							<li><a href="<?php echo base_url() . 'contactus'; ?>">Contato</a></li>
 					    </ul>
 					</div>
