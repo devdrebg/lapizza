@@ -97,11 +97,11 @@ class Login extends CI_Controller {
 			'type' => 0,
 			'status' => 1
 		);
+		
 		$user = $this->user_model->exists($this->input->post('usercreate[email]'));
 
 		if(!$user) {
-			$this->user->signin($data);
-			$user = $this->user->exists($this->input->post('usercreate[email]'));
+			$user = $this->user_model->exists($this->input->post('usercreate[email]'));
 
 			$dadosUser = array(
 				'id' => $user[0]["id"],
@@ -113,6 +113,8 @@ class Login extends CI_Controller {
 			    'phone' => $user[0]["phone"],
 			    'validated' => true
 		    );
+		    
+			$this->user_model->signin($data);
 
 		    $this->session->set_userdata($dadosUser);
 		    $this->session->set_flashdata('messages', 'Seja bem vindo ' . $dadosUser['name']);

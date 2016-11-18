@@ -239,3 +239,22 @@ img.img-product {
 th.price-cart {
 	width: 100px;
 }
+
+.go-to-cart {
+	position: fixed;
+	bottom: 10px;
+	right: 10px;
+	background: #A21117;
+	width: 40px;
+	height: 40px;
+	color: #FFF;
+	line-height: 40px;
+	text-align: center;
+	font-size: 20px;
+	border-radius: 50%;
+}
+
+.go-to-cart:hover {
+	background: #4CAF50;
+	color: #FFF;
+}

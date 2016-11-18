@@ -41,17 +41,13 @@ jQuery(document).ready(function(){
 	jQuery('.frmqtdcart form .minus, .frmqtdcart form .plus').click(function() {
 		var formtarget = jQuery(this).attr('data-form');
 
-		setTimeout(function() {
-			jQuery('#form-' + formtarget).submit();
-		}, 1000)
+		jQuery('#form-' + formtarget).submit();
 	});
 
 	jQuery('.frmqtdcart form input').on('change', function() {
 		var formtarget = jQuery(this).attr('data-form');
 
-		setTimeout(function() {
-			jQuery('#form-' + formtarget).submit();
-		}, 1000)
+		jQuery('#form-' + formtarget).submit();
 	});
 
 	setTimeout(function () {
