@@ -128,6 +128,7 @@ footer a:active {
 
 .internal {
 	padding: 20px 0;
+	min-height: 400px;
 }
 
 .carousel-caption {
@@ -220,4 +221,21 @@ a.img-product {
 	font-weight: bold;
 	vertical-align: bottom;
 	font-size: 25px;
+}
+
+th, td {
+	vertical-align: middle !important;
+}
+
+img.img-product {
+	max-width: 150px;
+	margin: 0 auto;
+}
+
+.formqtd {
+	width: 120px;
+}
+
+th.price-cart {
+	width: 100px;
 }

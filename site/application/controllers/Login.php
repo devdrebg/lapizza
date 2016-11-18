@@ -67,7 +67,7 @@ class Login extends CI_Controller {
 				    'validated' => true
 			    );
 
-			    $this->session->set_admindata($dadosUser);
+			    $this->session->set_userdata($dadosUser);
 			    $this->session->set_flashdata('messages', 'Seja bem vindo ' . $dadosUser['name']);
 			    $this->session->set_flashdata('typemessage', 'ok');
 				redirect('admin', 'refresh');

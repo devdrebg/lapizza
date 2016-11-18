@@ -75,7 +75,7 @@ class Page extends CI_Controller {
 		$this->load->view('public/contactus');
 		$this->load->view('public/footer');
 	}
-
+	
 	public function adminlogin() {
 		$this->load->helper('form');
 		$this->load->model('categories_model');

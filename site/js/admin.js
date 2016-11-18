@@ -5,7 +5,7 @@ jQuery(document).ready(function(){
 
 	setTimeout(function () {
         $("#messages").modal("hide");
-    }, 5000);
+    }, 10000);
 
     jQuery('.table').DataTable({
     	"language": {

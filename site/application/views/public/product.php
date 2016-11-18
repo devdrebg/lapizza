@@ -14,25 +14,27 @@
 					R$ <span><?php echo number_format($product['price'], 2, ',', '.'); ?></span>
 				</div>
 				<?php if($product['quantity'] > 0) : ?>
-					<form action="">
+					<?php echo form_open('cart/add'); ?>
 						<br>
 						<div class="form-group row">
 							<div class="col-md-2">
 								<label>Quantidade:</label>
-								<input type="text" name="addproductcart[quantity]" value="1" class="money form-control text-center" required>
+								<input type="text" id="qtd-update-product-id-<?php echo $product['id']; ?>" name="addproductcart[quantity]" value="1" class="form-control text-center" required>
 							</div>
 							<div class="col-md-1 no-padding">
 								<br>
-								<a href="#" class="minus"><i class="fa fa-minus" aria-hidden="true"></i></a><br>
-								<a href="#" class="plus"><i class="fa fa-plus" aria-hidden="true"></i></a>
+								<a href="#" data-target="qtd-update-product-id-<?php echo $product['id']; ?>" class="minus"><i class="fa fa-minus" aria-hidden="true"></i></a><br>
+								<a href="#" data-target="qtd-update-product-id-<?php echo $product['id']; ?>" class="plus"><i class="fa fa-plus" aria-hidden="true"></i></a>
 							</div>
 						</div>
 						<br>
-						<input type="hidden" name="" value="<?php echo base_url() . $product['image']; ?>">
-						<input type="hidden" name="" value="<?php echo $product['name']; ?>">
-						<input type="hidden" name="" value="<?php echo $product['id']; ?>">
+						<input type="hidden" name="addproductcart[image]" value="<?php echo base_url() . $product['image']; ?>">
+						<input type="hidden" name="addproductcart[name]" value="<?php echo $product['name']; ?>">
+						<input type="hidden" name="addproductcart[description]" value="<?php echo $product['description']; ?>">
+						<input type="hidden" name="addproductcart[price]" value="<?php echo $product['price']; ?>">
+						<input type="hidden" name="addproductcart[id]" value="<?php echo $product['id']; ?>">
 						<button class="btn btn-default tcc-button-submit-inline">Comprar</a>
-					</form>
+					<?php echo form_close(); ?>
 				<?php else: ?>
 					<br>
 					<div class="alert alert-info">
