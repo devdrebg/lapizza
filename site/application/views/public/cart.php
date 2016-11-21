@@ -55,7 +55,7 @@
 				<a href="<?php echo base_url() . 'cart/emptycart'; ?>" class="btn btn-default">Esvaziar</a>
 			</div>
 			<div class="col-md-offset-6 col-md-3 text-right">
-				<a href="<?php echo base_url() . '#'; ?>" class="btn btn-default tcc-button-submit">Finalizar Pedido</a>
+				<a href="<?php echo base_url() . 'checkout'; ?>" class="btn btn-default tcc-button-submit">Finalizar Pedido</a>
 			</div>
 		</div>
 	<?php else: ?>
