@@ -85,7 +85,7 @@ class Billings extends CI_Controller {
 	}
 	
 	private function userLogged() {
-		if(!$this->session->admindata('validated')){
+		if(!$this->session->userdata('validated')){
 			redirect('login');
 		}
 	}

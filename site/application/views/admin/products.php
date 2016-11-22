@@ -115,34 +115,36 @@
 	</div>
 	<div class="row">
 		<div class="col-md-12">
-			<table class="table">
-				<thead>
-					<th style="width: 20px">ID</th>
-					<th style="width: 100px">Categoria</th>
-					<th style="width: 100px">Nome</th>
-					<th style="width: 100px">Preço</th>
-					<th style="width: 100px">Descrição</th>
-					<th>Imagem</th>
-					<th style="width: 20px">Quantidade em Estoque</th>
-					<th>Editar</th>
-					<th>Excluir</th>
-				</thead>
- 				<tbody>
- 					<?php foreach($products as $product) : ?>
-						<tr>
-							<td><?php echo $product['id']; ?></td>
-							<td><?php echo $product['categorie']; ?></td>
-							<td><?php echo $product['name']; ?></td>
-							<td>R$ <?php echo number_format($product['price'], 2, ',', '.'); ?></td>
-							<td><?php echo $product['description']; ?></td>
-							<td><img src="<?php echo base_url() . $product['image']; ?>" alt="<?php echo $product['name']; ?>" class="img-responsive img-product"></td>
-							<td><?php echo $product['quantity']; ?></td>
-							<td><a href="#" data-toggle="modal" data-target="#updateproduct" data-product-id="<?php echo $product['id']; ?>" class="btn btn-primary link-updateproduct">Editar</a></td>
-							<td><a href="<?php echo base_url(); ?>products/delete/<?php echo $product['id']; ?>" class="btn btn-danger">Excluir</a></td>
-						</tr>
-					<?php endforeach; ?>
-				</tbody>
-			</table>
+			<div class="table-responsive">
+				<table class="table">
+					<thead>
+						<th style="width: 20px">ID</th>
+						<th style="width: 100px">Categoria</th>
+						<th style="width: 100px">Nome</th>
+						<th style="width: 100px">Preço</th>
+						<th style="width: 100px">Descrição</th>
+						<th>Imagem</th>
+						<th style="width: 20px">Quantidade em Estoque</th>
+						<th>Editar</th>
+						<th>Excluir</th>
+					</thead>
+	 				<tbody>
+	 					<?php foreach($products as $product) : ?>
+							<tr>
+								<td><?php echo $product['id']; ?></td>
+								<td><?php echo $product['categorie']; ?></td>
+								<td><?php echo $product['name']; ?></td>
+								<td>R$ <?php echo number_format($product['price'], 2, ',', '.'); ?></td>
+								<td><?php echo $product['description']; ?></td>
+								<td><img src="<?php echo base_url() . $product['image']; ?>" alt="<?php echo $product['name']; ?>" class="img-responsive img-product"></td>
+								<td><?php echo $product['quantity']; ?></td>
+								<td><a href="#" data-toggle="modal" data-target="#updateproduct" data-product-id="<?php echo $product['id']; ?>" class="btn btn-primary link-updateproduct">Editar</a></td>
+								<td><a href="<?php echo base_url(); ?>products/delete/<?php echo $product['id']; ?>" class="btn btn-danger">Excluir</a></td>
+							</tr>
+						<?php endforeach; ?>
+					</tbody>
+				</table>
+			</div>
 		</div>
 	</div>
 </div>

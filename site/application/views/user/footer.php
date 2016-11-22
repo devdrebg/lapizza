@@ -44,6 +44,8 @@
 			</div>
 		</footer>
 
+		<a href="<?php echo base_url() . 'cart'; ?>" title="Meu Carrinho" class="go-to-cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
+
 		<div id="terms-and-conditions" class="modal fade" role="dialog">
 			<div class="modal-dialog">
 				<div class="modal-content">
@@ -94,6 +96,7 @@
 
 		<script src="<?php echo base_url() . 'js/jquery-1.12.4.min.js'; ?>"></script>
 		<script src="<?php echo base_url() . 'js/bootstrap.min.js'; ?>"></script>
+		<script src="<?php echo base_url() . 'js/jquery.maskedinput.min.js'; ?>"></script>
 		<script src="<?php echo base_url() . 'js/public.js'; ?>"></script>
 	</body>
 </html>

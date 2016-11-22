@@ -17,17 +17,16 @@ class Login extends CI_Controller {
 			$this->template->load('layouts/public', 'public/login');
    		} else {
 			$user = $this->user_model->redirect($this->input->post('login[email]'), MD5($this->input->post('login[password]')));
-
 			//SE O USUÁRIO EXISTIR 
 			if($user) {
 				$dadosUser = array(
-					'id' => $user[0]["id"],
-				    'name' => $user[0]["name"],
-				    'user' => $user[0]["user"],
-				    'email' => $user[0]["email"],
-				    'password' => $user[0]["password"],
-				    'picture' => $user[0]["picture"],
-				    'phone' => $user[0]["phone"],
+					'id' => $user["id"],
+				    'name' => $user["name"],
+				    'user' => $user["user"],
+				    'email' => $user["email"],
+				    'password' => $user["password"],
+				    'picture' => $user["picture"],
+				    'phone' => $user["phone"],
 				    'validated' => true
 			    );
 

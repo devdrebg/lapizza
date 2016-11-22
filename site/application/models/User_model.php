@@ -7,7 +7,7 @@ class User_model extends CI_Model {
     }
 
     function redirect($email, $password) {
-		$this->db->select('*');
+		$this->db->select('id, name, user, email, password, picture, phone');
 		$this->db->from('users');
 		$this->db->where('email', $email);
 		$this->db->where('password', $password);
@@ -18,7 +18,7 @@ class User_model extends CI_Model {
 		$query = $this->db->get();
 
 		if($query->num_rows() == 1) {
-			return $query->result_array();
+			return $query->first_row('array');
 		} else {
 			return false;
 		}

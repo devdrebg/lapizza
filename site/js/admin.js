@@ -145,5 +145,5 @@ jQuery(document).ready(function(){
     });
 
     jQuery('.money').maskMoney({prefix:'R$ ', allowNegative: true, thousands:'.', decimal:',', affixesStay: false});
-    jQuery('.postalcode').mask('99999999');   
+    jQuery('.postalcode').mask('99999999');
 });
