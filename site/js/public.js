@@ -3,7 +3,7 @@ const BASEURL = 'http://localhost/lapizza/site/';
 jQuery(document).ready(function(){
 	jQuery('#messages').modal('show');
 
-	jQuery('input[name="addproductcart[quantity]"]').keyup(function(e) {
+	jQuery('.number').keyup(function(e) {
 		if (/\D/g.test(this.value)) {
 			// Filter non-digits from input value.
 			this.value = this.value.replace(/\D/g, '');

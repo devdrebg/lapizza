@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 22-Nov-2016 às 02:28
+-- Generation Time: 23-Nov-2016 às 01:43
 -- Versão do servidor: 5.7.11
 -- PHP Version: 5.6.19
 
@@ -38,6 +38,14 @@ CREATE TABLE `address` (
   `postalcode` varchar(8) DEFAULT NULL,
   `name` varchar(45) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `address`
+--
+
+INSERT INTO `address` (`id`, `id_user`, `address`, `number`, `adjunct`, `district`, `city`, `state`, `postalcode`, `name`) VALUES
+(1, 11, 'Rua Olavo Egídio de Souza Aranha', '1928', 'L1', 'Parque Císper', 'São Paulo', 'SP', '03822000', 'Casa'),
+(2, 11, 'Rua Barra de Santa Rosa', '3', '', 'Parque Císper', 'São Paulo', 'SP', '03817010', 'Casa 2');
 
 -- --------------------------------------------------------
 
@@ -171,7 +179,6 @@ CREATE TABLE `orders` (
   `postal_code_user` varchar(45) DEFAULT NULL,
   `phone_user` varchar(45) DEFAULT NULL,
   `name_billing` varchar(45) DEFAULT NULL,
-  `transshipment` decimal(10,2) DEFAULT NULL,
   `status` varchar(45) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -265,7 +272,17 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `user`, `email`, `password`, `picture`, `type`, `phone`, `status`) VALUES
-(1, 'Admin', 'Admin', 'admin@lapizza.com', 'e10adc3949ba59abbe56e057f20f883e', NULL, 1, '11951569500', 1);
+(1, 'Admin', 'Admin', 'admin@lapizza.com', 'e10adc3949ba59abbe56e057f20f883e', NULL, 1, '11951569500', 1),
+(2, 'André Romário', 'andreromario', 'user@lapizza.com', 'e10adc3949ba59abbe56e057f20f883e', '', 0, '11219219998', 1),
+(3, 'Maria Rita', 'mari', 'mari@lapizza.com', 'e10adc3949ba59abbe56e057f20f883e', '', 0, '1198219288', 1),
+(4, 'José Carlos', 'José Carlos', 'jose@lapizza.com', 'e10adc3949ba59abbe56e057f20f883e', '', 0, '1191291219', 1),
+(5, 'Romário', 'rominha', 'rominha@lapizza.com', 'a906449d5769fa7361d7ecc6aa3f6d28', '', 0, '1121212121', 1),
+(6, 'Rafael Souza Cruz', 'rafa', 'rafael@lapizza.com', '3a8b104885bc60a0b3bf9633b9d9b843', '', 0, '1197182818', 1),
+(7, 'Lúcio Luzetti Criado', 'lucio', 'lucio@eniac.com.br', 'b70c223dcb34879d9ca252b888267faa', '', 0, '11921828898', 1),
+(8, 'Nelson Luzetti Criado', 'nelson', 'nelson@eniac.com.br', 'b70c223dcb34879d9ca252b888267faa', '', 0, '1199982989', 1),
+(9, 'Sophia Criado', 'sophia', 'sophia@eniac.com.br', 'b70c223dcb34879d9ca252b888267faa', '', 0, '112121939', 1),
+(10, 'Cao Ji Kan', 'cao', 'cao@eniac.com.br', 'b70c223dcb34879d9ca252b888267faa', '', 0, '1128192998', 1),
+(11, 'Denilson R.', 'denilson', 'denilson@eniac.com.br', 'b70c223dcb34879d9ca252b888267faa', '', 0, '1191292999', 1);
 
 --
 -- Indexes for dumped tables
@@ -345,7 +362,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `address`
 --
 ALTER TABLE `address`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `banners`
 --
@@ -395,7 +412,7 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

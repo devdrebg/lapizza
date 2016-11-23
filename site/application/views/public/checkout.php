@@ -5,6 +5,11 @@
 		</div>
 	</div>
 	<div class="row">
+		<div class="col-md-12">
+			<h2>Resumo do Pedido</h2>
+		</div>
+	</div>
+	<div class="row">
 		<div class="col-md-12 text-center">
 			<div class="table-responsive">
 				<table class="table">
@@ -36,4 +41,59 @@
 			</div>
 		</div>
 	</div>
+	<?php echo form_open('checkout/proccess') ; ?>
+		<div class="row">
+			<div class="col-md-12">
+				<h3>Endereço para Entrega:</h3>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-4">
+				<?php foreach($addresses as $address) : ?>
+					<div class="col-sm-12 end">
+						<div class="row">
+							<div class="col-md-1">
+								<input type="radio" name="addressid" id="address-<?php echo $address['id']; ?>" value="<?php echo $address['id']; ?>">
+							</div>
+							<div class="col-md-10">
+								<label for="address-<?php echo $address['id']; ?>">
+									<h4><?php echo $address['name']; ?></h4>
+									<address>
+										<?php echo $address['address']; ?><br>
+										Número: <?php echo $address['number']; ?> <?php echo $address['adjunct']; ?><br>
+										Bairro: <?php echo $address['district']; ?>
+										Cidade/Estado: <?php echo $address['city']; ?> - <?php echo $address['state']; ?>
+									</address>
+								</label>
+							</div>
+							<br>
+						</div>
+					</div>
+				<?php endforeach; ?>
+			</div>
+			<div class="col-sm-5">
+				<h3>Método de Pagamento</h3>
+				<div class="form-group">
+					<select class="form-control" name="name_billing">
+						<option disabled>Escolha</option>
+						<?php foreach ($billings as $billing) : ?>
+							<option value="<?php echo $billing['name']; ?>"><?php echo $billing['name']; ?></option>
+						<?php endforeach; ?>
+					</select>
+				</div>
+				<input type="hidden" name="id_user" value="<?php echo $user['id']; ?>">
+				<input type="hidden" name="subtotal_price" value="<?php echo $subtotal; ?>">
+				<input type="hidden" name="tax_vat" value="<?php echo $tax_vat; ?>">
+				<input type="hidden" name="total_price" value="<?php echo $total_price; ?>">
+				<input type="hidden" name="name_user" value="<?php echo $user['name']; ?>">
+				<input type="hidden" name="phone_user" value="<?php echo $user['phone']; ?>">
+				<p><strong>Subtotal:</strong> R$ <?php echo number_format($subtotal, 2, ',', '.'); ?></p>
+				<p><strong>Taxa de Entrega:</strong> R$ <?php echo number_format($tax_vat, 2, ',', '.'); ?></p>
+				<p><strong>Total do Pedido:</strong> R$ <?php echo number_format($total_price, 2, ',', '.'); ?></p>
+			</div>
+			<div class="col-md-3">
+				<button type="submit" class="btn btn-default tcc-button-submit">Finalizar Pedido</a>></button>
+			</div>
+		</div>
+	<?php echo form_close(); ?>
 </div>

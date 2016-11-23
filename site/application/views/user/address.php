@@ -126,7 +126,7 @@
 							<th>Cidade</th>
 							<th>Estado</th>
 							<th>Apelido para o Endereço</th>
-							<th>Editar</th>
+							<!-- <th>Editar</th> -->
 							<th>Excluir</th>
 						</tr>
 					</thead>
@@ -140,7 +140,7 @@
 								<td><?php echo $address['city']; ?></td>
 								<td><?php echo $address['state']; ?></td>
 								<td><?php echo $address['name']; ?></td>
-								<td><a href="#" data-toggle="modal" data-target="#updateaddress" data-address-id="<?php echo $address['id']; ?>" class="btn btn-primary link-updateaddress">Editar</a></td>
+								<!-- <td><a href="#" data-toggle="modal" data-target="#updateaddress" data-address-id="<?php echo $address['id']; ?>" class="btn btn-primary link-updateaddress">Editar</a></td> -->
 								<td><a href="<?php echo base_url(); ?>address/delete/<?php echo $address['id']; ?>" class="btn btn-danger">Excluir</a></td>
 							</tr>
 						<?php endforeach; ?>

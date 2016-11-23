@@ -7,7 +7,7 @@ class User_model extends CI_Model {
     }
 
     function redirect($email, $password) {
-		$this->db->select('id, name, user, email, password, picture, phone');
+		$this->db->select('id, name, user, email, picture, phone');
 		$this->db->from('users');
 		$this->db->where('email', $email);
 		$this->db->where('password', $password);

@@ -31,7 +31,8 @@
 											<div class="form-group">
 													<div class="formqtd">
 														<div class="col-md-6 no-padding">
-															<input type="text" id="qtd-update-product-id-<?php echo $product['id']; ?>" data-form="qtd-update-product-id-<?php echo $product['id']; ?>" name="updateproductcart[quantity]" value="<?php echo $product['quantity']; ?>" class="form-control text-center" required>
+															<input type="text" id="qtd-update-product-id-<?php echo $product['id']; ?>" data-form="qtd-update-product-id-<?php echo $product['id']; ?>" name="updateproductcart[quantity]" value="<?php echo $product['quantity']; ?>" class="form-control text-center number" required min="1" max="<?php echo $product['quantitystock']; ?>">
+															<input type="hidden" name="updateproductcart[quantitystock]" value="<?php echo $product['quantitystock']; ?>">
 														</div>
 														<div class="col-md-2">
 															<a href="#" data-form="qtd-update-product-id-<?php echo $product['id']; ?>" data-target="qtd-update-product-id-<?php echo $product['id']; ?>" class="minus"><i class="fa fa-minus" aria-hidden="true"></i></a><br>

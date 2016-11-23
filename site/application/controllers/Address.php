@@ -11,26 +11,36 @@ class Address extends CI_Controller {
 
 	function insert() {
 		$this->load->model('address_model');
+		$this->load->model('postalcodes_model');
 
-		$data = array(
-			'id_user' => $this->input->post('addressinsert[id_user]'),
-			'address' => $this->input->post('addressinsert[address]'),
-			'number' => $this->input->post('addressinsert[number]'),
-			'adjunct' => $this->input->post('addressinsert[adjunct]'),
-			'district' => $this->input->post('addressinsert[district]'),
-			'city' => $this->input->post('addressinsert[city]'),
-			'state' => $this->input->post('addressinsert[state]'),
-			'postalcode' => $this->input->post('addressinsert[postalcode]'),
-			'name' => $this->input->post('addressinsert[name]')
-		);
+		$postalcode = $this->postalcodes_model->get($this->input->post('addressinsert[postalcode]'));
 
-		if($this->address_model->insert($data)) {
-			$this->session->set_flashdata('messages', 'Endereço ' . $this->input->post('addressinsert[name]') . ' cadastrado com sucesso.');
-		    $this->session->set_flashdata('typemessage', 'ok');
+		if($postalcode) {
+			$data = array(
+				'id_user' => $this->input->post('addressinsert[id_user]'),
+				'address' => $this->input->post('addressinsert[address]'),
+				'number' => $this->input->post('addressinsert[number]'),
+				'adjunct' => $this->input->post('addressinsert[adjunct]'),
+				'district' => $this->input->post('addressinsert[district]'),
+				'city' => $this->input->post('addressinsert[city]'),
+				'state' => $this->input->post('addressinsert[state]'),
+				'postalcode' => $this->input->post('addressinsert[postalcode]'),
+				'name' => $this->input->post('addressinsert[name]')
+			);
 
-			redirect('user/address', 'refresh');
+			if($this->address_model->insert($data)) {
+				$this->session->set_flashdata('messages', 'Endereço ' . $this->input->post('addressinsert[name]') . ' cadastrado com sucesso.');
+			    $this->session->set_flashdata('typemessage', 'ok');
+
+				redirect('user/address', 'refresh');
+			} else {
+				$this->session->set_flashdata('messages', 'Erro ao cadastrar o Endereço');
+			    $this->session->set_flashdata('typemessage', 'error');
+
+				redirect('user/address', 'refresh');
+			}
 		} else {
-			$this->session->set_flashdata('messages', 'Erro ao cadastrar o Endereço');
+			$this->session->set_flashdata('messages', 'Não realizamos entregas para o CEP:' . $this->input->post('addressinsert[postalcode]'));
 		    $this->session->set_flashdata('typemessage', 'error');
 
 			redirect('user/address', 'refresh');

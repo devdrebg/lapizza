@@ -158,7 +158,7 @@ class Products extends CI_Controller {
 			'description' => $product->description,
 			'price' => $product->price,
 			'image' => $product->image,
-			'quantity' => $product->quantity
+			'quantitystock' => $product->quantity
 		);
 
 		$data['title'] = $product->name;

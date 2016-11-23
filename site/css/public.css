@@ -127,7 +127,8 @@ footer a:active {
 }
 
 .internal {
-	padding: 20px 0;
+	padding-top: 20px;
+	padding-bottom: 20px;
 	min-height: 400px;
 }
 
@@ -238,6 +239,14 @@ img.img-product {
 
 th.price-cart {
 	width: 100px;
+}
+
+.end h4 {
+	font-weight: bold;
+}
+
+.end address {
+	font-weight: normal;
 }
 
 .go-to-cart {

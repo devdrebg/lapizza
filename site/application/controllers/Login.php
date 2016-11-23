@@ -24,7 +24,6 @@ class Login extends CI_Controller {
 				    'name' => $user["name"],
 				    'user' => $user["user"],
 				    'email' => $user["email"],
-				    'password' => $user["password"],
 				    'picture' => $user["picture"],
 				    'phone' => $user["phone"],
 				    'validated' => true
@@ -60,7 +59,6 @@ class Login extends CI_Controller {
 				    'name' => $admin[0]["name"],
 				    'user' => $admin[0]["user"],
 				    'email' => $admin[0]["email"],
-				    'password' => $admin[0]["password"],
 				    'picture' => $admin[0]["picture"],
 				    'phone' => $admin[0]["phone"],
 				    'validated' => true
@@ -100,21 +98,20 @@ class Login extends CI_Controller {
 		$user = $this->user_model->exists($this->input->post('usercreate[email]'));
 
 		if(!$user) {
-			$user = $this->user_model->exists($this->input->post('usercreate[email]'));
+			$this->user_model->signin($data);
+
+			$user = $this->user_model->redirect($this->input->post('usercreate[email]'), MD5($this->input->post('usercreate[senha]')));
 
 			$dadosUser = array(
-				'id' => $user[0]["id"],
-			    'name' => $user[0]["name"],
-			    'user' => $user[0]["user"],
-			    'email' => $user[0]["email"],
-			    'password' => $user[0]["password"],
-			    'picture' => $user[0]["picture"],
-			    'phone' => $user[0]["phone"],
+				'id' => $user["id"],
+			    'name' => $user["name"],
+			    'user' => $user["user"],
+			    'email' => $user["email"],
+			    'picture' => $user["picture"],
+			    'phone' => $user["phone"],
 			    'validated' => true
 		    );
 		    
-			$this->user_model->signin($data);
-
 		    $this->session->set_userdata($dadosUser);
 		    $this->session->set_flashdata('messages', 'Seja bem vindo ' . $dadosUser['name']);
 		    $this->session->set_flashdata('typemessage', 'ok');

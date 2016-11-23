@@ -26,8 +26,13 @@ class Cart extends CI_Controller {
 		$product['description'] = $this->input->post('addproductcart[description]');
 		$product['image'] = $this->input->post('addproductcart[image]');
 		$product['price'] = $this->input->post('addproductcart[price]');
+		$product['quantitystock'] = $this->input->post('addproductcart[quantitystock]');
 		if((int)$this->input->post('addproductcart[quantity]') > 1) {
 			$product['quantity'] = $this->input->post('addproductcart[quantity]');
+		} else if((int)$this->input->post('addproductcart[quantity]') > $product['quantitystock']) {
+			$this->session->set_flashdata('messages', 'Essa quantidade excede a quantidade em estoque do produto.');
+		    $this->session->set_flashdata('typemessage', 'error');
+			$product['quantity'] = $product['quantitystock'];
 		} else {
 			$product['quantity'] = 1;
 		}
@@ -66,9 +71,14 @@ class Cart extends CI_Controller {
 		$product[] = array();
 
 		$product['id'] = $this->input->post('updateproductcart[id]');
+		$product['quantitystock'] = $this->input->post('updateproductcart[quantitystock]');
 		$rowproduct = $product['id'];
 
-		if($this->input->post('updateproductcart[quantity]') > 1) {
+		if((int)$this->input->post('updateproductcart[quantity]') > $product['quantitystock']) {			
+			$this->session->set_flashdata('messages', 'Essa quantidade excede a quantidade em estoque do produto.');
+		    $this->session->set_flashdata('typemessage', 'error');
+			$product['quantity'] = $product['quantitystock'];
+		} else if($this->input->post('updateproductcart[quantity]') > 1) {
 			$product['quantity'] = $this->input->post('updateproductcart[quantity]');
 		} else {
 			$product['quantity'] = 1;
