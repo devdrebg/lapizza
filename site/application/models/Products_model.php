@@ -61,6 +61,12 @@ class Products_model extends CI_Model {
         }
     }
 
+    function updateQuantity($id, $quantity) {
+        $this->db->where('id', $id);
+        $this->db->set('quantity', $quantity);
+        $query = $this->db->update('products');
+    }
+
     function delete($id) {
         $this->db->where('id', $id);
         $query = $this->db->delete('products'); 

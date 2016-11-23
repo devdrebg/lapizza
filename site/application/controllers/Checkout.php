@@ -44,8 +44,66 @@ class Checkout extends CI_Controller {
 	}
 
 	public function proccess() {
-		var_dump($_POST);
-		exit();
+		$this->load->model('address_model');
+		$this->load->model('itens_model');
+		$this->load->model('orders_model');
+		$this->load->model('products_model');
+		$this->load->model('user_model');
+
+		$idAddress = $this->input->post('addressid');
+		$idUser = $this->input->post('id_user');
+
+		$address = $this->address_model->get($idAddress);
+		$user = $this->user_model->get($idUser);
+		
+		$thisdate = date('Y-m-d h:i:s');
+		$order = array(
+			'id_user' => $this->input->post('id_user'),
+			'subtotal_price' => $this->input->post('subtotal_price'),
+			'tax_vat' => $this->input->post('tax_vat'),
+			'total_price' => $this->input->post('total_price'),
+			'date' => $thisdate,
+			'name_user' => $user->name,
+			'address_user' => $address->address,
+			'number_user' => $address->number . ' ' . $address->adjunct,
+			'postal_code_user' => $address->postalcode,
+			'phone_user' => $user->phone,
+			'name_billing' => $this->input->post('name_billing'),
+			'status' => 'Em Preparo'
+		);
+
+		$carrinho = $this->session->userdata('cart_session');
+
+		$this->orders_model->insert($order);
+
+		$theOrderInserted = $this->orders_model->getByTime($thisdate);
+
+		foreach ($carrinho as $itemPrepare) {
+			$itemPrice = (float)$itemPrepare['price'];
+			$itemQuantity = (int)$itemPrepare['quantity'];
+			$itemSubTotal = $itemPrice * $itemQuantity;
+			$itemQuantityStock = (int)$itemPrepare['quantitystock'];
+			$itemNewQuantity = $itemQuantityStock - $itemQuantity;
+
+			$item = array(
+				'id_order' => $theOrderInserted->id,
+				'name' => $itemPrepare['name'],
+				'description' => $itemPrepare['description'],
+				'price' => $itemPrice,
+				'image' => $itemPrepare['image'],
+				'quantity' => $itemQuantity,
+				'subtotal' => $itemSubTotal
+			);
+
+			$this->products_model->updateQuantity($itemPrepare['id'], $itemNewQuantity);
+			$this->itens_model->insert($item);
+		}
+
+		redirect('checkout/success', 'refresh');
+	}
+
+	public function success() {
+		exit('Pedido concluído com sucesso');
 	}
 
 	private function haveItensCart() {

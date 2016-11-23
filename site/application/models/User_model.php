@@ -45,4 +45,18 @@ class User_model extends CI_Model {
 		}
     }
 
+    function get($id) {
+    	$this->db->select('name, phone');
+        $this->db->from('users');
+        $this->db->where('id', $id);
+
+        $query = $this->db->get();
+
+        if($query->num_rows() > 0) {
+            return $query->row();
+        } else {
+            return false;
+        }
+    }
+
 }
