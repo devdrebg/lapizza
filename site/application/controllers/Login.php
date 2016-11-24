@@ -86,7 +86,7 @@ class Login extends CI_Controller {
 		$this->load->model('user_model');
 		$data = array(
 			'name' => $this->input->post('usercreate[name]'),
-			'user' => $this->input->post('usercreate[user]'),
+			'user' => $this->input->post('usercreate[email]'),
 			'phone' => $this->input->post('usercreate[phone]'),
 			'email' => $this->input->post('usercreate[email]'),
 			'password' => MD5($this->input->post('usercreate[senha]')),

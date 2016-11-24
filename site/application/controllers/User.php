@@ -56,6 +56,28 @@ class User extends CI_Controller {
 		$this->load->view('user/footer');	
 	}
 
+	public function changestatus() {
+		$this->load->model('user_model');
+
+		$idUser = $this->input->post('id');
+		$statusUser = $this->input->post('status');
+
+		if($statusUser) {
+			$this->user_model->changestatus($idUser, 0);
+			$this->session->set_flashdata('messages', 'Usuário ' . $this->input->post('name') . ' foi desabilitado para comprar.');
+		    $this->session->set_flashdata('typemessage', 'error');
+
+			redirect('admin/users', 'refresh');
+		} else {
+			$this->user_model->changestatus($idUser, 1);
+
+			$this->session->set_flashdata('messages', 'Usuário ' . $this->input->post('name') . ' foi habilitado para comprar.');
+		    $this->session->set_flashdata('typemessage', 'error');
+
+			redirect('admin/users', 'refresh');
+		}
+	}
+
 	private function userLogged() {
 		if(!$this->session->userdata('validated')){
 			redirect('login');

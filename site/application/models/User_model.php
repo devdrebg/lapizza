@@ -45,6 +45,18 @@ class User_model extends CI_Model {
 		}
     }
 
+    function changestatus($id, $status) {
+    	$this->db->where('id', $id);
+        $this->db->set('status', $status);
+        $query = $this->db->update('users');
+
+        if($query) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     function get($id) {
     	$this->db->select('name, phone');
         $this->db->from('users');
@@ -57,6 +69,14 @@ class User_model extends CI_Model {
         } else {
             return false;
         }
+    }
+
+    function getAll() {
+    	$this->db->select('*');
+        $this->db->where('type', '0');
+        $query = $this->db->get('users');
+
+        return $query->result_array();
     }
 
 }

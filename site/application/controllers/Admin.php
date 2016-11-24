@@ -39,6 +39,16 @@ class Admin extends CI_Controller {
 		$this->load->view('admin/footer');
 	}
 
+	public function users() {
+		$this->load->model('user_model');
+		$data['title'] = 'Gerenciar Usuários';
+		$data['users'] = $this->user_model->getAll();		
+		
+		$this->load->view('admin/header', $data);
+		$this->load->view('admin/users', $data);
+		$this->load->view('admin/footer');
+	}
+
 	public function orders() {
 		$this->load->model('orders_model');
 		$data['title'] = 'Gerenciar Pedidos';
