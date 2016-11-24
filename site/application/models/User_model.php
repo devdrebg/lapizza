@@ -29,20 +29,37 @@ class User_model extends CI_Model {
     }
 
     function exists($email) {
-		$this->db->select('*');
-		$this->db->from('users');
-		$this->db->where('email', $email);
-		$this->db->where('type', 0);
-		$this->db->where('status', 1);
-		$this->db->limit(1);
+        $this->db->select('*');
+        $this->db->from('users');
+        $this->db->where('email', $email);
+        $this->db->where('type', 0);
+        $this->db->where('status', 1);
+        $this->db->limit(1);
 
-		$query = $this->db->get();
+        $query = $this->db->get();
 
-		if($query->num_rows() == 1) {
-			return true;
-		} else {
-			return false;
-		}
+        if($query->num_rows() == 1) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    function recoveryPassword($email) {
+        $this->db->select('name, password');
+        $this->db->from('users');
+        $this->db->where('email', $email);
+        $this->db->where('type', 0);
+        $this->db->where('status', 1);
+        $this->db->limit(1);
+
+        $query = $this->db->get();
+
+        if($query->num_rows() > 0) {
+            return $query->row();
+        } else {
+            return false;
+        }
     }
 
     function changestatus($id, $status) {

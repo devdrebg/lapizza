@@ -123,5 +123,22 @@ class Login extends CI_Controller {
 		}
 	}
 
+	public function forggotpassword() {
+		$this->load->model('user_model');
+
+		$email = $this->input->post('userforggotpassword[email]');
+
+		$user = $this->user_model->recoveryPassword($email);
+
+		exit($user);
+// $this->load->library('encrypt');
+
+// $encrypted_password = '';
+// $key = 'secret-key-in-config';
+
+// $decrypted_string = $this->encrypt->decode($encrypted_password, $key);
+
+	}
+
 }
 
