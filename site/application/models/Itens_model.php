@@ -22,8 +22,12 @@ class Itens_model extends CI_Model {
         $query = $this->db->update('products', $data);
     }
 
-    function getAllFromOrder() {
-        
+    function getAllFromOrderId($id) {
+        $this->db->select('*');
+        $this->db->where('id_order', $id);
+        $query = $this->db->get('itens');
+
+        return $query->result_array();
     }
 
 }

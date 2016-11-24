@@ -67,7 +67,7 @@
 									<a href="#" id="menu-account" data-toggle="dropdown">Minha Conta <span class="caret"></span></a>
 
 									<ul class="dropdown-menu" role="menu" aria-labelledby="menu-account">
-										<li><a href="#">Meus pedidos</a></li>
+										<li><a href="<?php echo base_url() . 'user/orders'; ?>">Meus pedidos</a></li>
 										<li><a href="#">Minha conta</a></li>
 										<li><a href="<?php echo base_url() . 'user/address'; ?>">Meus endereços</a></li>
 										<li><a href="<?php echo base_url() . 'login/logout'; ?>"><span class="glyphicon glyphicon-log-out"></span> Sair</a></li>

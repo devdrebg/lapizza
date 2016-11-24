@@ -267,3 +267,28 @@ th.price-cart {
 	background: #4CAF50;
 	color: #FFF;
 }
+
+.product {
+	padding: 15px 0;
+}
+
+.product h2 {
+	margin: 10px 0 0;
+	height: 40px;
+	overflow: hidden;
+}
+
+p.success {
+	font-size: 120px;
+	color: #4CAF50;
+}
+
+img.img-resume-order {
+	max-width: 100px;
+	max-height: 100px;
+}
+
+#itens table tbody p {
+	margin: 0 0 10px;
+	padding: 0;
+}

@@ -36,6 +36,26 @@ class User extends CI_Controller {
 		$this->load->view('user/footer');
 	}
 
+	public function orders() {
+		$userData = $this->session->userdata();
+
+		$data['userdata'] = $userData;
+		
+		$data['title'] = 'Meus Pedidos';
+
+		$this->load->model('categories_model');
+		$data['categories'] = $this->categories_model->getAll();
+
+		$user = $this->session->userdata();
+
+		$this->load->model('orders_model');
+		$data['orders'] = $this->orders_model->getAllFromUser($user['id']);
+
+		$this->load->view('user/header', $data);
+		$this->load->view('user/orders');
+		$this->load->view('user/footer');	
+	}
+
 	private function userLogged() {
 		if(!$this->session->userdata('validated')){
 			redirect('login');

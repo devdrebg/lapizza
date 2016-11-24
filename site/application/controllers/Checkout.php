@@ -69,6 +69,7 @@ class Checkout extends CI_Controller {
 			'postal_code_user' => $address->postalcode,
 			'phone_user' => $user->phone,
 			'name_billing' => $this->input->post('name_billing'),
+			'message' => $this->input->post('message'),
 			'status' => 'Em Preparo'
 		);
 
@@ -103,7 +104,17 @@ class Checkout extends CI_Controller {
 	}
 
 	public function success() {
-		exit('Pedido concluído com sucesso');
+		$this->session->unset_userdata('cart_session');
+
+		$this->load->model('categories_model');
+		$data['categories'] = $this->categories_model->getAll();
+
+		$data['title'] = 'Pedido Realizado com Sucesso';
+
+		$this->load->view('user/header', $data);
+		$this->load->view('user/success');
+		$this->load->view('user/footer');
+
 	}
 
 	private function haveItensCart() {

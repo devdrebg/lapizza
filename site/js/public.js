@@ -108,6 +108,56 @@ jQuery(document).ready(function(){
         });
     });
 
+    jQuery('.link-detailsorder').click(function() {
+        var idOrder = jQuery(this).attr('data-order-id');
+
+        jQuery.ajax({
+            url: BASEURL + '/orders/select/' + idOrder,
+            type: 'GET',
+            success: function(data) {
+                var order = JSON.parse(data);
+
+                jQuery('span#orderid').text(order.id);
+                jQuery('span#data').text(order.date);
+                jQuery('span#subtotal').text(order.subtotal_price);
+                jQuery('span#tax_vat').text(order.tax_vat);
+                jQuery('span#total').text(order.total_price);
+                jQuery('span#cep').text(order.postal_code_user);
+                jQuery('span#address').text(order.address_user + ' Nº ' + order.number_user);
+                jQuery('span#name_billing').text(order.name_billing);
+                jQuery('span#status').text(order.status);
+                jQuery('span#message').text(order.message);
+
+                var listItens = '';
+                $.each(order.itens, function (key, data) {
+                    listItens += '<tr><td><img src=' + data.image + ' class="img-resume-order" /></td><td><p>' + data.name + '</p><p>' + data.description + '</p><div class="col-xs-3"><strong>Preço:</strong><br>' + data.price + '<br></div><div class="col-xs-4 no-padding"><strong>Quantidade:</strong><br>' + data.quantity + '<br></div><div class="col-xs-3"><strong>Subtotal:</strong><br>' + data.subtotal + '</div></td></tr>';
+                });
+
+                jQuery('#itens table tbody').html(listItens);
+
+
+                /*
+
+'id' => $order->id,
+            'id_user' => $order->id_user,
+            'subtotal_price' => $order->subtotal_price,
+            'tax_vat' => $order->tax_vat,
+            'total_price' => $order->total_price,
+            'date' => date_format(date_create($order->date),"d/m/Y"),
+            'name_user' => $order->name_user,
+            'address_user' => $order->address_user,
+            'number_user' => $order->number_user,
+            'postal_code_user' => $order->postal_code_user,
+            'phone_user' => $order->phone_user,
+            'name_billing' => $order->name_billing,
+            'status' => $order->status,
+
+                */
+            }
+        });
+    });
+
+
 	jQuery('.postalcode').mask('99999999');
 
 	setTimeout(function () {
