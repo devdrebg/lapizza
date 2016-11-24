@@ -52,4 +52,9 @@ class Orders_model extends CI_Model {
         return $query->result_array();
     }
 
+    function getAll() {
+        $query = $this->db->get('orders');
+
+        return $query->result_array();
+    }
 }

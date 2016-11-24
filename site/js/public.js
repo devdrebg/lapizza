@@ -130,7 +130,7 @@ jQuery(document).ready(function(){
 
                 var listItens = '';
                 $.each(order.itens, function (key, data) {
-                    listItens += '<tr><td><img src=' + data.image + ' class="img-resume-order" /></td><td><p>' + data.name + '</p><p>' + data.description + '</p><div class="col-xs-3"><strong>Preço:</strong><br>' + data.price + '<br></div><div class="col-xs-4 no-padding"><strong>Quantidade:</strong><br>' + data.quantity + '<br></div><div class="col-xs-3"><strong>Subtotal:</strong><br>' + data.subtotal + '</div></td></tr>';
+                    listItens += '<tr><td><img src=' + data.image + ' class="img-resume-order" /></td><td><p>' + data.name + '</p><p>' + data.description + '</p><div class="col-xs-3 no-padding"><strong>Preço:</strong><br>' + data.price + '<br></div><div class="col-xs-4 no-padding"><strong>Quantidade:</strong><br>' + data.quantity + '<br></div><div class="col-xs-4"><strong>Subtotal:</strong><br>' + data.subtotal + '</div></td></tr>';
                 });
 
                 jQuery('#itens table tbody').html(listItens);

@@ -127,6 +127,36 @@ jQuery(document).ready(function(){
         });
     });
 
+    jQuery('.link-detailsorder').click(function() {
+        var idOrder = jQuery(this).attr('data-order-id');
+
+        jQuery.ajax({
+            url: BASEURL + '/orders/select/' + idOrder,
+            type: 'GET',
+            success: function(data) {
+                var order = JSON.parse(data);
+
+                jQuery('span#orderid').text(order.id);
+                jQuery('span#data').text(order.date);
+                jQuery('span#subtotal').text(order.subtotal_price);
+                jQuery('span#tax_vat').text(order.tax_vat);
+                jQuery('span#total').text(order.total_price);
+                jQuery('span#cep').text(order.postal_code_user);
+                jQuery('span#address').text(order.address_user + ' Nº ' + order.number_user);
+                jQuery('span#name_billing').text(order.name_billing);
+                jQuery('span#status').text(order.status);
+                jQuery('span#message').text(order.message);
+
+                var listItens = '';
+                $.each(order.itens, function (key, data) {
+                    listItens += '<tr><td><img src=' + data.image + ' class="img-resume-order" /></td><td><p>' + data.name + '</p><p>' + data.description + '</p><div class="col-xs-3 no-padding"><strong>Preço:</strong><br>' + data.price + '<br></div><div class="col-xs-4 no-padding"><strong>Quantidade:</strong><br>' + data.quantity + '<br></div><div class="col-xs-4"><strong>Subtotal:</strong><br>' + data.subtotal + '</div></td></tr>';
+                });
+
+                jQuery('#itens table tbody').html(listItens);
+            }
+        });
+    });
+
     jQuery('input[name="postalcodesinsert[cep]').on('change', function() {
         var cep = jQuery(this).val();
 

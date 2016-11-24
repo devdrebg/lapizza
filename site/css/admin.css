@@ -198,3 +198,7 @@ p, table, .dataTables_wrapper {
 	max-width: 150px;
 	margin: 0 auto;
 }
+
+.no-padding {
+	padding: 0;
+}

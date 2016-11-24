@@ -78,12 +78,11 @@ class Page extends CI_Controller {
 	
 	public function adminlogin() {
 		$this->load->helper('form');
-		$this->load->model('categories_model');
-		$data['categories'] = $this->categories_model->getAll();
+		$data['title'] = 'Fale Conosco';
 
-		$this->load->view('public/header', $data);
+		$this->load->view('admin/header', $data);
 		$this->load->view('public/adminlogin');
-		$this->load->view('public/footer');		
+		$this->load->view('admin/footer');		
 	}
 
 }
