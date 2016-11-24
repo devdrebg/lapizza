@@ -134,25 +134,6 @@ jQuery(document).ready(function(){
                 });
 
                 jQuery('#itens table tbody').html(listItens);
-
-
-                /*
-
-'id' => $order->id,
-            'id_user' => $order->id_user,
-            'subtotal_price' => $order->subtotal_price,
-            'tax_vat' => $order->tax_vat,
-            'total_price' => $order->total_price,
-            'date' => date_format(date_create($order->date),"d/m/Y"),
-            'name_user' => $order->name_user,
-            'address_user' => $order->address_user,
-            'number_user' => $order->number_user,
-            'postal_code_user' => $order->postal_code_user,
-            'phone_user' => $order->phone_user,
-            'name_billing' => $order->name_billing,
-            'status' => $order->status,
-
-                */
             }
         });
     });
