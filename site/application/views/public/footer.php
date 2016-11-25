@@ -44,7 +44,9 @@
 			</div>
 		</footer>
 
-		<a href="<?php echo base_url() . 'cart'; ?>" title="Meu Carrinho" class="go-to-cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
+		<?php if($this->session->userdata('cart_session')) : ?>
+			<a href="<?php echo base_url() . 'cart'; ?>" title="Meu Carrinho" class="go-to-cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
+		<?php endif; ?>
 
 		<div id="terms-and-conditions" class="modal fade" role="dialog">
 			<div class="modal-dialog">
