@@ -9,14 +9,7 @@ class User extends CI_Controller {
 	}
 
 	public function index() {
-		$data['title'] = 'Dashboard';
-
-		$this->load->model('categories_model');
-		$data['categories'] = $this->categories_model->getAll();
-
-		$this->load->view('user/header', $data);
-		$this->load->view('user/dashboard');
-		$this->load->view('user/footer');
+		redirect('user/account', 'refresh');
 	}
 
 	public function address() {
@@ -33,6 +26,28 @@ class User extends CI_Controller {
 
 		$this->load->view('user/header', $data);
 		$this->load->view('user/address');
+		$this->load->view('user/footer');
+	}
+
+	public function account() {
+		$this->load->model('address_model');
+		$userData = $this->session->userdata();
+
+		$data['userdata'] = $userData;
+		$data['addresses'] = $this->address_model->getAllFromUser($userData['id']);
+		
+		$data['title'] = 'Minha Conta';
+
+		$user = $this->session->userdata();
+
+		$this->load->model('categories_model');
+		$data['categories'] = $this->categories_model->getAll();
+
+		$this->load->model('orders_model');
+		$data['orders'] = $this->orders_model->getAllFromUser($user['id']);
+
+		$this->load->view('user/header', $data);
+		$this->load->view('user/account');
 		$this->load->view('user/footer');
 	}
 

@@ -10,6 +10,7 @@
 		<link rel="stylesheet" href="<?php echo base_url() . 'css/bootstrap.min.css'; ?>">
 		<link rel="stylesheet" href="<?php echo base_url() . 'fonts/font-awesome/css/font-awesome.min.css'; ?>">
 		<link rel="stylesheet" href="<?php echo base_url() . 'css/public.css'; ?>">
+		<link rel="shortcut icon" href="<?php echo base_url() . 'favicon.ico'; ?>" type="image/x-icon" >
 	</head>
 	<body>
 		<?php if($this->session->flashdata('messages')) : ?>
@@ -68,7 +69,7 @@
 
 									<ul class="dropdown-menu" role="menu" aria-labelledby="menu-account">
 										<li><a href="<?php echo base_url() . 'user/orders'; ?>">Meus pedidos</a></li>
-										<li><a href="#">Minha conta</a></li>
+										<li><a href="<?php echo base_url() . 'user/account'; ?>">Minha conta</a></li>
 										<li><a href="<?php echo base_url() . 'user/address'; ?>">Meus endereços</a></li>
 										<li><a href="<?php echo base_url() . 'login/logout'; ?>"><span class="glyphicon glyphicon-log-out"></span> Sair</a></li>
 									</ul>	

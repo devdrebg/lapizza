@@ -173,7 +173,6 @@ jQuery(document).ready(function(){
                 }
 
                 if(optionsStatus != '') {
-                    alert(optionsStatus);
                     jQuery('select#updateorderstatus').append(optionsStatus);
                 }
 

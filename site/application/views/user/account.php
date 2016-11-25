@@ -66,6 +66,54 @@
 			<h1><?php echo $title; ?></h1>
 		</div>
 	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<h2>Meus Endereços</h2>
+		</div>
+	</div>
+	<?php if($addresses) : ?>		
+		<div class="col-md-12">
+			<div class="table-responsive">
+				<table class="table">
+					<thead>
+						<tr>
+							<th>CEP</th>
+							<th>Logradouro</th>
+							<th>Número</th>
+							<th>Complemento</th>
+							<th>Cidade</th>
+							<th>Estado</th>
+							<th>Apelido para o Endereço</th>
+						</tr>
+					</thead>
+					<tbody>
+						<?php foreach($addresses as $address) :  ?>
+							<tr>
+								<td><?php echo $address['postalcode']; ?></td>
+								<td><?php echo $address['address']; ?></td>
+								<td><?php echo $address['number']; ?></td>
+								<td><?php echo $address['district']; ?></td>
+								<td><?php echo $address['city']; ?></td>
+								<td><?php echo $address['state']; ?></td>
+								<td><?php echo $address['name']; ?></td>
+							</tr>
+						<?php endforeach; ?>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	<?php else: ?>
+		<div class="row">
+			<div class="col-md-12">
+				<p>Nenhum endereço cadastrado.</p>
+			</div>
+		</div>
+	<?php endif; ?>
+	<div class="row">
+		<div class="col-md-12">
+			<h2>Resumo de Pedidos</h2>
+		</div>
+	</div>
 	<?php if($orders) : ?>
 	<div class="row">
 		<div class="col-md-12 text-center">
@@ -80,7 +128,6 @@
 							<th>Endereço</th>
 							<th>Forma de Pagamento</th>
 							<th>Status</th>
-							<th></th>
 						</tr>
 					</thead>
 					<tbody>
