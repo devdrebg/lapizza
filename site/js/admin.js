@@ -144,18 +144,30 @@ jQuery(document).ready(function(){
                     optionsStatus += '<option value="Cancelado">Cancelado</option>';
                     optionsStatus += '<option value="Enviado">Enviado</option>';
                     optionsStatus += '<option value="Faturado">Faturado</option>';
+                    jQuery('span#status').removeClass('btn-danger');
+                    jQuery('span#status').removeClass('btn-success');
+                    jQuery('span#status').removeClass('btn-info');
                     jQuery('span#status').addClass('btn-warning');
                     jQuery('#formupdateorderstatus').removeClass('hidden');                    
                 } else if(status == 'Enviado') {
                     optionsStatus += '<option selected disabled>Atualizar</option>';
                     optionsStatus += '<option value="Cancelado">Cancelado</option>';
                     optionsStatus += '<option value="Faturado">Faturado</option>';
+                    jQuery('span#status').removeClass('btn-success');
+                    jQuery('span#status').removeClass('btn-info');
+                    jQuery('span#status').removeClass('btn-warning');
                     jQuery('span#status').addClass('btn-success');
                     jQuery('#formupdateorderstatus').removeClass('hidden');
                 } else if(status == 'Cancelado') {
+                    jQuery('span#status').removeClass('btn-warning');
+                    jQuery('span#status').removeClass('btn-success');
+                    jQuery('span#status').removeClass('btn-info');
                     jQuery('span#status').addClass('btn-danger');
                     jQuery('#formupdateorderstatus').addClass('hidden');
                 } else {
+                    jQuery('span#status').removeClass('btn-warning');
+                    jQuery('span#status').removeClass('btn-success');
+                    jQuery('span#status').removeClass('btn-danger');
                     jQuery('span#status').addClass('btn-info');
                     jQuery('#formupdateorderstatus').addClass('hidden');
                 }

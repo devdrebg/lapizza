@@ -112,9 +112,11 @@
 										} else {
 											echo 'btn-info';
 										}
-									 ?>"><?php echo $order['status']; ?></button>
+									 ?>">
+										 <?php echo $order['status']; ?>
+									 </button>
 								</td>
-								<td><a href="#" data-toggle="modal" data-target="#detailsorder" data-order-id="<?php echo $order['id']; ?>" class="btn btn-default link-detailsorder">Detalhe</a></td>
+								<td><a href="#" data-toggle="modal" data-target="#detailsorder" data-order-id="<?php echo $order['id']; ?>" class="btn btn-default link-detailsorder">Detalhes</a></td>
 							</tr>
 						<?php endforeach; ?>
 					</tbody>

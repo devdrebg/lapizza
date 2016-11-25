@@ -117,6 +117,38 @@ jQuery(document).ready(function(){
             success: function(data) {
                 var order = JSON.parse(data);
 
+                status = order.status;
+
+                var optionsStatus = '';
+                if (status == 'Em Preparo') {
+                    optionsStatus += '<option selected disabled>Atualizar</option>';
+                    optionsStatus += '<option value="Cancelado">Cancelado</option>';
+                    optionsStatus += '<option value="Enviado">Enviado</option>';
+                    optionsStatus += '<option value="Faturado">Faturado</option>';
+                    jQuery('span#status').removeClass('btn-danger');
+                    jQuery('span#status').removeClass('btn-success');
+                    jQuery('span#status').removeClass('btn-info');
+                    jQuery('span#status').addClass('btn-warning');
+                } else if(status == 'Enviado') {
+                    optionsStatus += '<option selected disabled>Atualizar</option>';
+                    optionsStatus += '<option value="Cancelado">Cancelado</option>';
+                    optionsStatus += '<option value="Faturado">Faturado</option>';
+                    jQuery('span#status').removeClass('btn-success');
+                    jQuery('span#status').removeClass('btn-info');
+                    jQuery('span#status').removeClass('btn-warning');
+                    jQuery('span#status').addClass('btn-success');
+                } else if(status == 'Cancelado') {
+                    jQuery('span#status').removeClass('btn-warning');
+                    jQuery('span#status').removeClass('btn-success');
+                    jQuery('span#status').removeClass('btn-info');
+                    jQuery('span#status').addClass('btn-danger');
+                } else {
+                    jQuery('span#status').removeClass('btn-warning');
+                    jQuery('span#status').removeClass('btn-success');
+                    jQuery('span#status').removeClass('btn-danger');
+                    jQuery('span#status').addClass('btn-info');
+                }
+
                 jQuery('span#orderid').text(order.id);
                 jQuery('span#data').text(order.date);
                 jQuery('span#subtotal').text(order.subtotal_price);
@@ -130,7 +162,7 @@ jQuery(document).ready(function(){
 
                 var listItens = '';
                 $.each(order.itens, function (key, data) {
-                    listItens += '<tr><td><img src=' + data.image + ' class="img-resume-order" /></td><td><p>' + data.name + '</p><p>' + data.description + '</p><div class="col-xs-3 no-padding"><strong>Preço:</strong><br>' + data.price + '<br></div><div class="col-xs-4 no-padding"><strong>Quantidade:</strong><br>' + data.quantity + '<br></div><div class="col-xs-4"><strong>Subtotal:</strong><br>' + data.subtotal + '</div></td></tr>';
+                    listItens += '<tr><td style="padding: 0 10px"><img src=' + data.image + ' class="img-resume-order" /></td><td><p>' + data.name + '</p><p>' + data.description + '</p><div class="col-xs-3 no-padding"><strong>Preço:</strong><br>' + data.price + '<br></div><div class="col-xs-4 no-padding"><strong>Quantidade:</strong><br>' + data.quantity + '<br></div><div class="col-xs-4"><strong>Subtotal:</strong><br>' + data.subtotal + '</div></td></tr>';
                 });
 
                 jQuery('#itens table tbody').html(listItens);
