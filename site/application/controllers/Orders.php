@@ -45,4 +45,19 @@ class Orders extends CI_Controller {
 
 		print_r(json_encode($data));
 	}
+
+	function updateorderstatus() {
+		$this->load->model('orders_model');
+
+		$idOrder = $this->input->post('id');		
+		$newStatusOrder = $this->input->post('status');		
+
+		if($this->orders_model->updateorderstatus($idOrder, $newStatusOrder)) {
+			$this->session->set_flashdata('messages', 'Pedido Nº' . $idOrder . ' atualizado.');
+		    $this->session->set_flashdata('typemessage', 'ok');
+			redirect('admin/orders', 'refresh');
+		}
+
+		redirect('admin/orders', 'refresh');	
+	}
 }

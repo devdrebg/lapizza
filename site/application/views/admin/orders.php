@@ -7,32 +7,60 @@
 			</div>
 			<div class="modal-body">
 				<div class="row">
-					<div class="col-md-12">
-						<p><strong>Status: </strong><span id="status" class="btn btn-warning"></span></p>
-						<p><strong>Total do Pedido: </strong><span id="total"></span></p>
-						<p><strong>Subtotal do Pedido: </strong><span id="subtotal"></span></p>
-						<p><strong>Taxa de Entrega: </strong><span id="tax_vat"></span></p>
-						<p><strong>Data: </strong><span id="data"></span></p>
-						<p><strong>Itens: </strong></p>
-						<div id="itens">
-							<div class="table-responsive">
-								<table class="table-collapsed">
-									<thead>
-										<tr>
-											<th>Imagem</th>
-											<th>Informações Gerais</th>
-										</tr>
-									</thead>
-									<tbody>
-
-									</tbody>
-								</table>
-							</div>
-						</div>
-						<p><strong>CEP: </strong><span id="cep"></span></p>
-						<p><strong>Endereço: </strong><span id="address"></span></p>
-						<p><strong>Forma de Pagamento: </strong><span id="name_billing"></span></p>
+					<div class="col-md-6">
+						<p><strong>Status: </strong><span id="status" class="btn"></span></p>						
+					</div>
+					<div class="col-md-6">
+						<?php echo form_open_multipart('orders/updateorderstatus', array('id' => 'formupdateorderstatus')); ?>
+							<label for="updateorderstatus">Alterar Status do Pedido</label>
+							<select name="status" id="updateorderstatus" class="form-control">
+							</select>
+							<input type="hidden" name="id" value="">
+						<?php echo form_close(); ?>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-4">
+						<p><strong>Subtotal do Pedido: </strong><br><span id="subtotal"></span></p>
+					</div>
+					<div class="col-md-4">
+						<p><strong>Taxa de Entrega: </strong><br><span id="tax_vat"></span></p>
+					</div>
+					<div class="col-md-4">
+						<p><strong>Total do Pedido: </strong><br><span id="total"></span></p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-3">
+						<p><strong>Data: </strong><br><span id="data"></span></p>
 						<p><strong>Observações: </strong><span id="message"></span></p>
+					</div>
+					<div class="col-md-4">
+						<p><strong>Forma de Pagamento: </strong><span id="name_billing"></span></p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<p><strong>Informações de Entrega</strong></p>
+						<p>
+							<strong>Endereço: </strong><span id="address"></span>
+							<strong>CEP: </strong><span id="cep"></span>
+						</p>						
+
+						<h4>Itens</h4>
+						<div id="itens">
+							<table class="table-collapsed">
+								<thead>
+									<tr>
+										<th>Imagem</th>
+										<th>Informações Gerais</th>
+									</tr>
+								</thead>
+								<tbody>
+
+								</tbody>
+							</table>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -73,8 +101,20 @@
 								<td><?php echo $order['address_user']; ?> Nº <?php echo $order['number_user']; ?></td>
 								<td><?php echo $order['phone_user']; ?></td>
 								<td><?php echo $order['name_billing']; ?></td>
-								<td><?php echo $order['status']; ?></td>
-								<td><a href="#" data-toggle="modal" data-target="#detailsorder" data-order-id="<?php echo $order['id']; ?>" class="btn btn-warning link-detailsorder">Detalhe</a></td>
+								<td>
+									<button class="btn <?php 
+										if($order['status'] == 'Em Preparo') {
+											echo 'btn-warning';
+										} else if($order['status'] == 'Enviado') {
+											echo 'btn-success';
+										} else if($order['status'] == 'Cancelado') {
+											echo 'btn-danger';
+										} else {
+											echo 'btn-info';
+										}
+									 ?>"><?php echo $order['status']; ?></button>
+								</td>
+								<td><a href="#" data-toggle="modal" data-target="#detailsorder" data-order-id="<?php echo $order['id']; ?>" class="btn btn-default link-detailsorder">Detalhe</a></td>
 							</tr>
 						<?php endforeach; ?>
 					</tbody>

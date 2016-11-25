@@ -57,4 +57,16 @@ class Orders_model extends CI_Model {
 
         return $query->result_array();
     }
+
+    function updateorderstatus($id, $newStatusOrder) {
+        $this->db->where('id', $id);
+        $this->db->set('status', $newStatusOrder);
+        $query = $this->db->update('orders');
+
+        if($query) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

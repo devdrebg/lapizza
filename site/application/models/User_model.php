@@ -46,7 +46,7 @@ class User_model extends CI_Model {
     }
 
     function recoveryPassword($email) {
-        $this->db->select('name, password');
+        $this->db->select('id, name, email, password');
         $this->db->from('users');
         $this->db->where('email', $email);
         $this->db->where('type', 0);
@@ -65,6 +65,18 @@ class User_model extends CI_Model {
     function changestatus($id, $status) {
     	$this->db->where('id', $id);
         $this->db->set('status', $status);
+        $query = $this->db->update('users');
+
+        if($query) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    function updatePassword($id, $newpassword) {
+        $this->db->where('id', $id);
+        $this->db->set('password', $newpassword);
         $query = $this->db->update('users');
 
         if($query) {

@@ -136,7 +136,37 @@ jQuery(document).ready(function(){
             success: function(data) {
                 var order = JSON.parse(data);
 
+                status = order.status;
+
+                var optionsStatus = '';
+                if (status == 'Em Preparo') {
+                    optionsStatus += '<option selected disabled>Atualizar</option>';
+                    optionsStatus += '<option value="Cancelado">Cancelado</option>';
+                    optionsStatus += '<option value="Enviado">Enviado</option>';
+                    optionsStatus += '<option value="Faturado">Faturado</option>';
+                    jQuery('span#status').addClass('btn-warning');
+                    jQuery('#formupdateorderstatus').removeClass('hidden');                    
+                } else if(status == 'Enviado') {
+                    optionsStatus += '<option selected disabled>Atualizar</option>';
+                    optionsStatus += '<option value="Cancelado">Cancelado</option>';
+                    optionsStatus += '<option value="Faturado">Faturado</option>';
+                    jQuery('span#status').addClass('btn-success');
+                    jQuery('#formupdateorderstatus').removeClass('hidden');
+                } else if(status == 'Cancelado') {
+                    jQuery('span#status').addClass('btn-danger');
+                    jQuery('#formupdateorderstatus').addClass('hidden');
+                } else {
+                    jQuery('span#status').addClass('btn-info');
+                    jQuery('#formupdateorderstatus').addClass('hidden');
+                }
+
+                if(optionsStatus != '') {
+                    alert(optionsStatus);
+                    jQuery('select#updateorderstatus').append(optionsStatus);
+                }
+
                 jQuery('span#orderid').text(order.id);
+                jQuery('#formupdateorderstatus input[name="id"]').val(order.id);
                 jQuery('span#data').text(order.date);
                 jQuery('span#subtotal').text(order.subtotal_price);
                 jQuery('span#tax_vat').text(order.tax_vat);
@@ -149,12 +179,18 @@ jQuery(document).ready(function(){
 
                 var listItens = '';
                 $.each(order.itens, function (key, data) {
-                    listItens += '<tr><td><img src=' + data.image + ' class="img-resume-order" /></td><td><p>' + data.name + '</p><p>' + data.description + '</p><div class="col-xs-3 no-padding"><strong>Preço:</strong><br>' + data.price + '<br></div><div class="col-xs-4 no-padding"><strong>Quantidade:</strong><br>' + data.quantity + '<br></div><div class="col-xs-4"><strong>Subtotal:</strong><br>' + data.subtotal + '</div></td></tr>';
+                    listItens += '<tr><td><div class="col-md-12"><img src=' + data.image + ' class="img-resume-order" /></div></td><td><p>' + data.name + '</p><p>' + data.description + '</p><div class="col-xs-3 no-padding"><strong>Preço:</strong><br>' + data.price + '<br></div><div class="col-xs-4 no-padding"><strong>Quantidade:</strong><br>' + data.quantity + '<br></div><div class="col-xs-4"><strong>Subtotal:</strong><br>' + data.subtotal + '</div></td></tr>';
                 });
 
                 jQuery('#itens table tbody').html(listItens);
             }
         });
+    });
+
+    jQuery('#updateorderstatus').on('change', function() {
+        var status = jQuery(this).val();
+
+        jQuery('#formupdateorderstatus').submit();
     });
 
     jQuery('input[name="postalcodesinsert[cep]').on('change', function() {

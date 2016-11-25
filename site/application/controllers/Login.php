@@ -130,14 +130,62 @@ class Login extends CI_Controller {
 
 		$user = $this->user_model->recoveryPassword($email);
 
-		exit($user);
-// $this->load->library('encrypt');
+		if($user) {
+			$newpassword = $this->randomPassword();
+			$this->user_model->updatePassword($user->id, MD5($newpassword));
 
-// $encrypted_password = '';
-// $key = 'secret-key-in-config';
+			$destinatario = $user->email;
+			$assunto = 'E-mail de Recuperação de Senha';
+			$mensagemHTML = '
+			</p>Prezado Sr.(a) ' . $user->name . '<br>
+			Foi solicitado em nosso site a recuperação de senha, sua nova senha agora é: ' . $newpassword . '</p>
+			<br>
+			<p>Recomendamos que por questões de segurança, altere sua senha após acessar sua área do cliente.</p>
+			<br>
+			<p>Atenciosamente, Pizzaria LaPizza</p>
+			';
 
-// $decrypted_string = $this->encrypt->decode($encrypted_password, $key);
+			$this->load->library('email');
+			// $config = array();  
+			// $config['protocol'] = 'smtp';  
+			// $config['smtp_host'] = 'ssl://smtp.gmail.com';  
+			// $config['smtp_user'] = 'lapizzacontato@gmail.com';  
+			// $config['smtp_pass'] = 'lapizza303312';  
+			// $config['smtp_port'] = 465;  
+			// $this->email->initialize($config);
+			$this->email->from('lapizzacontato@gmail.com', 'LaPizza');
+			$this->email->to($user->email);
+			$this->email->subject($assunto);
+			$this->email->set_mailtype("html");
+			$this->email->message($mensagemHTML);
 
+			if($this->email->send()) {
+				$this->session->set_flashdata('messages', 'Foi enviado um e-mail de recuperação de senha para o e-mail "' . $user->email . '".');
+			    $this->session->set_flashdata('typemessage', 'ok');
+				redirect('login', 'refresh');
+			} else {
+				$this->session->set_flashdata('messages', 'Não foi possível enviar o e-mail de recuperação de senha.');
+			    $this->session->set_flashdata('typemessage', 'error');
+			    $this->email->print_debugger();
+			    exit();
+				redirect('login', 'refresh');
+			}			
+		} else {
+			$this->session->set_flashdata('messages', 'Não existem usuários cadastrados com este e-mail.');
+		    $this->session->set_flashdata('typemessage', 'error');
+			redirect('login', 'refresh');
+		}
+	}
+
+	public function randomPassword() {
+	    $alphabet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';
+	    $pass = array(); //remember to declare $pass as an array
+	    $alphaLength = strlen($alphabet) - 1; //put the length -1 in cache
+	    for ($i = 0; $i < 16; $i++) {
+	        $n = rand(0, $alphaLength);
+	        $pass[] = $alphabet[$n];
+	    }
+	    return implode($pass); //turn the array into a string
 	}
 
 }

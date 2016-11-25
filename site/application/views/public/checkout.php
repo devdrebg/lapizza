@@ -53,7 +53,7 @@
 					<div class="col-sm-4 end">
 						<div class="row">
 							<div class="col-md-1">
-								<input type="radio" name="addressid" id="address-<?php echo $address['id']; ?>" value="<?php echo $address['id']; ?>">
+								<input type="radio" required name="addressid" id="address-<?php echo $address['id']; ?>" value="<?php echo $address['id']; ?>">
 							</div>
 							<div class="col-md-10">
 								<label for="address-<?php echo $address['id']; ?>">
@@ -76,7 +76,7 @@
 			<div class="col-sm-5">
 				<h3>Método de Pagamento</h3>
 				<div class="form-group">
-					<select class="form-control" name="name_billing">
+					<select class="form-control" name="name_billing" required>
 						<option disabled>Escolha</option>
 						<?php foreach ($billings as $billing) : ?>
 							<option value="<?php echo $billing['name']; ?>"><?php echo $billing['name']; ?></option>
