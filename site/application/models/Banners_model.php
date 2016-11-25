@@ -64,4 +64,10 @@ class Banners_model extends CI_Model {
         return $query->result_array();
     }
 
+    function getAllActive() {
+        $query = $this->db->where('status', '1');
+        $query = $this->db->get('banners');
+        return $query->result_array();
+    }
+
 }

@@ -25,6 +25,9 @@ class Page extends CI_Controller {
 		$this->load->model('categories_model');
 		$data['categories'] = $this->categories_model->getAll();
 
+		$this->load->model('banners_model');
+		$data['banners'] = $this->banners_model->getAllActive();
+
 		$this->load->view('public/header', $data);
 		$this->load->view('public/home');
 		$this->load->view('public/footer');

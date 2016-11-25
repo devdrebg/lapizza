@@ -133,7 +133,7 @@ footer a:active {
 }
 
 .carousel-caption {
-    bottom: 40%;
+    bottom: 43%;
     padding: 0;
     color: #FFF;
     text-shadow: 0 1px 2px #000;
@@ -144,6 +144,10 @@ footer a:active {
 .carousel-caption h3 {
 	font-size: 40px !important;
     font-weight: bold;
+}
+
+.carousel-caption h3 a {
+	color: #FFF;
 }
 
 .tcc-button-submit {
@@ -296,4 +300,18 @@ img.img-resume-order {
 img.img-resume-order {
     max-width: 100px;
     margin: 0 10px;
+}
+
+@media (max-width: 767px) {
+	.carousel-caption {
+	    bottom: 25%;
+	}
+
+	.carousel-caption h3 a {
+	    font-size: 25px;		
+	}
+
+	.carousel-indicators {
+	    bottom: 0px;
+	}
 }

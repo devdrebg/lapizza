@@ -17,7 +17,7 @@
 					<?php echo form_open('cart/add'); ?>
 						<br>
 						<div class="form-group row">
-							<div class="col-xs-2">
+							<div class="col-xs-3 col-sm-2">
 								<label>Quantidade:</label>
 								<input type="text" id="qtd-update-product-id-<?php echo $product['id']; ?>" name="addproductcart[quantity]" value="1" class="form-control text-center number" required min="1" max="<?php echo $product['quantitystock']; ?>">
 								<input type="hidden" name="addproductcart[quantitystock]" value="<?php echo $product['quantitystock']; ?>">

@@ -1,27 +1,26 @@
+<?php if($banners) : ?>
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
 	<!-- Indicators -->
 	<ol class="carousel-indicators">
-		<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-		<li data-target="#myCarousel" data-slide-to="1"></li>
+		<?php $c1 = 0; ?>
+		<?php foreach($banners as $banner) : ?>
+			<li data-target="#myCarousel" data-slide-to="<?php echo $c1; ?>"<?php echo ($c1 == 0) ? ' class="active"' : '' ?>></li>
+			<?php $c1++; ?>
+		<?php endforeach; ?>
 	</ol>
 
 	<!-- Wrapper for slides -->
 	<div class="carousel-inner" role="listbox">
-		<div class="item active">
-			<img src="<?php echo base_url() . 'img/pizza.jpg' ?>" alt="Chania">
-			<div class="carousel-caption">
-				<h3>Pizzas</h3>
-				<p>Peça sua pizza online sem sair do conforto de sua casa!</p>
+		<?php $c2 = 0; ?>
+		<?php foreach($banners as $banner) : ?>
+			<div class="item<?php echo ($c2 == 0) ? ' active' : '' ?>">
+				<img src="<?php echo base_url() . $banner['url']; ?>" alt="<?php echo $banner['title']; ?>" title="<?php echo $banner['title']; ?>">
+				<div class="carousel-caption">
+					<h3><a href="<?php echo ($banner['link']) ? $banner['link'] : 'aaa'; ?>"<?php echo ($banner['blank']) ? ' target="_blank"' : ''; ?>><?php echo $banner['title']; ?></a></h3>
+				</div>
 			</div>
-		</div>
-
-		<div class="item">
-			<img src="<?php echo base_url() . 'img/croissant.jpg' ?>" alt="Chania">
-			<div class="carousel-caption">
-				<h3>Lanches</h3>
-				<p>Experimente! Será uma ótima pedida para o seu paladar!</p>
-			</div>
-		</div>
+			<?php $c2++; ?>
+		<?php endforeach; ?>
 	</div>
 
 	<!-- Left and right controls -->
@@ -34,3 +33,13 @@
 		<span class="sr-only">Próximo</span>
 	</a>
 </div>
+<?php else: ?>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<p>Nenhum banner cadastrado/ativo.</p>
+			</div>
+		</div>
+	</div>
+<?php endif; ?>
+

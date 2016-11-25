@@ -39,9 +39,9 @@
 							<strong>CEP: </strong><span id="cep"></span>
 						</p>						
 
-						<h4>Itens</h4>
+						<p><strong>Itens</strong></p>
 						<div id="itens">
-							<table class="table-collapsed">
+							<table class="table table-collapsed">
 								<thead>
 									<tr>
 										<th>Imagem</th>

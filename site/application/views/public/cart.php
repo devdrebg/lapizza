@@ -55,10 +55,10 @@
 		</div>
 		<div class="row">
 			<div class="col-md-3">
-				<a href="<?php echo base_url() . 'cart/emptycart'; ?>" class="btn btn-default">Esvaziar</a>
+				<p><a href="<?php echo base_url() . 'cart/emptycart'; ?>" class="btn btn-default">Esvaziar</a></p>
 			</div>
 			<div class="col-md-offset-6 col-md-3 text-right">
-				<a href="<?php echo base_url() . 'checkout'; ?>" class="btn btn-default tcc-button-submit">Finalizar Pedido</a>
+				<p><a href="<?php echo base_url() . 'checkout'; ?>" class="btn btn-default tcc-button-submit">Finalizar Pedido</a></p>
 			</div>
 		</div>
 	<?php else: ?>

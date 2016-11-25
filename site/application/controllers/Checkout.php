@@ -169,7 +169,7 @@ class Checkout extends CI_Controller {
 		if(!$this->session->userdata('validated')){
 			$this->session->set_flashdata('messages', 'Para realizar um pedido é necessário estar logado em sua conta.');
 		    $this->session->set_flashdata('typemessage', 'ok');
-			redirect('cart', 'refresh');
+			redirect('login', 'refresh');
 		}
 	}
 
