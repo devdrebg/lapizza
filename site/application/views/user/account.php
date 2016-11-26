@@ -137,41 +137,44 @@
 					<p>
 						<a href="#" data-toggle="modal" data-target="#editaccount" class="btn btn-default">Editar</a>
 					</p>
+					<br>
 				</div>
 			</div>
 		</div>
 		<div class="col-md-7">
-			<?php if($addresses) : ?>
-				<div class="col-md-12">
-					<h2>Meus Endereços</h2>
-					<div class="table-responsive">
-						<table class="table">
-							<thead>
-								<tr>
-									<th>CEP</th>
-									<th>Logradouro</th>
-									<th>Número</th>
-									<th>Bairro</th>
-								</tr>
-							</thead>
-							<tbody>
-								<?php foreach($addresses as $address) :  ?>
-									<tr>
-										<td><?php echo $address['postalcode']; ?></td>
-										<td><?php echo $address['address']; ?></td>
-										<td><?php echo $address['number']; ?> <?php echo $address['adjunct']; ?></td>
-										<td><?php echo $address['district']; ?></td>
-									</tr>
-								<?php endforeach; ?>
-							</tbody>
-						</table>
-					</div>
-				</div>
-		<?php else: ?>	
-				<div class="col-md-12">
-					<p>Nenhum endereço cadastrado.</p>
-				</div>
-		<?php endif; ?>
+			<div class="row">
+				<?php if($addresses) : ?>
+						<div class="col-md-12">
+							<h2>Meus Endereços</h2>
+							<div class="table-responsive">
+								<table class="table">
+									<thead>
+										<tr>
+											<th>CEP</th>
+											<th>Logradouro</th>
+											<th>Número</th>
+											<th>Bairro</th>
+										</tr>
+									</thead>
+									<tbody>
+										<?php foreach($addresses as $address) :  ?>
+											<tr>
+												<td><?php echo $address['postalcode']; ?></td>
+												<td><?php echo $address['address']; ?></td>
+												<td><?php echo $address['number']; ?> <?php echo $address['adjunct']; ?></td>
+												<td><?php echo $address['district']; ?></td>
+											</tr>
+										<?php endforeach; ?>
+									</tbody>
+								</table>
+							</div>
+						</div>
+				<?php else: ?>	
+						<div class="col-md-12">
+							<p>Nenhum endereço cadastrado.</p>
+						</div>
+				<?php endif; ?>
+			</div>
 		</div>
 	</div>
 	<br>

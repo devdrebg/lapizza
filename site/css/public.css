@@ -375,7 +375,7 @@ table tr td, table tr th {
     z-index: 99999;
 }
 
-#status {
+#statusloader {
     background-image: url(../img/preloader.svg);
     background-position: center;
     background-repeat: no-repeat;

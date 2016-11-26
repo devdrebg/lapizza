@@ -14,7 +14,7 @@
 	</head>
 	<body>
 		<div id="preloader">
-			<div id="status"></div>
+			<div id="statusloader"></div>
 		</div>
 
 		<?php if($this->session->flashdata('messages')) : ?>

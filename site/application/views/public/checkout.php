@@ -52,10 +52,10 @@
 				<?php foreach($addresses as $address) : ?>
 					<div class="col-sm-4 end">
 						<div class="row">
-							<div class="col-md-1">
+							<div class="col-xs-1">
 								<input type="radio" required name="addressid" id="address-<?php echo $address['id']; ?>" value="<?php echo $address['id']; ?>">
 							</div>
-							<div class="col-md-10">
+							<div class="col-xs-10">
 								<label for="address-<?php echo $address['id']; ?>">
 									<h4><?php echo $address['name']; ?></h4>
 									<address>
