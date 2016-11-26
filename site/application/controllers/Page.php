@@ -81,6 +81,42 @@ class Page extends CI_Controller {
 		$this->load->view('public/contactus');
 		$this->load->view('public/footer');
 	}
+
+	public function sendform() {
+		$destinatario = 'andreromario@love.com';
+		$assunto = 'Mensagem de Contato do Site - Pizzaria LaPizza';
+		$mensagemHTML = '
+			<p><strong>Nome:</strong> ' . $this->input->post('nome') . '</p>
+			<p><strong>E-mail:</strong> ' . $this->input->post('email') . '</p>
+			<p><strong>Telefone:</strong> ' . $this->input->post('tel') . '</p>
+			<p><strong>Número do Pedido:</strong> ' . $this->input->post('pedido') . '</p>
+			<p><strong>Mensagem:</strong> ' . $this->input->post('mensagem') . '</p>
+		';
+
+		$this->load->library('email');
+		// $config = array();  
+		// $config['protocol'] = 'smtp';  
+		// $config['smtp_host'] = 'ssl://smtp.gmail.com';  
+		// $config['smtp_user'] = 'lapizzacontato@gmail.com';  
+		// $config['smtp_pass'] = 'lapizza303312';  
+		// $config['smtp_port'] = 465;  
+		// $this->email->initialize($config);
+		$this->email->from('lapizzacontato@gmail.com', 'LaPizza');
+		$this->email->to($destinatario);
+		$this->email->subject($assunto);
+		$this->email->set_mailtype("html");
+		$this->email->message($mensagemHTML);
+
+		if($this->email->send()) {
+			$this->session->set_flashdata('messages', 'E-mail enviado com sucesso.');
+		    $this->session->set_flashdata('typemessage', 'ok');
+			redirect('contactus', 'refresh');
+		} else {
+			$this->session->set_flashdata('messages', 'Não foi possível enviar o e-mail de contato.');
+		    $this->session->set_flashdata('typemessage', 'error');
+			redirect('contactus', 'refresh');
+		}
+	}
 	
 	public function adminlogin() {
 		$this->load->helper('form');

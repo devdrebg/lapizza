@@ -1,6 +1,11 @@
 const BASEURL = 'http://localhost/lapizza/site/';
 
-jQuery(document).ready(function(){
+jQuery(document).ready(function(){    
+    jQuery(window).load(function() { 
+        jQuery("#preloader").delay(100).fadeOut("slow");
+        jQuery("#load").delay(100).fadeOut("slow");
+    });
+
 	jQuery('#messages').modal('show');
 
 	jQuery('.number').keyup(function(e) {

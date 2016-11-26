@@ -365,6 +365,43 @@ table tr td, table tr th {
 	margin-bottom: 40px;
 }
 
+#preloader {
+    background: #a21117;
+    bottom: 0;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 99999;
+}
+
+#status {
+    background-image: url(../img/preloader.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 64px;
+    left: 50%;
+    margin: -32px 0 0 -32px;
+    position: absolute;
+    top: 50%;
+    width: 64px;
+}
+
+.custom-title {
+	text-transform: uppercase;
+	font-weight: bold;
+	color: #A21117;
+	font-size: 25px;
+	padding: 0 0 10px;
+	text-transform: uppercase;
+	border-bottom: 4px groove;
+	display: inline-block;
+	margin: 0 auto 30px;
+	min-width: 1px;
+	margin: 0 auto;
+}
+
 @media (max-width: 767px) {
 	.carousel-caption {
 	    bottom: 25%;

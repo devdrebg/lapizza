@@ -13,6 +13,10 @@
 		<link rel="shortcut icon" href="<?php echo base_url() . 'favicon.ico'; ?>" type="image/x-icon" >
 	</head>
 	<body>
+		<div id="preloader">
+			<div id="status"></div>
+		</div>
+
 		<?php if($this->session->flashdata('messages')) : ?>
 			<div id="messages" class="modal fade" role="dialog">
 				<div class="modal-dialog">

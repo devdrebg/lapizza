@@ -6,7 +6,7 @@
 	</div>
 	<div class="row">
 		<div class="col-md-6">
-			<?php echo form_open('login/redirect'); ?>
+			<?php echo form_open('page/sendform'); ?>
 				<h2>Formulário de Contato</h2>
 				<p>Preencha o formulário abaixo para entrar em contato conosco.</p>
 				<div class="form-group">

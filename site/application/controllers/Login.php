@@ -165,10 +165,8 @@ class Login extends CI_Controller {
 			} else {
 				$this->session->set_flashdata('messages', 'Não foi possível enviar o e-mail de recuperação de senha.');
 			    $this->session->set_flashdata('typemessage', 'error');
-			    $this->email->print_debugger();
-			    exit();
 				redirect('login', 'refresh');
-			}			
+			}		
 		} else {
 			$this->session->set_flashdata('messages', 'Não existem usuários cadastrados com este e-mail.');
 		    $this->session->set_flashdata('typemessage', 'error');

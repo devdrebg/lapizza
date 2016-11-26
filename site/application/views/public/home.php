@@ -47,13 +47,15 @@
 <div class="container">
 	<div class="row">
 		<div class="col-md-12 text-center">
-			<h2>Alguns de Nossos Produtos</h2>
+			<br>
+			<h2 class="custom-title">Alguns de Nossos Produtos</h2>
 		</div>
 	</div>
 	<div class="row">
+		<!-- class="wow fadeInLeft animated" data-wow-delay="0.2s" -->
 		<?php if($products) : ?>
 			<?php foreach($products as $product) : ?>
-				<div class="col-md-3 product text-center">
+				<div class="col-md-3 product text-center wow fadeInLeft animated" data-wow-delay="1.2s">
 					<a href="<?php echo base_url() . 'products/view/' . $product['id']; ?>" title="<?php echo $product['name']; ?>" class="img-product" style="background-image: url(<?php echo base_url() . $product['image']; ?>);"></a>
 					<h2><a href="<?php echo base_url() . 'products/view/' . $product['id']; ?>" title="<?php echo $product['name']; ?>"><?php echo $product['name']; ?></a></h2>
 					<div class="price">
