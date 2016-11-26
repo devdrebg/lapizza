@@ -115,4 +115,12 @@ class Products_model extends CI_Model {
         return $listaProdutos;
     }
 
+    function getAllActive() {
+        $query = $this->db->where('status', '1');
+        $this->db->order_by('rand()');
+        $this->db->limit(12);
+        $query = $this->db->get('products');
+        return $query->result_array();
+    }
+
 }

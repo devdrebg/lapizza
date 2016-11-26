@@ -28,6 +28,9 @@ class Page extends CI_Controller {
 		$this->load->model('banners_model');
 		$data['banners'] = $this->banners_model->getAllActive();
 
+		$this->load->model('products_model');
+		$data['products'] = $this->products_model->getAllActive();
+
 		$this->load->view('public/header', $data);
 		$this->load->view('public/home');
 		$this->load->view('public/footer');

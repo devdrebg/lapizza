@@ -27,7 +27,7 @@
 					<div class="col-md-4">
 						<h2>Contato</h2>
 
-						<address><i class="fa fa-home"></i> Rua Fulano de Tal, 19 CEP: 00000-000 São Paulo</address>
+						<address><i class="fa fa-home"></i> Rua Fulano de Tal, 19 CEP: 00000-000 São Paulo - SP</address>
 						<address><i class="fa fa-phone"> <a href="tel:(11) 9999-9999">(11) 9999-9999</a></i></address>
 						<p><i class="fa fa-envelope"></i> <a href="mailto:contato@lapizza.com.br" title="Enviar um e-mail para contato@lapizza.com.br">contato@lapizza.com.br</a></p>
 					</div>
