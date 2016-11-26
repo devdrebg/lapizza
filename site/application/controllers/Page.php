@@ -83,7 +83,7 @@ class Page extends CI_Controller {
 	}
 
 	public function sendform() {
-		$destinatario = 'andreromario@love.com';
+		$destinatario = 'andreromario@live.com';
 		$assunto = 'Mensagem de Contato do Site - Pizzaria LaPizza';
 		$mensagemHTML = '
 			<p><strong>Nome:</strong> ' . $this->input->post('nome') . '</p>
