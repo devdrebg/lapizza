@@ -104,21 +104,38 @@ class User extends CI_Controller {
 				);
 
 
-				$this->user_model->editaccount($iduser, $data);
+				if($this->user_model->editaccount($iduser, $data)) {
+					$user = $this->user_model->redirect($email, MD5($password));
 
-				$this->session->set_flashdata('messages', 'Suas informações foram atualizadas, por questões de segurança encerramos sua sessão.');
-				redirect('login/logout', 'refresh');
+					$dadosUser = array(
+						'id' => $user["id"],
+					    'name' => $user["name"],
+					    'user' => $user["user"],
+					    'email' => $user["email"],
+					    'picture' => $user["picture"],
+					    'phone' => $user["phone"],
+					    'validated' => true
+				    );
+
+				    $this->session->set_userdata($dadosUser);
+					$this->session->set_flashdata('messages', 'Suas informações foram atualizadas.');
+				    $this->session->set_flashdata('typemessage', 'ok');
+				} else {
+					$this->session->set_flashdata('messages', 'Erro ao alterar suas informações.');
+				    $this->session->set_flashdata('typemessage', 'error');
+				}
+				redirect('user/index', 'refresh');
 			} else {
 				$this->session->set_flashdata('messages', 'A senha atual está incorreta, é necessário informar a senha para realizar a alteração de suas informações pessoais.');
 			    $this->session->set_flashdata('typemessage', 'error');
 
-				redirect('user/account', 'refresh');
+				redirect('user/index', 'refresh');
 			}
 		} else {
 			$this->session->set_flashdata('messages', 'É necessário informar a senha para realizar a alteração de suas informações pessoais.');
 		    $this->session->set_flashdata('typemessage', 'error');
 
-			redirect('user/account', 'refresh');
+			redirect('user/index', 'refresh');
 		}
 	}
 

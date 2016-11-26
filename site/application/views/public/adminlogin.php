@@ -32,7 +32,7 @@
 			<div class="modal-body">
 				<div class="row">
 					<div class="col-md-offset-2 col-md-8">
-						<?php echo form_open('user/forggotpassword'); ?>
+						<?php echo form_open('login/forggotpassword'); ?>
 							<div class="form-group">	
 								<p>Digite seu endereço de e-mail a seguir para que possamos enviar um e-mail de recuperação de senha.</p>
 							</div>
@@ -40,7 +40,7 @@
 								<input type="email" name="userforggotpassword[email]" placeholder="E-mail" class="form-control" required>
 							</div>
 							<div class="form-group">
-								<button type="submit" class="btn btn-default tcc-button-submit">Cadastrar</button>
+								<button type="submit" class="btn btn-default tcc-button-submit">Recuperar</button>
 							</div>
 						<?php echo form_close(); ?>
 					</div>

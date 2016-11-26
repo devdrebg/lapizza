@@ -37,7 +37,7 @@
 						<div class="col-md-2">
 							<h1 class="logo"><a href="<?php echo base_url(); ?>admin" title="Início | Área Administrativa LaPizza"><img src="<?php echo base_url() . 'img/logo.png'; ?>" alt="Início | Área Administrativa LaPizza" class="img-responsive center-block"></a></h1>
 						</div>
-						<div class="col-md-10">
+						<div class="col-md-10 no-padding">
 							<div class="navbar-header"> 
 								<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#menu-header">
 									<span class="icon-bar"></span>

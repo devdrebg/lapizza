@@ -49,7 +49,6 @@ class User_model extends CI_Model {
         $this->db->select('id, name, email, password');
         $this->db->from('users');
         $this->db->where('email', $email);
-        $this->db->where('type', 0);
         $this->db->where('status', 1);
         $this->db->limit(1);
 

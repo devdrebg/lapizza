@@ -28,7 +28,7 @@
 
 					<div class="form-group">
 						<label for="password">Senha Atual:</label>
-						<input type="password" id="password" name="editaccount[password]" class="form-control"  required>
+						<input type="password" id="password" name="editaccount[password]" class="form-control" required>
 					</div>
 					<div class="form-group">
 						<label for="newpassword">Nova Senha:</label>
