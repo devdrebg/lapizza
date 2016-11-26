@@ -114,38 +114,40 @@
 		</div>
 	</div>
 	<?php if($addresses) : ?>		
-		<div class="col-md-12">
-			<div class="table-responsive">
-				<table class="table">
-					<thead>
-						<tr>
-							<th>CEP</th>
-							<th>Logradouro</th>
-							<th>Número</th>
-							<th>Complemento</th>
-							<th>Cidade</th>
-							<th>Estado</th>
-							<th>Apelido para o Endereço</th>
-							<!-- <th>Editar</th> -->
-							<th>Excluir</th>
-						</tr>
-					</thead>
-					<tbody>
-						<?php foreach($addresses as $address) :  ?>
+		<div class="row">
+			<div class="col-md-12">
+				<div class="table-responsive">
+					<table class="table">
+						<thead>
 							<tr>
-								<td><?php echo $address['postalcode']; ?></td>
-								<td><?php echo $address['address']; ?></td>
-								<td><?php echo $address['number']; ?></td>
-								<td><?php echo $address['district']; ?></td>
-								<td><?php echo $address['city']; ?></td>
-								<td><?php echo $address['state']; ?></td>
-								<td><?php echo $address['name']; ?></td>
-								<!-- <td><a href="#" data-toggle="modal" data-target="#updateaddress" data-address-id="<?php echo $address['id']; ?>" class="btn btn-primary link-updateaddress">Editar</a></td> -->
-								<td><a href="<?php echo base_url(); ?>address/delete/<?php echo $address['id']; ?>" class="btn btn-danger">Excluir</a></td>
+								<th>CEP</th>
+								<th>Logradouro</th>
+								<th>Número</th>
+								<th>Complemento</th>
+								<th>Cidade</th>
+								<th>Estado</th>
+								<th>Apelido para o Endereço</th>
+								<!-- <th>Editar</th> -->
+								<th>Excluir</th>
 							</tr>
-						<?php endforeach; ?>
-					</tbody>
-				</table>
+						</thead>
+						<tbody>
+							<?php foreach($addresses as $address) :  ?>
+								<tr>
+									<td><?php echo $address['postalcode']; ?></td>
+									<td><?php echo $address['address']; ?></td>
+									<td><?php echo $address['number']; ?></td>
+									<td><?php echo $address['district']; ?></td>
+									<td><?php echo $address['city']; ?></td>
+									<td><?php echo $address['state']; ?></td>
+									<td><?php echo $address['name']; ?></td>
+									<!-- <td><a href="#" data-toggle="modal" data-target="#updateaddress" data-address-id="<?php echo $address['id']; ?>" class="btn btn-primary link-updateaddress">Editar</a></td> -->
+									<td><a href="<?php echo base_url(); ?>address/delete/<?php echo $address['id']; ?>" class="btn btn-danger">Excluir</a></td>
+								</tr>
+							<?php endforeach; ?>
+						</tbody>
+					</table>
+				</div>
 			</div>
 		</div>
 	<?php else: ?>

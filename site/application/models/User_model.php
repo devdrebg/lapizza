@@ -86,6 +86,39 @@ class User_model extends CI_Model {
         }
     }
 
+    function editaccount($id, $data) {
+        $this->db->where('id', $id);
+        $this->db->set('user', $data['email']);
+        $this->db->set('email', $data['email']);
+        $this->db->set('phone', $data['phone']);
+        $this->db->set('password', $data['password']);
+        $this->db->set('picture', $data['picture']);
+        $this->db->where('type', '0');
+        $this->db->where('status', '1');
+        $query = $this->db->update('users');
+
+        if($query) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    function getPassword($id) {
+        $this->db->select('password');
+        $this->db->from('users');
+        $this->db->where('id', $id);
+        $this->db->where('type', '0');
+
+        $query = $this->db->get();
+
+        if($query->num_rows() > 0) {
+            return $query->row();
+        } else {
+            return false;
+        }
+    }
+
     function get($id) {
     	$this->db->select('name, phone');
         $this->db->from('users');

@@ -135,7 +135,7 @@ class Checkout extends CI_Controller {
 		if(!$address) {
 			$this->session->set_flashdata('messages', 'Para realizar um pedido em nossa loja será necessário que você tenha pelo menos 1 endereço cadastrado.');
 		    $this->session->set_flashdata('typemessage', 'error');
-			redirect('cart', 'refresh');
+			redirect('user/address', 'refresh');
 		}
 	}
 

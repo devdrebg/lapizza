@@ -77,20 +77,24 @@
 				<div class="modal-content">
 					<div class="modal-header">
 						<button type="button" class="close" data-dismiss="modal">&times;</button>
-						<h2 class="text-center">Privacidade</h2>
+						<h2 class="text-center">Política de Privacidade</h2>
 					</div>
 					<div class="modal-body">
-						<p>
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc velit dui, aliquam id mollis in, maximus quis nisi. Vestibulum ut massa feugiat; pretium risus a, scelerisque lectus! Fusce a ipsum sit amet libero ornare sollicitudin sit amet sed lectus? Nullam vitae luctus eros, a viverra ipsum? Fusce quis fermentum libero. Fusce placerat mi eu varius imperdiet? Ut rutrum ante id aliquam bibendum! Proin mattis, orci eget viverra consequat, libero felis sagittis tellus; sed porttitor dolor ante vel arcu. Etiam tincidunt; ipsum a tristique hendrerit; odio magna varius odio, quis tincidunt quam tortor non nunc. Phasellus auctor erat metus, ut egestas mi mollis at. Etiam rhoncus ligula pharetra, egestas leo et, finibus ligula. Mauris ac nisl est. Proin sed gravida lectus.
+						<p>A Pizzaria LaPizza, informa nesta declaração de proteção de dados quais consentimentos foram dados para autorizar a utilização e os processamento dos dados pessoais do usuário para fins de publicidade(e-mail, newsletter, etc.).
 						</p>
-
-						<p>
-						Mauris iaculis, sem eu consectetur mollis, quam eros interdum dolor, ac blandit nulla sapien vel orci. Duis sed placerat magna. Duis eleifend consectetur ipsum, id mollis nulla commodo at. Aenean congue tempor luctus! Quisque id purus nisl. Vestibulum et metus tincidunt, molestie nulla vel, fermentum massa? In dictum risus id ex vehicula semper. Vivamus elementum nisi nunc; sed varius ipsum tempor quis. Nulla luctus sapien congue velit ultricies lobortis. Maecenas lacinia, odio ut consequat lobortis, urna neque euismod risus, quis sagittis lacus turpis eget eros. Fusce ipsum nulla, facilisis nec lorem auctor, feugiat ullamcorper turpis.
-						</p>
-
-						<p>
-						Vivamus dictum, neque non venenatis pulvinar, elit turpis lobortis metus, quis eleifend ipsum erat vitae neque. Praesent dignissim est vitae tortor auctor ultricies? Nam gravida porta ex sit amet commodo. Praesent sodales, odio ut suscipit dictum; metus nisl blandit velit, pulvinar eleifend augue neque ac justo. Vivamus facilisis, arcu nec iaculis maximus, enim libero consectetur neque; vel commodo lacus ipsum non odio! Aenean ultricies magna at semper luctus. Vestibulum nisi dui, elementum id feugiat et, interdum eu arcu. Suspendisse arcu turpis, mollis ac metus vel, hendrerit dapibus tortor! Aliquam erat volutpat.
-						</p>
+						<h5>1. O Que  Obtemos. </h5>
+						<p>Nós somos autorizados a levantar dados pessoais, assim considerados os dados de estoque (por exemplo: nome, endereço e e-mail do usuário).&nbsp;</p>
+						<p>Utilizamos e processamos os dados pessoais do usuário para fins de constituição, realização e execução do contrato de utilização e dos contratos com sites de compra coletiva. Isto abrange a transmissão dos seus dados a terceiros e a utilização por estes, na medida em que este procedimento é necessário para a constituição, realização e execução do contrato e dos contratos de compra concluídos.</p>
+						<h5>2. O que são “cookies” e qual a sua utilidade.</h5>
+						<p>Utilizamos Cookies em diferentes partes do site para tornar a visita do nosso site mais atraente e possibilitar o uso de certas funções. Cookies são pequenos arquivos de texto que são armazenados em seu computador. A maioria dos Cookies utilizados em nosso site serão apagados do disco rígido do usuário automaticamente ao encerrar a sessão do navegador (chamados Cookies de sessão). Outros tipos de Cookies permanecerão no computador do usuário e possibilitam a identificação daquele computador na próxima visita do nosso site (chamados Cookies permanentes).</p>
+						<h5>3. Como serão utilizadas estas informações.</h5>
+						<p>A LaPizza utiliza diferentes sistemas de tracking de terceiros, como por exemplo Google Analytics, um serviço de análise de internet da Google Inc. O Google Analytics utiliza Cookies (arquivos de texto) que são armazenados no computador do usuário e possibilitam a análise de utilização do site. As informações geradas a partir dos Cookies a respeito da utilização do site (incluindo o seu endereço IP) serão transmitidos a um servidor nos Estados Unidos e lá armazenados.&nbsp;</p>
+						<p>O Google utilizará essas informações para analisar a utilização do site para fornecer relatórios sobre a utilização aos operadores de sites bem como o fornecimento de outros serviços ligados à utilização do site e da internet. O Google transmitirá também essas informações a terceiros, caso seja imposto por lei ou no caso em que o terceiro processe esses dados por ordem do Google. O Google não ligará seu endereço IP a outros dados.&nbsp;</p>
+						<p>Ao utilizar o site você concorda com o processamento dos dados levantados pelo Google na forma e na finalidade anteriormente descrita.</p>
+						<h5>4. Pedido de exclusão do banco de dados.</h5>
+						<p>O usuário pode cancelar a sua inclusão nestes programas de publicidade a todo momento através do contato do site solicitando o cancelamento. Informamos ainda que não disponibilizaremos seus dados para fins de publicidade a terceiros.</p>
+						<h5>5.&nbsp;Envio de informações.</h5>
+						<p>Somos autorizados a transmitir os dados do usuário a terceiros caso isto seja necessário para cumprir regulações legais (por exemplo, da legislação brasileira) como no caso da transmissão de dados a autoridades de perseguição penal e inspeção para fins de defesa de perigos para a segurança pública bem como a perseguição penal.</p>
 					</div>
 				</div>
 			</div>

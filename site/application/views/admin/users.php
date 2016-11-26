@@ -11,6 +11,7 @@
 					<tr>
 						<th>ID</th>
 						<th>Nome</th>
+						<th>Foto</th>
 						<th>E-mail</th>
 						<th>Telefone</th>
 						<th>Status</th>
@@ -22,6 +23,7 @@
 						<tr>
 							<td><?php echo $user['id']; ?></td>
 							<td><?php echo $user['name']; ?></td>
+							<td><div class="profile-picture"<?php if($user['picture']) : ?> style="background-image: url(<?php echo base_url() . $user['picture']; ?>) !important;"<?php endif; ?>></div></td>
 							<td><?php echo $user['email']; ?></td>
 							<td><?php echo $user['phone']; ?></td>
 							<td><?php echo ($user['status']) ? 'Ativo' : 'Inativo'; ?></td>

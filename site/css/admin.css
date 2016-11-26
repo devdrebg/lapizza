@@ -207,3 +207,15 @@ img.img-resume-order {
     max-width: 100px;
     margin: 0 10px;
 }
+
+.profile-picture {
+	width: 135px;
+	height: 135px;
+	background-image: url(../img/profile-picture.png);
+	background-size: cover;
+	margin: 20px auto;
+}
+
+table tr td, table tr th {
+	text-align: center;
+}

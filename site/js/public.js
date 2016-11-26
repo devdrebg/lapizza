@@ -170,6 +170,10 @@ jQuery(document).ready(function(){
         });
     });
 
+    jQuery('#editaccoutprofilepicture').change(function(event) {
+        var tmppath = URL.createObjectURL(event.target.files[0]);
+        jQuery("#editaccoutprofilepicturepreview").attr('src',URL.createObjectURL(event.target.files[0]));
+    });
 
 	jQuery('.postalcode').mask('99999999');
 
