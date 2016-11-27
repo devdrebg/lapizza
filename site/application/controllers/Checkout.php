@@ -100,6 +100,39 @@ class Checkout extends CI_Controller {
 			$this->itens_model->insert($item);
 		}
 
+		$assunto = 'Novo Pedido - Pizzaria LaPizza';
+		$mensagemHTML = '
+		<p>Data do Pedido: ' . date_format(date_create($theOrderInserted->date),"d/m/Y") . '</p>
+		<p>Pedido Nº: ' . $theOrderInserted->id . '</p>
+		<p>Cliente: ' . $theOrderInserted->name_user . '</p>
+		<p>Subtotal: R$ ' . number_format($theOrderInserted->subtotal_price, 2, ',', '.') . '</p>
+		<p>Taxa de Entrega: R$ ' . number_format($theOrderInserted->tax_vat, 2, ',', '.') . '</p>
+		<p>Valor Total: R$ ' . number_format($theOrderInserted->total_price, 2, ',', '.') . '</p>
+		<p>Telefone do Cliente: ' . $theOrderInserted->phone_user . '</p>
+		<p>Forma de Pagamento: ' . $theOrderInserted->name_billing . '</p>
+		<p>Observações: ' . $theOrderInserted->message . '</p>
+		<p>Endereço para Entrega: ' . $theOrderInserted->address_user . ' ' . $theOrderInserted->number_user .' CEP: ' . $theOrderInserted->postal_code_user . '</p>
+		<p>Status: ' . $theOrderInserted->status . '</p>
+		<br>
+		<p>Atenciosamente, Pizzaria LaPizza</p>
+		';
+
+		$this->load->library('email');
+		// $config = array();  
+		// $config['protocol'] = 'smtp';  
+		// $config['smtp_host'] = 'ssl://smtp.gmail.com';  
+		// $config['smtp_user'] = 'lapizzacontato@gmail.com';  
+		// $config['smtp_pass'] = 'lapizza303312';  
+		// $config['smtp_port'] = 465;  
+		// $this->email->initialize($config);
+		$this->email->from('lapizzacontato@gmail.com', 'LaPizza');
+		$this->email->to(array('andreromario@live.com', $user->email));
+		$this->email->subject($assunto);
+		$this->email->set_mailtype("html");
+		$this->email->message($mensagemHTML);
+
+		$this->email->send();
+
 		redirect('checkout/success', 'refresh');
 	}
 

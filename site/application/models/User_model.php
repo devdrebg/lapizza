@@ -87,8 +87,7 @@ class User_model extends CI_Model {
 
     function editaccount($id, $data) {
         $this->db->where('id', $id);
-        $this->db->set('user', $data['email']);
-        $this->db->set('email', $data['email']);
+        $this->db->set('name', $data['name']);
         $this->db->set('phone', $data['phone']);
         $this->db->set('password', $data['password']);
         $this->db->set('picture', $data['picture']);
@@ -119,7 +118,7 @@ class User_model extends CI_Model {
     }
 
     function get($id) {
-    	$this->db->select('name, phone');
+    	$this->db->select('name, email, phone');
         $this->db->from('users');
         $this->db->where('id', $id);
 

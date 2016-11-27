@@ -27,8 +27,9 @@
 					<div class="col-md-4">
 						<h2>Contato</h2>
 
-						<address><i class="fa fa-home"></i> Rua Fulano de Tal, 19 CEP: 00000-000 São Paulo - SP</address>
-						<address><i class="fa fa-phone"> <a href="tel:(11) 9999-9999">(11) 9999-9999</a></i></address>
+						<address><i class="fa fa-home"></i> Rua Barra de Santa Rosa, 160 - Vila Cisper<br>CEP: 03817-010 São Paulo - SP</address>
+						<address><i class="fa fa-phone"></i> <a href="tel:(11) 2541-2673">(11) 2541-2673</a> | <a href="tel:(11) 98762-8302">(11) 98762-8302</a></address>
+						<p><i class="fa fa-clock-o" aria-hidden="true"></i> Horário de Funcionamento: <br>Terça a Quinta e aos Domingos das 18:00 às 23:00 | Sexta, Sábados e Vésperas de Feriados: das 18:00 às 00:00</p>
 						<p><i class="fa fa-envelope"></i> <a href="mailto:contato@lapizza.com.br" title="Enviar um e-mail para contato@lapizza.com.br">contato@lapizza.com.br</a></p>
 					</div>
 				</div>

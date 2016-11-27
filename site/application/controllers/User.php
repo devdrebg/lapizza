@@ -55,6 +55,7 @@ class User extends CI_Controller {
 		$user = $this->session->userdata();
 
 		$iduser = $user['id'];
+		$name = $this->input->post('editaccount[name]');
 		$email = $this->input->post('editaccount[email]');
 		$phone = $this->input->post('editaccount[phone]');
 		$password = trim($this->input->post('editaccount[password]'));
@@ -97,7 +98,7 @@ class User extends CI_Controller {
 				}
 
 				$data = array(
-					'email' => $email,	
+					'name' => $name,	
 					'phone' => $phone,
 					'password' => MD5($password),
 					'picture' => $imagem

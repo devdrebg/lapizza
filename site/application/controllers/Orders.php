@@ -53,6 +53,35 @@ class Orders extends CI_Controller {
 		$newStatusOrder = $this->input->post('status');		
 
 		if($this->orders_model->updateorderstatus($idOrder, $newStatusOrder)) {
+			$this->load->model('user_model');
+
+			$order = $this->orders_model->get($idOrder);
+			$user = $this->user_model->get($order->id_user);
+
+			$assunto = 'Atualização de Status do Pedido Nº  - Pizzaria LaPizza';
+			$mensagemHTML = '
+			<p>Prezado Sr.(a) ' . $order->name_user . '</p>
+			<p>O status do seu pedido Nº ' . $order->id . ' foi atualizado para: ' . $order->status . '</p>
+			<br>
+			<p>Atenciosamente, Pizzaria LaPizza</p>
+			';
+
+			$this->load->library('email');
+			// $config = array();  
+			// $config['protocol'] = 'smtp';  
+			// $config['smtp_host'] = 'ssl://smtp.gmail.com';  
+			// $config['smtp_user'] = 'lapizzacontato@gmail.com';  
+			// $config['smtp_pass'] = 'lapizza303312';  
+			// $config['smtp_port'] = 465;  
+			// $this->email->initialize($config);
+			$this->email->from('lapizzacontato@gmail.com', 'LaPizza');
+			$this->email->to($user->email);
+			$this->email->subject($assunto);
+			$this->email->set_mailtype("html");
+			$this->email->message($mensagemHTML);
+
+			$this->email->send();
+
 			$this->session->set_flashdata('messages', 'Pedido Nº' . $idOrder . ' atualizado.');
 		    $this->session->set_flashdata('typemessage', 'ok');
 			redirect('admin/orders', 'refresh');

@@ -8,8 +8,8 @@
 			<div class="modal-body">
 				<?php echo form_open_multipart('user/editaccount'); ?>
 					<div class="form-group">
-						<label for="email">E-mail:</label>
-						<input type="text" id="email" name="editaccount[email]" value="<?php echo $userdata['email']; ?>" class="form-control" required>
+						<label for="name">Nome Completo:</label>
+						<input type="text" id="name" name="editaccount[name]" value="<?php echo $userdata['name']; ?>" class="form-control" required>
 					</div>
 					<div class="form-group">
 						<label for="phone">Telefone:</label>
@@ -39,6 +39,7 @@
 						<input type="password" id="confirmpassword" name="editaccount[confirmnewpassword]" class="form-control">
 					</div>
 					<div class="form-group">
+						<input type="hidden" id="email" name="editaccount[email]" value="<?php echo $userdata['email']; ?>">
 						<button type="submit" class="btn btn-default tcc-button-submit">Salvar</button>
 					</div>
 				<?php echo form_close(); ?>

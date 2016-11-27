@@ -402,6 +402,10 @@ table tr td, table tr th {
 	margin: 0 auto;
 }
 
+.bdrimg {
+	border-radius: 5px;
+}
+
 @media (max-width: 767px) {
 	.carousel-caption {
 	    bottom: 25%;
