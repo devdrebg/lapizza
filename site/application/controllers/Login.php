@@ -25,6 +25,7 @@ class Login extends CI_Controller {
 				    'email' => $user["email"],
 				    'picture' => $user["picture"],
 				    'phone' => $user["phone"],
+				    'type' => 0,
 				    'validated' => true
 			    );
 
@@ -60,6 +61,7 @@ class Login extends CI_Controller {
 				    'email' => $admin[0]["email"],
 				    'picture' => $admin[0]["picture"],
 				    'phone' => $admin[0]["phone"],
+				    'type' => 1,
 				    'validated' => true
 			    );
 

@@ -33,7 +33,7 @@
 		<header>
 			<div class="container">
 				<div class="row">
-					<?php if($this->session->userdata('validated')) : ?>
+					<?php if(!$this->session->userdata('validated') || $this->session->userdata('type') == 1) : ?>
 						<div class="col-md-2">
 							<h1 class="logo"><a href="<?php echo base_url(); ?>admin" title="Início | Área Administrativa LaPizza"><img src="<?php echo base_url() . 'img/logo.png'; ?>" alt="Início | Área Administrativa LaPizza" class="img-responsive center-block"></a></h1>
 						</div>

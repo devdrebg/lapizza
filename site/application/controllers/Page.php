@@ -48,6 +48,7 @@ class Page extends CI_Controller {
 	}
 
 	public function login() {
+		$this->userLogged();
 		$this->load->helper('form');
 		$data['title'] = 'Acessar Conta';
 
@@ -118,13 +119,27 @@ class Page extends CI_Controller {
 		}
 	}
 	
-	public function adminlogin() {
+	public function adminlogin() {		
+		$this->userLogged();
+		$this->userAdminLogged();
 		$this->load->helper('form');
 		$data['title'] = 'Fale Conosco';
 
 		$this->load->view('admin/header', $data);
 		$this->load->view('public/adminlogin');
 		$this->load->view('admin/footer');		
+	}
+
+	private function userLogged() {
+		if($this->session->userdata('validated') || $this->session->userdata('type') != 0){
+			redirect('user/index');
+		}
+	}
+
+	private function userAdminLogged() {
+		if(!$this->session->userdata('validated') || $this->session->userdata('type') != 1){
+			redirect('login');
+		}
 	}
 
 }
