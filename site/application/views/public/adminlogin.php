@@ -1,4 +1,4 @@
-<div class="container internal">
+<div class="container">
 	<div class="row">
 		<div class="col-md-4 col-md-offset-4">
 			<h2 class="text-center">Acessar Painel Administrativo</h2>

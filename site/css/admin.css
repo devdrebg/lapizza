@@ -175,7 +175,7 @@ p, table, .dataTables_wrapper {
 }
 
 .dataTables_wrapper {
-	border: 1px solid #ccc;
+	border: none;
 	padding: 10px;
 }
 
