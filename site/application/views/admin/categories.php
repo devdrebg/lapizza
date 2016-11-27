@@ -56,23 +56,25 @@
 	</div>
 	<div class="row">
 		<div class="col-md-12">
-			<table class="table">
-				<thead>
-					<th>ID</th>
-					<th>Nome</th>
-					<th>Editar</th>
-					<!-- <th>Excluir</th> -->
-				</thead>
- 				<tbody><?php foreach($categories as $categorie) : ?>
-					<tr>
-						<td><?php echo $categorie['id']; ?></td>
-						<td><?php echo $categorie['name']; ?></td>
-						<td><a href="#" data-toggle="modal" data-target="#updatecategorie" data-categorie-id="<?php echo $categorie['id']; ?>" class="btn btn-primary link-updatecategorie">Editar</a></td>
-						<!-- <td><a href="<?php echo base_url(); ?>categories/delete/<?php echo $categorie['id']; ?>" class="btn btn-danger">Excluir</a></td> -->
-					</tr>
-					<?php endforeach; ?>
-				</tbody>
-			</table>
+			<div class="table-responsive">
+				<table class="table">
+					<thead>
+						<th>ID</th>
+						<th>Nome</th>
+						<th>Editar</th>
+						<!-- <th>Excluir</th> -->
+					</thead>
+	 				<tbody><?php foreach($categories as $categorie) : ?>
+						<tr>
+							<td><?php echo $categorie['id']; ?></td>
+							<td><?php echo $categorie['name']; ?></td>
+							<td><a href="#" data-toggle="modal" data-target="#updatecategorie" data-categorie-id="<?php echo $categorie['id']; ?>" class="btn btn-primary link-updatecategorie">Editar</a></td>
+							<!-- <td><a href="<?php echo base_url(); ?>categories/delete/<?php echo $categorie['id']; ?>" class="btn btn-danger">Excluir</a></td> -->
+						</tr>
+						<?php endforeach; ?>
+					</tbody>
+				</table>
+			</div>
 		</div>
 	</div>
 </div>

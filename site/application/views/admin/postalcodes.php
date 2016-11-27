@@ -49,30 +49,32 @@
 	</div>
 	<div class="row">
 		<div class="col-md-12">
-			<table class="table">
-				<thead>
-					<th>ID</th>
-					<th>CEP</th>
-					<th>Logradouro</th>
-					<th>Bairro</th>
-					<th>Cidade</th>
-					<th>Estado</th>
-					<th>Excluir</th>
-				</thead>
- 				<tbody><?php foreach($postalcodes as $postalcode) : ?>
-					<tr>
-						<td><?php echo $postalcode['id']; ?></td>
-						<td><?php echo $postalcode['cep']; ?></td>
-						<td><?php echo $postalcode['location']; ?></td>
-						<td><?php echo $postalcode['district']; ?></td>
-						<td><?php echo $postalcode['city']; ?></td>
-						<td><?php echo $postalcode['state']; ?></td>
-						<!-- <td><a href="#" data-toggle="modal" data-target="#updatecategorie" data-categorie-id="<?php echo $categorie['id']; ?>" class="btn btn-primary link-updatecategorie">Editar</a></td> -->
-						<td><a href="<?php echo base_url(); ?>postalcodes/delete/<?php echo $postalcode['id']; ?>" class="btn btn-danger">Excluir</a></td>
-					</tr>
-					<?php endforeach; ?>
-				</tbody>
-			</table>
+			<div class="table-responsive">
+				<table class="table">
+					<thead>
+						<th>ID</th>
+						<th>CEP</th>
+						<th>Logradouro</th>
+						<th>Bairro</th>
+						<th>Cidade</th>
+						<th>Estado</th>
+						<th>Excluir</th>
+					</thead>
+	 				<tbody><?php foreach($postalcodes as $postalcode) : ?>
+						<tr>
+							<td><?php echo $postalcode['id']; ?></td>
+							<td><?php echo $postalcode['cep']; ?></td>
+							<td><?php echo $postalcode['location']; ?></td>
+							<td><?php echo $postalcode['district']; ?></td>
+							<td><?php echo $postalcode['city']; ?></td>
+							<td><?php echo $postalcode['state']; ?></td>
+							<!-- <td><a href="#" data-toggle="modal" data-target="#updatecategorie" data-categorie-id="<?php echo $categorie['id']; ?>" class="btn btn-primary link-updatecategorie">Editar</a></td> -->
+							<td><a href="<?php echo base_url(); ?>postalcodes/delete/<?php echo $postalcode['id']; ?>" class="btn btn-danger">Excluir</a></td>
+						</tr>
+						<?php endforeach; ?>
+					</tbody>
+				</table>
+			</div>
 		</div>
 	</div>
 </div>

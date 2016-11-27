@@ -121,9 +121,8 @@ class Page extends CI_Controller {
 	
 	public function adminlogin() {		
 		$this->userLogged();
-		$this->userAdminLogged();
 		$this->load->helper('form');
-		$data['title'] = 'Fale Conosco';
+		$data['title'] = 'Acesso Área Administrativa';
 
 		$this->load->view('admin/header', $data);
 		$this->load->view('public/adminlogin');

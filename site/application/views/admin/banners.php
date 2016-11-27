@@ -113,31 +113,33 @@
 	</div>
 	<div class="row">
 		<div class="col-md-12">
-			<table class="table">
-				<thead>
-					<th style="width: 20px">ID</th>
-					<th style="width: 100px">Título</th>
-					<th style="width: 100px">Imagem</th>
-					<th style="width: 100px">Link</th>
-					<th>Abrir em outra Aba?</th>
-					<th style="width: 20px">Status</th>
-					<th>Editar</th>
-					<th>Excluir</th>
-				</thead>
- 				<tbody><?php foreach($banners as $banner) : ?>
-					<tr>
-						<td><?php echo $banner['id']; ?></td>
-						<td><?php echo $banner['title']; ?></td>
-						<td><img src="<?php echo base_url() . $banner['url']; ?>" alt="<?php echo $banner['title']; ?>" class="img-responsive img-product"></td>
-						<td><?php echo $banner['link']; ?></td>
-						<td><?php if($banner['blank']) : echo 'Sim'; else: echo 'Não'; endif; ?></td>
-						<td><?php if($banner['status']) : echo 'Ativo'; else: echo 'Inativo'; endif; ?></td>
-						<td><a href="#" data-toggle="modal" data-target="#updatebanner" data-banner-id="<?php echo $banner['id']; ?>" class="btn btn-primary link-updatebanner">Editar</a></td>
-						<td><a href="<?php echo base_url(); ?>banners/delete/<?php echo $banner['id']; ?>" class="btn btn-danger">Excluir</a></td>
-					</tr>
-					<?php endforeach; ?>
-				</tbody>
-			</table>
+			<div class="table-responsive">
+				<table class="table">
+					<thead>
+						<th style="width: 20px">ID</th>
+						<th style="width: 100px">Título</th>
+						<th style="width: 100px">Imagem</th>
+						<th style="width: 100px">Link</th>
+						<th>Abrir em outra Aba?</th>
+						<th style="width: 20px">Status</th>
+						<th>Editar</th>
+						<th>Excluir</th>
+					</thead>
+	 				<tbody><?php foreach($banners as $banner) : ?>
+						<tr>
+							<td><?php echo $banner['id']; ?></td>
+							<td><?php echo $banner['title']; ?></td>
+							<td><img src="<?php echo base_url() . $banner['url']; ?>" alt="<?php echo $banner['title']; ?>" class="img-responsive img-product"></td>
+							<td><?php echo $banner['link']; ?></td>
+							<td><?php if($banner['blank']) : echo 'Sim'; else: echo 'Não'; endif; ?></td>
+							<td><?php if($banner['status']) : echo 'Ativo'; else: echo 'Inativo'; endif; ?></td>
+							<td><a href="#" data-toggle="modal" data-target="#updatebanner" data-banner-id="<?php echo $banner['id']; ?>" class="btn btn-primary link-updatebanner">Editar</a></td>
+							<td><a href="<?php echo base_url(); ?>banners/delete/<?php echo $banner['id']; ?>" class="btn btn-danger">Excluir</a></td>
+						</tr>
+						<?php endforeach; ?>
+					</tbody>
+				</table>
+			</div>
 		</div>
 	</div>
 </div>

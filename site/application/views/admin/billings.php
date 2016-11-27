@@ -56,23 +56,25 @@
 	</div>
 	<div class="row">
 		<div class="col-md-12">
-			<table class="table">
-				<thead>
-					<th>ID</th>
-					<th>Nome</th>
-					<th>Editar</th>
-					<!-- <th>Excluir</th> -->
-				</thead>
- 				<tbody><?php foreach($billings as $billing) : ?>
-					<tr>
-						<td><?php echo $billing['id']; ?></td>
-						<td><?php echo $billing['name']; ?></td>
-						<td><a href="#" data-toggle="modal" data-target="#updatebilling" data-billing-id="<?php echo $billing['id']; ?>" class="btn btn-primary link-updatebilling">Editar</a></td>
-						<!-- <td><a href="<?php echo base_url(); ?>billings/delete/<?php echo $billing['id']; ?>" class="btn btn-danger">Excluir</a></td> -->
-					</tr>
-					<?php endforeach; ?>
-				</tbody>
-			</table>
+			<div class="table-responsive">
+				<table class="table">
+					<thead>
+							<th>ID</th>
+							<th>Nome</th>
+							<th>Editar</th>
+							<!-- <th>Excluir</th> -->
+					</thead>
+	 				<tbody><?php foreach($billings as $billing) : ?>
+						<tr>
+							<td><?php echo $billing['id']; ?></td>
+							<td><?php echo $billing['name']; ?></td>
+							<td><a href="#" data-toggle="modal" data-target="#updatebilling" data-billing-id="<?php echo $billing['id']; ?>" class="btn btn-primary link-updatebilling">Editar</a></td>
+							<!-- <td><a href="<?php echo base_url(); ?>billings/delete/<?php echo $billing['id']; ?>" class="btn btn-danger">Excluir</a></td> -->
+						</tr>
+						<?php endforeach; ?>
+					</tbody>
+				</table>
+			</div>
 		</div>
 	</div>
 </div>

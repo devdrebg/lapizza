@@ -76,7 +76,7 @@
 	</div>
 	<div class="row">
 		<div class="col-md-12">
-			<!-- <div class="table-responsive"> -->
+			<div class="table-responsive">
 				<table class="table">
 					<thead>
 						<th style="width: 20px">Pedido Nº</th>
@@ -121,7 +121,7 @@
 						<?php endforeach; ?>
 					</tbody>
 				</table>
-			<!-- </div> -->
+			</div>
 		</div>
 	</div>
 </div>
