@@ -151,6 +151,7 @@ class Products extends CI_Controller {
 		$data['categories'] = $this->categories_model->getAll();
 
 		$product = $this->products_model->get($id);
+		$data['productsrelated'] = $this->products_model->getAllRelated($product->id, $product->id_categorie);
 		$data['product'] = array(
 			'id' => $product->id,
 			'id_categorie' => $product->id_categorie,

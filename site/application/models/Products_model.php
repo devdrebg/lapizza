@@ -78,6 +78,16 @@ class Products_model extends CI_Model {
         }
     }
 
+    function getAllRelated($id, $id_categorie) {       
+        $this->db->select('*');
+        $this->db->where('id !=', $id);
+        $this->db->where('id_categorie', $id_categorie);
+        $this->db->order_by('rand()');
+        $query = $this->db->get('products');
+
+        return $query->result_array();
+    }
+
     function getAllWhereIdCategorie($id) {       
         $this->db->select('*');
         $this->db->where('id_categorie', $id);

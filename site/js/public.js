@@ -175,6 +175,17 @@ jQuery(document).ready(function(){
         });
     });
 
+    if(jQuery('.products-related').length) {
+        jQuery('.products-related').owlCarousel({
+            items: 4,
+            itemsTablet: 2,
+            itemsMobile: 1,
+            navigation: true,
+            pagination: false,
+            navigationText: ["<<",">>"]
+        });
+    }
+
     jQuery('#editaccoutprofilepicture').change(function(event) {
         var tmppath = URL.createObjectURL(event.target.files[0]);
         jQuery("#editaccoutprofilepicturepreview").attr('src',URL.createObjectURL(event.target.files[0]));

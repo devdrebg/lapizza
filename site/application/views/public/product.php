@@ -52,4 +52,33 @@
 					</div>
 				</div> -->
 	</div>
+	<br>
+	<div class="row">
+		<div class="col-md-12">
+			<h2>Produtos Relacionados</h2>
+		</div>
+	</div>
+	<br>
+	<div class="row">
+		<div class="col-md-12">
+		<?php if($productsrelated) : ?>
+			<div class="products-related">
+				<?php foreach($productsrelated as $productrelated) : ?>
+					<div class="product text-center">
+						<a href="<?php echo base_url() . 'products/view/' . $productrelated['id']; ?>" title="<?php echo $productrelated['name']; ?>" class="img-product" style="background-image: url(<?php echo base_url() . $productrelated['image']; ?>);"></a>
+						<h2><a href="<?php echo base_url() . 'products/view/' . $productrelated['id']; ?>" title="<?php echo $product['name']; ?>"><?php echo $productrelated['name']; ?></a></h2>
+						<div class="price">
+							R$ <span><?php echo number_format($productrelated['price'], 2, ',', '.'); ?></span>
+						</div>
+						<div class="text-center">
+							<p>
+								<a href="<?php echo base_url() . 'products/view/' . $productrelated['id']; ?>" class="btn btn-default tcc-button-submit-inline">Detalhes</a>
+							</p>
+						</div>
+					</div>
+				<?php endforeach; ?>
+			</div>
+		<?php endif; ?>
+		</div>
+	</div>
 </div>

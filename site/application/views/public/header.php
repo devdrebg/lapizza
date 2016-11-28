@@ -9,6 +9,8 @@
 		<title><?php echo $title; ?> | LaPizza</title>
 		<link rel="stylesheet" href="<?php echo base_url() . 'css/bootstrap.min.css'; ?>">
 		<link rel="stylesheet" href="<?php echo base_url() . 'fonts/font-awesome/css/font-awesome.min.css'; ?>">
+		<link rel="stylesheet" href="<?php echo base_url() . 'css/owl.carousel.css'; ?>">
+		<link rel="stylesheet" href="<?php echo base_url() . 'css/owl.theme.css'; ?>">
 		<link rel="stylesheet" href="<?php echo base_url() . 'css/public.css'; ?>">
 		<link rel="shortcut icon" href="<?php echo base_url() . 'favicon.ico'; ?>" type="image/x-icon" >
 	</head>
