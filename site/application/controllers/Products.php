@@ -1,29 +1,32 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class Products extends CI_Controller {
+class Products extends CI_Controller
+{
 
-	function __construct(){
+	function __construct()
+	{
 		parent::__construct();
 	}
 
-	function insert() {
+	function insert()
+	{
 		$this->userLogged();
 		$this->load->model('products_model');
 
 		$dir = 'img/products/' . date('d_m_y_H_i_s') . '/';
-			mkdir($dir, 0777);
-		$config['upload_path']		= $dir;
-        $config['allowed_types']        = 'gif|jpg|jpeg|png';
+		mkdir($dir, 0777);
+		$config['upload_path'] = $dir;
+		$config['allowed_types'] = 'gif|jpg|jpeg|png';
 
-        $this->load->library('upload', $config);
+		$this->load->library('upload', $config);
 
-        if (!$this->upload->do_upload('image')) {
-        	$this->session->set_flashdata('messages', 'Erro no upload da imagem do produto ' . $this->input->post('productsinsert[name]'));
-		    $this->session->set_flashdata('typemessage', 'error');
+		if (!$this->upload->do_upload('image')) {
+			$this->session->set_flashdata('messages', 'Erro no upload da imagem do produto ' . $this->input->post('productsinsert[name]'));
+			$this->session->set_flashdata('typemessage', 'error');
 
 			redirect('admin/products', 'refresh');
-        } else {
+		} else {
 			$price = str_replace(',', '.', str_replace('.', '', $this->input->post('productsinsert[price]')));
 
 			$data = array(
@@ -36,26 +39,27 @@ class Products extends CI_Controller {
 				'status' => 1
 			);
 
-			if($this->products_model->insert($data)) {
+			if ($this->products_model->insert($data)) {
 				$this->session->set_flashdata('messages', 'Produto ' . $this->input->post('productsinsert[name]') . ' cadastrado com sucesso.');
-			    $this->session->set_flashdata('typemessage', 'ok');
+				$this->session->set_flashdata('typemessage', 'ok');
 
 				redirect('admin/products', 'refresh');
 			} else {
 				$this->session->set_flashdata('messages', 'Erro ao cadastrar o produto ' . $this->input->post('productsinsert[name]'));
-			    $this->session->set_flashdata('typemessage', 'error');
+				$this->session->set_flashdata('typemessage', 'error');
 
 				redirect('admin/products', 'refresh');
 			}
-        }
+		}
 	}
 
-	function select($id) {
+	function select($id)
+	{
 		$this->load->model('products_model');
 
 		$product = $this->products_model->get($id);
 
-		if($product) {
+		if ($product) {
 			$categorie = $this->products_model->getCategory($product->id_categorie);
 
 			$data = array(
@@ -73,26 +77,27 @@ class Products extends CI_Controller {
 		}
 	}
 
-	function update() {
+	function update()
+	{
 		$this->userLogged();
 		$this->load->model('products_model');
 
-		if($_FILES['productsupdateimage']['size'] > 0 && $_FILES['productsupdateimage']['tmp_name'] != '') {
+		if ($_FILES['productsupdateimage']['size'] > 0 && $_FILES['productsupdateimage']['tmp_name'] != '') {
 			$dir = 'img/products/' . date('d_m_y_H_i_s') . '/';
 			mkdir($dir, 0777);
-			$config['upload_path']		= $dir;
-        	$config['allowed_types']    = 'gif|jpg|jpeg|png';
+			$config['upload_path'] = $dir;
+			$config['allowed_types'] = 'gif|jpg|jpeg|png';
 
-	        $this->load->library('upload', $config);
+			$this->load->library('upload', $config);
 
-	        if (!$this->upload->do_upload('productsupdateimage')) {
-	        	$this->session->set_flashdata('messages', 'Erro no upload da imagem do produto ' . $this->input->post('productsinsert[name]'));
-			    $this->session->set_flashdata('typemessage', 'error');
+			if (!$this->upload->do_upload('productsupdateimage')) {
+				$this->session->set_flashdata('messages', 'Erro no upload da imagem do produto ' . $this->input->post('productsinsert[name]'));
+				$this->session->set_flashdata('typemessage', 'error');
 
 				redirect('admin/products', 'refresh');
-	        } else {
-	        	$imagem = $config['upload_path'] . $_FILES['productsupdateimage']['name'];
-	        }
+			} else {
+				$imagem = $config['upload_path'] . $_FILES['productsupdateimage']['name'];
+			}
 		} else {
 			$imagem = $this->input->post('productsupdate[imagesrc]');
 		}
@@ -111,38 +116,40 @@ class Products extends CI_Controller {
 		);
 
 
-		if($this->products_model->update($data)) {
+		if ($this->products_model->update($data)) {
 			$this->session->set_flashdata('messages', 'Produto alterado com sucesso.');
-		    $this->session->set_flashdata('typemessage', 'ok');
+			$this->session->set_flashdata('typemessage', 'ok');
 
 			redirect('admin/products', 'refresh');
 		} else {
 			$this->session->set_flashdata('messages', 'Erro ao alterar o produto ' . $this->input->post('categoriesupdate[name]'));
-		    $this->session->set_flashdata('typemessage', 'error');
+			$this->session->set_flashdata('typemessage', 'error');
 
 			redirect('admin/products', 'refresh');
 		}
 
 	}
 
-	function delete($id) {
+	function delete($id)
+	{
 		$this->userLogged();
 		$this->load->model('products_model');
 
-		if($this->products_model->delete($id)) {
+		if ($this->products_model->delete($id)) {
 			$this->session->set_flashdata('messages', 'Categoria excluída com sucesso.');
-		    $this->session->set_flashdata('typemessage', 'ok');
+			$this->session->set_flashdata('typemessage', 'ok');
 
 			redirect('admin/products', 'refresh');
 		} else {
 			$this->session->set_flashdata('messages', 'Erro ao excluir a categoria');
-		    $this->session->set_flashdata('typemessage', 'error');
+			$this->session->set_flashdata('typemessage', 'error');
 
 			redirect('admin/products', 'refresh');
 		}
 	}
 
-	function view($id) {
+	function view($id)
+	{
 		$this->load->model('categories_model');
 		$this->load->model('products_model');
 
@@ -169,8 +176,9 @@ class Products extends CI_Controller {
 		$this->load->view('public/footer');
 	}
 
-	private function userLogged() {
-		if(!$this->session->userdata('validated')){
+	private function userLogged()
+	{
+		if (!$this->session->userdata('validated')) {
 			redirect('login');
 		}
 	}
