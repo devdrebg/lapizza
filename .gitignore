@@ -7,3 +7,6 @@ site/application/config/database.php
 
 /site/application/sessions
 site/application/sessions
+
+/site/env.php
+site/env.php
