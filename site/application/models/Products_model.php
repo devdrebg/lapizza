@@ -98,31 +98,11 @@ class Products_model extends CI_Model {
 
     function getAll() {
         $listaProdutos = array();
-        $this->db->select('*');
+        $this->db->select('products.*, categories.name as categorie');
+        $this->db->join('categories', 'products.id_categorie = categories.id');
         $query = $this->db->get('products');
 
-        foreach ($query->result_array() as $row) {
-
-            $listaProdutos[$row['id']]['id'] = $row['id'];
-            $listaProdutos[$row['id']]['id_categorie'] = $row['id_categorie'];
-
-            
-            $this->db->select('name');
-            $this->db->from('categories');
-            $this->db->where('id', $row['id_categorie']);
-            $categorie = $this->db->get();
-            $listaProdutos[$row['id']]['categorie'] = $categorie->result_array()[0]['name'];
-            
-
-            $listaProdutos[$row['id']]['name'] = $row['name'];
-            $listaProdutos[$row['id']]['description'] = $row['description'];
-            $listaProdutos[$row['id']]['price'] = $row['price'];
-            $listaProdutos[$row['id']]['image'] = $row['image'];
-            $listaProdutos[$row['id']]['quantity'] = $row['quantity'];
-            $listaProdutos[$row['id']]['status'] = $row['status'];
-        }     
-
-        return $listaProdutos;
+        return $query->result_array();
     }
 
     function getAllActive() {
