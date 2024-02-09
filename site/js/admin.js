@@ -219,6 +219,11 @@ jQuery(document).ready(function(){
         });
     });
 
-    jQuery('.money').maskMoney({prefix:'R$ ', allowNegative: true, thousands:'.', decimal:',', affixesStay: false});
-    jQuery('.postalcode').mask('99999999');
+    if(jQuery('.money').length) {
+        jQuery('.money').maskMoney({prefix:'R$ ', allowNegative: true, thousands:'.', decimal:',', affixesStay: false});
+    }
+
+    if(jQuery('.postalcode').length) {
+        jQuery('.postalcode').mask('00000000');
+    }
 });

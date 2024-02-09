@@ -189,7 +189,10 @@ jQuery(document).ready(function(){
         jQuery("#editaccoutprofilepicturepreview").attr('src',URL.createObjectURL(event.target.files[0]));
     });
 
-	jQuery('.postalcode').mask('99999999');
+    
+    if(jQuery('.postalcode').length) {
+        jQuery('.postalcode').mask('99999999');
+    }
 
 	setTimeout(function () {
         $("#messages").modal("hide");
