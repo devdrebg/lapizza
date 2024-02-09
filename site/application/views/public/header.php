@@ -13,6 +13,9 @@
 		<link rel="stylesheet" href="<?php echo base_url() . 'css/owl.theme.css'; ?>">
 		<link rel="stylesheet" href="<?php echo base_url() . 'css/public.css'; ?>">
 		<link rel="shortcut icon" href="<?php echo base_url() . 'favicon.ico'; ?>" type="image/x-icon" >
+		<script>
+			const BASEURL = '<?php echo base_url(); ?>';
+		</script>
 	</head>
 	<body>
 		<div id="preloader">

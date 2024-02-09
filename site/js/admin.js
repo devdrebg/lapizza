@@ -1,5 +1,3 @@
-const BASEURL = 'http://localhost/lapizza/site/';
-
 jQuery(document).ready(function(){
 	jQuery('#messages').modal('show');
 
