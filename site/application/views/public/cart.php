@@ -51,6 +51,7 @@
 						</tbody>
 					</table>
 				</div>
+				<p class="text-right">Subtotal: <strong>R$ <span><?php echo number_format($subtotal, 2, ',', '.'); ?></strong></p>
 			</div>
 		</div>
 		<div class="row">

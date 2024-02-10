@@ -9,6 +9,15 @@ class Cart extends CI_Controller {
 		$this->load->model('categories_model');
 		$data['categories'] = $this->categories_model->getAll();
 
+		
+		$data['cart_products'] = $this->session->userdata('cart_session');
+
+		$data['subtotal'] = 0;
+
+		foreach ($data['cart_products'] as $cart_product) {
+			$data['subtotal'] += $cart_product['quantity'] * $cart_product['price'];
+		}
+
 		$data['title'] = 'Carrinho';
 
 		$this->load->view('public/header', $data);

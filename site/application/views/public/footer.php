@@ -45,8 +45,18 @@
 			</div>
 		</footer>
 
-		<?php if($this->session->userdata('cart_session')) : ?>
-			<a href="<?php echo base_url() . 'cart'; ?>" title="Meu Carrinho" class="go-to-cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
+		<?php $cart_products = $this->session->userdata('cart_session');
+			$totalitems = 0;
+			foreach ($cart_products as $cart_product) {
+				$totalitems += $cart_product['quantity'];
+			}
+
+			if ($totalitems > 0) :
+		?>
+			<a href="<?php echo base_url() . 'cart'; ?>" title="Meu Carrinho" class="go-to-cart">
+				<span class="go-to-cart-badge"><?php echo $totalitems; ?></span>
+				<i class="fa fa-shopping-cart" aria-hidden="true"></i>
+			</a>
 		<?php endif; ?>
 
 		<div id="terms-and-conditions" class="modal fade" role="dialog">
